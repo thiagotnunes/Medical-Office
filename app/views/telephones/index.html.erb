@@ -1,0 +1,24 @@
+<h1>Listing telephones</h1>
+
+<table>
+  <tr>
+    <th>Telephone label</th>
+    <th>Number</th>
+    <th>Patient</th>
+  </tr>
+
+<% for telephone in @telephones %>
+  <tr>
+    <td><%=h telephone.telephone_label.label %></td>
+    <td><%=h telephone.number %></td>
+    <td><%=h telephone.patient.name %></td>
+    <td><%= link_to 'Show', telephone %></td>
+    <td><%= link_to 'Edit', edit_telephone_path(telephone) %></td>
+    <td><%= link_to 'Destroy', telephone, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New telephone', new_telephone_path %>
