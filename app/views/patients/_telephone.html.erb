@@ -1,1 +1,11 @@
-lala
+<div class="telephone_partial">
+  <% fields_for "patient[telephones_attributes][]", telephone do |telephone_form| %>
+	  <p>
+		  Telephone 
+		  <%= collection_select :telephone, :telephone_label_id, TelephoneLabel.all, :id, :label, { :include_blank => true }, { :name => "patient[telephones_attributes][][telephone_label_id]" } %>
+		  :
+		  <%= telephone_form.text_field :number %>
+		  <%= link_to_function "Remove", "this.up('.telephone_partial').remove()" %>
+	  </p>
+  <% end %>
+</div>
