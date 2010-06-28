@@ -21,7 +21,7 @@
   </p>
 	<p>
     <%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date %>
+    <%= f.date_select :birth_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year] %>
   </p>
 	<p>
     <%= f.label :address %><br />
