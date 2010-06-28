@@ -1,16 +1,8 @@
 <h1>Editing health_insurance</h1>
 
-<% form_for(@health_insurance) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => "form", :locals => {
+		:action => "Update"
+} %>
 
 <%= link_to 'Show', @health_insurance %> |
 <%= link_to 'Back', health_insurances_path %>

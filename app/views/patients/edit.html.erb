@@ -1,45 +1,8 @@
 <h1>Editing patient</h1>
 
-<% form_for(@patient) do |f| %>
-  <%= f.error_messages %>
-
-	<p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-	<p>
-    <%= f.label :cpf %><br />
-    <%= f.text_field :cpf %>
-  </p>
-	<p>
-    <%= f.label :rg %><br />
-    <%= f.text_field :rg %>
-  </p>
-	<p>
-		<%= f.label :sex %><br />
-    <%= f.select :sex, ["Male", "Female"] %>
-  </p>
-	<p>
-    <%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year] %>
-  </p>
-	<p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-	<p>
-    <%= f.label :address_number %><br />
-    <%= f.text_field :address_number %>
-  </p>
-	<p>
-    <%= f.label :health_insurance_id %><br />
-    <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => "form", :locals => {
+		:action => "Update"
+} %>
 
 <%= link_to 'Show', @patient %> |
 <%= link_to 'Back', patients_path %>

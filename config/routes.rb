@@ -1,11 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :telephones
+  map.resources :health_insurances
+
+	map.resources :telephones
 
   map.resources :telephone_labels
 
   map.resources :patients
-
-  map.resources :health_insurances
 
   # The priority is based upon order of creation: first created -> highest priority.
 

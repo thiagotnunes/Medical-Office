@@ -1,16 +1,8 @@
 <h1>Editing telephone_label</h1>
 
-<% form_for(@telephone_label) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :label %><br />
-    <%= f.text_field :label %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => "form", :locals => {
+		:action => "Update"
+} %>
 
 <%= link_to 'Show', @telephone_label %> |
 <%= link_to 'Back', telephone_labels_path %>
