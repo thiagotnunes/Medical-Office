@@ -3,7 +3,7 @@
 	  <p>
 		  Evolution:
 			<%= evolution_form.date_select :attendance_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year], :index => '' %>
-		  <%= evolution_form.text_field :description, :index => nil %>
+		  <%= evolution_form.text_area :description, :index => nil %>
 		  <% if evolution.new_record? %>
 		  	<%= link_to_function "Remove", "this.up('.evolution_partial').remove()" %>
 		  <% else %>
