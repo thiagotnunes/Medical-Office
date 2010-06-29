@@ -1,0 +1,16 @@
+<div class="evolution_partial">
+  <% fields_for "patient[evolutions_attributes][]", evolution do |evolution_form| %>
+	  <p>
+		  Evolution:
+			<%= evolution_form.date_select :attendance_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year], :index => '' %>
+		  <%= evolution_form.text_field :description, :index => nil %>
+		  <% if evolution.new_record? %>
+		  	<%= link_to_function "Remove", "this.up('.evolution_partial').remove()" %>
+		  <% else %>
+		  	<%= link_to_function "Remove", "mark_for_destruction(this, '.should_destroy_evolution', '.evolution_partial')" %>
+		  	<%= evolution_form.hidden_field :id, :index => nil %>
+		  	<%= evolution_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_evolution" %>
+		  <% end %>
+	  </p>
+  <% end %>
+</div>

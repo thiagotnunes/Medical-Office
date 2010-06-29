@@ -31,7 +31,7 @@
   </p>
 	<p>
     <%= f.label :health_insurance_id %><br />
-    <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name %>
+    <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
   </p>
 
 	<div id="telephones">
@@ -39,6 +39,13 @@
 	</div>
 	<%= link_to_function "Add a telephone" do |page|
 		page.insert_html :bottom, :telephones, :partial => "telephone", :object => Telephone.new
+	end %>
+	<br />
+	<div id="evolutions">
+		<%= render :partial => "evolution", :collection => @patient.evolutions %>
+	</div>
+	<%= link_to_function "Add an evolution" do |page|
+		page.insert_html :bottom, :evolutions, :partial => "evolution", :object => Evolution.new
 	end %>
   <p>
     <%= f.submit action %>

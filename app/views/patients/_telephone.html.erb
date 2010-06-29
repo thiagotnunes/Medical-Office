@@ -8,7 +8,7 @@
 		  <% if telephone.new_record? %>
 		  	<%= link_to_function "Remove", "this.up('.telephone_partial').remove()" %>
 		  <% else %>
-		  	<%= link_to_function "Remove", "mark_for_destruction(this)" %>
+		  	<%= link_to_function "Remove", "mark_for_destruction(this, '.should_destroy_telephone', '.telephone_partial')" %>
 		  	<%= telephone_form.hidden_field :id, :index => nil %>
 		  	<%= telephone_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_telephone" %>
 		  <% end %>

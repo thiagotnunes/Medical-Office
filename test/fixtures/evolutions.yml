@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  attendance_date: 2010-06-29
+  description: MyText
+  patient: 
+
+two:
+  attendance_date: 2010-06-29
+  description: MyText
+  patient: 
