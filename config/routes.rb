@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :evolution_pictures
+
   map.resources :health_insurances
 
   map.resources :telephone_labels

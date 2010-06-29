@@ -1,0 +1,2 @@
+module EvolutionPicturesHelper
+end

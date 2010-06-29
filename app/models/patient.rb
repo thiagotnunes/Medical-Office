@@ -1,8 +1,8 @@
 class Patient < ActiveRecord::Base
 
 	belongs_to :health_insurance
-	has_many :telephones, :dependent => :destroy
-	has_many :evolutions, :dependent => :destroy
+	has_many :telephones, :dependent => :destroy, :include => :telephone_labels
+	has_many :evolutions, :dependent => :destroy, :include => :evolution_pictures
 
 	validates_associated :telephones, :evolutions
 

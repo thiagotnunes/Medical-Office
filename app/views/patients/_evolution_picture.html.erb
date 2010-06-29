@@ -1,0 +1,13 @@
+<div class="evolution_picture_partial">
+	<% fields_for "patient[evolutions_attributes][][evolution_pictures_attributes][]", evolution_picture do |evolution_picture_form| %>
+		Picture: 
+		<%= evolution_picture_form.text_field :path, :index => nil %>
+		<% if evolution_picture.new_record? %>
+		  	<%= link_to_function "Remove", "this.up('.evolution_picture_partial').remove()" %>
+		  <% else %>
+		  	<%= link_to_function "Remove", "mark_for_destruction(this, '.should_destroy_evolution_picture', '.evolution_picture_partial')" %>
+		  	<%= evolution_picture_form.hidden_field :id, :index => nil %>
+		  	<%= evolution_picture_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_evolution_picture" %>
+		  <% end %>
+	<% end %>
+</div>

@@ -11,6 +11,13 @@
 		  	<%= evolution_form.hidden_field :id, :index => nil %>
 		  	<%= evolution_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_evolution" %>
 		  <% end %>
+			<br />
+			<div id="evolution_pictures">
+				<%= render :partial => "evolution_picture", :collection => evolution.evolution_pictures %>
+			</div>
+			<%= link_to_function "Add an evolution picture" do |page|
+				page.insert_html :bottom, :evolution_pictures, :partial => "evolution_picture", :object => EvolutionPicture.new
+			end %>
 	  </p>
   <% end %>
 </div>
