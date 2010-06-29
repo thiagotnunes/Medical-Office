@@ -34,19 +34,20 @@
     <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
   </p>
 
-	<div id="telephones">
-		<%= render :partial => "telephone", :collection => @patient.telephones %>
-	</div>
-	<%= link_to_function "Add a telephone" do |page|
-		page.insert_html :bottom, :telephones, :partial => "telephone", :object => Telephone.new
-	end %>
-	<br />
-	<div id="evolutions">
-		<%= render :partial => "evolution", :collection => @patient.evolutions %>
-	</div>
-	<%= link_to_function "Add an evolution" do |page|
-		page.insert_html :bottom, :evolutions, :partial => "evolution", :object => Evolution.new
-	end %>
+	<% f.fields_for :telephones do |builder| %>
+		<%= render 'telephone', :f => builder %>
+	<% end %>
+	<p>
+		<%= link_to_add_fields "Add telephone", f, :telephones %>
+	</p>
+
+	<% f.fields_for :evolutions do |builder| %>
+		<%= render 'evolution', :f => builder %>
+	<% end %>
+	<p>
+		<%= link_to_add_fields "Add evolution", f, :evolutions %>
+	</p>
+
   <p>
     <%= f.submit action %>
   </p>

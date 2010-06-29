@@ -1,17 +1,7 @@
-<div class="telephone_partial">
-  <% fields_for "patient[telephones_attributes][]", telephone do |telephone_form| %>
-	  <p>
-		  Telephone 
-			<%= select_tag "patient[telephones_attributes][][telephone_label_id]", options_from_collection_for_select(TelephoneLabel.all, :id, :label, telephone.telephone_label_id) %>
-		  :
-		  <%= telephone_form.text_field :number, :index => nil %>
-		  <% if telephone.new_record? %>
-		  	<%= link_to_function "Remove", "this.up('.telephone_partial').remove()" %>
-		  <% else %>
-		  	<%= link_to_function "Remove", "mark_for_destruction(this, '.should_destroy_telephone', '.telephone_partial')" %>
-		  	<%= telephone_form.hidden_field :id, :index => nil %>
-		  	<%= telephone_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_telephone" %>
-		  <% end %>
-	  </p>
-  <% end %>
-</div>
+<p class="fields">
+	<%= f.label :number, "Telephone" %> 
+	<%= f.collection_select :telephone_label_id, TelephoneLabel.all, :id, :label %>: <br />
+	<%= f.text_field :number %>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to_remove_fields "Remove telephone", f %>
+</p>

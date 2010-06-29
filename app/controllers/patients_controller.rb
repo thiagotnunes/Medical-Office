@@ -26,6 +26,12 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new
 
+		3.times {
+			@patient.telephones.build
+			evolution = @patient.evolutions.build
+			1.times {evolution.evolution_pictures.build}
+		}
+		
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @patient }

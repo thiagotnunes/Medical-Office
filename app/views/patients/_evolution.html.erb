@@ -1,23 +1,15 @@
-<div class="evolution_partial">
-  <% fields_for "patient[evolutions_attributes][]", evolution do |evolution_form| %>
-	  <p>
-		  Evolution:
-			<%= evolution_form.date_select :attendance_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year], :index => '' %>
-		  <%= evolution_form.text_area :description, :index => nil %>
-		  <% if evolution.new_record? %>
-		  	<%= link_to_function "Remove", "this.up('.evolution_partial').remove()" %>
-		  <% else %>
-		  	<%= link_to_function "Remove", "mark_for_destruction(this, '.should_destroy_evolution', '.evolution_partial')" %>
-		  	<%= evolution_form.hidden_field :id, :index => nil %>
-		  	<%= evolution_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_evolution" %>
-		  <% end %>
-			<br />
-			<div id="evolution_pictures">
-				<%= render :partial => "evolution_picture", :collection => evolution.evolution_pictures %>
-			</div>
-			<%= link_to_function "Add an evolution picture" do |page|
-				page.insert_html :bottom, :evolution_pictures, :partial => "evolution_picture", :object => EvolutionPicture.new
-			end %>
-	  </p>
-  <% end %>
+<div class="fields">
+	<p>
+		Evolution <br />
+		<%= f.label :attendance_date, "Date" %> <br />
+		<%= f.date_select :attendance_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year] %> <br />
+		<%= f.label :description, "Description" %> <br />
+		<%= f.text_area :description, :rows => 3 %>
+		<%= f.hidden_field :_destroy %>
+		<%= link_to_remove_fields "Remove evolution", f %>
+	</p>
+	<% f.fields_for :evolution_pictures do |builder| %>
+		<%= render 'evolution_picture', :f => builder %>
+	<% end %>
+	<p><%= link_to_add_fields "Add evolution picture", f, :evolution_pictures %></p>
 </div>
