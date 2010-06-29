@@ -4,8 +4,14 @@
 		  Telephone 
 		  <%= collection_select :telephone, :telephone_label_id, TelephoneLabel.all, :id, :label, { :include_blank => true }, { :name => "patient[telephones_attributes][][telephone_label_id]" } %>
 		  :
-		  <%= telephone_form.text_field :number %>
-		  <%= link_to_function "Remove", "this.up('.telephone_partial').remove()" %>
+		  <%= telephone_form.text_field :number, :index => nil %>
+		  <% if telephone.new_record? %>
+		  	<%= link_to_function "Remove", "this.up('.telephone_partial').remove()" %>
+		  <% else %>
+		  	<%= link_to_function "Remove", "mark_for_destruction(this)" %>
+		  	<%= telephone_form.hidden_field :id, :index => nil %>
+		  	<%= telephone_form.hidden_field :should_destroy, :index => nil, :class => "should_destroy_telephone" %>
+		  <% end %>
 	  </p>
   <% end %>
 </div>
