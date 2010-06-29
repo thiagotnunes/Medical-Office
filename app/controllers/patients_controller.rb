@@ -26,8 +26,6 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new
 
-		3.times { @patient.telephones.build }
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @patient }

@@ -2,7 +2,7 @@
   <% fields_for "patient[telephones_attributes][]", telephone do |telephone_form| %>
 	  <p>
 		  Telephone 
-		  <%= collection_select :telephone, :telephone_label_id, TelephoneLabel.all, :id, :label, { :include_blank => true }, { :name => "patient[telephones_attributes][][telephone_label_id]" } %>
+			<%= select_tag "patient[telephones_attributes][][telephone_label_id]", options_from_collection_for_select(TelephoneLabel.all, :id, :label, telephone.telephone_label_id) %>
 		  :
 		  <%= telephone_form.text_field :number, :index => nil %>
 		  <% if telephone.new_record? %>
