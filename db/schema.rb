@@ -9,13 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100629181139) do
+ActiveRecord::Schema.define(:version => 20100630205525) do
 
   create_table "evolution_pictures", :force => true do |t|
-    t.string   "path"
     t.integer  "evolution_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
   end
 
   create_table "evolutions", :force => true do |t|
