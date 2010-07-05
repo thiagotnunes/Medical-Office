@@ -87,6 +87,42 @@ describe Patient do
     @patient.should_not be_valid
   end
 
+  it "should be invalid patient with a name bigger than 100 characters" do
+    @patient.name = ''
+    101.times { @patient.name += 'a' }
+    @patient.should_not be_valid
+  end
+
+  it "should be invalid patient with a name smaller than 5 characters" do
+    @patient.name = ''
+    4.times { @patient.name += 'a' }
+    @patient.should_not be_valid
+  end
+
+  it "should be invalid patient with a sex bigger than 10 characters" do
+    @patient.sex = ''
+    11.times { @patient.sex += 'a' }
+    @patient.should_not be_valid
+  end
+
+  it "should be invalid patient with a health insurance number bigger than 51 characters" do
+    @patient.health_insurance_number = ''
+    51.times { @patient.health_insurance_number += 'a' }
+    @patient.should_not be_valid
+  end
+
+  it "should be invalid patient with a address bigger than 251 characters" do
+    @patient.address = ''
+    251.times { @patient.address += 'a' }
+    @patient.should_not be_valid
+  end
+
+  it "should be invalid patient with a address number bigger than 100 characters" do
+    @patient.address_number = ''
+    101.times { @patient.address_number += 'a' }
+    @patient.should_not be_valid
+  end
+
   it "should be valid patient with valid attributes" do
     @patient.should be_valid
   end

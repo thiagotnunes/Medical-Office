@@ -22,8 +22,8 @@ describe HealthInsurance do
 	end
 
   it "should be invalid health insurance with a name bigger than 50 characters" do
-    @health_insurance.name += ''
-    51.times { @health_insurance.name += "a" }
+    @health_insurance.name = ''
+    51.times { @health_insurance.name += 'a' }
     @health_insurance.should_not be_valid
   end
 

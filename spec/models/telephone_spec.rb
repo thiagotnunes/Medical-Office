@@ -16,6 +16,18 @@ describe Telephone do
     @telephone.should_not be_valid
   end
 
+  it "should be invalid telephone with a number smaller than 6 characters" do
+    @telephone.number = ''
+    5.times { @telephone.number += '1' }
+    @telephone.should_not be_valid
+  end
+
+  it "should be invalid telephone with a number bigger than 50 characters" do
+    @telephone.number = ''
+    51.times { @telephone.number += '1' }
+    @telephone.should_not be_valid
+  end
+
   it "should be valid telephone with existing number" do
     @telephone.number = "33445566"
     @telephone.should be_valid
