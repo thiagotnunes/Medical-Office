@@ -2,9 +2,19 @@ require 'spec_helper'
 
 describe Patient do
   
-  fixtures :patients
-
   before(:each) do
+    @patient = Patient.new
+    @patient.name = "Name surname"
+    @patient.cpf = "22233366638"
+    @patient.rg = "1234567890"
+    @patient.sex = "Male"
+    @patient.birth_date = Date.today
+    @patient.address = "Address"
+    @patient.address_number = "123"
+    @patient.health_insurance_number = "123"
+    @patient.health_insurance_id = 1 
+    @patient.save!
+
     @patient = Patient.new
     @patient.name = "Name surname"
     @patient.cpf = "22233344405"

@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe HealthInsurance do
-
-	fixtures :health_insurances
-
 	before :each do
+    @health_insurance = HealthInsurance.new
+    @health_insurance.name = "SUS"
+    @health_insurance.save!
+
 		@health_insurance = HealthInsurance.new
     @health_insurance.name = "IP"
 	end

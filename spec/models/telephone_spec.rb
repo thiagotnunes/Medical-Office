@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Telephone do
-	fixtures :telephones
 
   before(:each) do
     @telephone = Telephone.new
@@ -28,13 +27,8 @@ describe Telephone do
     @telephone.should_not be_valid
   end
 
-  it "should be valid telephone with existing number" do
+  it "should be valid telephone with valid number" do
     @telephone.number = "33445566"
-    @telephone.should be_valid
-  end
-
-  it "should be valid telephone with non-existing number" do
-    @telephone.number = "00998877"
     @telephone.should be_valid
   end
 
