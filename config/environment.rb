@@ -7,6 +7,7 @@ Rails::Initializer.run do |config|
 	config.gem 'rspec', :lib => 'spec'
   config.gem 'rspec-rails', :lib => 'spec/rails'
 	config.gem 'shoulda'
+  config.gem 'factory_girl'
 
   config.time_zone = 'UTC'
 
