@@ -33,6 +33,10 @@
     <%= f.label :health_insurance_id %><br />
     <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
   </p>
+  <p>
+    <%= f.label :health_insurance_number %><br />
+    <%= f.text_field :health_insurance_number %>
+  </p>
 
 	<% f.fields_for :telephones do |builder| %>
 		<%= render 'telephone', :f => builder %>

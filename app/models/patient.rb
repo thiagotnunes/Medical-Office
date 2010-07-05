@@ -5,7 +5,7 @@ class Patient < ActiveRecord::Base
 	has_many :evolutions, :dependent => :destroy
 
 	accepts_nested_attributes_for :telephones, :allow_destroy => true
-	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].empty? || e['attendance_date'].empty? }
+	accepts_nested_attributes_for :evolutions, :allow_destroy => true
 
 	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :health_insurance_id, :address, :address_number
   validates_length_of :name, :within => 5..100

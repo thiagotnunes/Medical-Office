@@ -5,9 +5,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :telephone_labels
 
-  map.resources :patients, :has_many => :telephones, :has_many => :evolutions
+  map.resources :patients
+  map.patient_evolutions_list 'patients/:id/evolutions', :controller => 'evolutions', :action => 'index'
+  map.patient_telephones_list 'patients/:id/telephones', :controller => 'telephones', :action => 'index'
 
-	map.root :controller => "patients"
+	map.root :controller => 'patients'
 
 	map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

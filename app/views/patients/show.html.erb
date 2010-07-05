@@ -30,6 +30,10 @@
   <b>Health Insurance:</b>
   <%=h @patient.health_insurance.name %>
 </p>
+<p>
+  <b>Health Insurance Number:</b>
+  <%=h @patient.health_insurance_number %>
+</p>
 
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
