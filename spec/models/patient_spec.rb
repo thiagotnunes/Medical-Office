@@ -1,30 +1,11 @@
 require 'spec_helper'
 
 describe Patient do
+
+  it { should validate_uniqueness_of(:cpf) }
   
   before(:each) do
-    @patient = Patient.new
-    @patient.name = "Name surname"
-    @patient.cpf = "22233366638"
-    @patient.rg = "1234567890"
-    @patient.sex = "Male"
-    @patient.birth_date = Date.today
-    @patient.address = "Address"
-    @patient.address_number = "123"
-    @patient.health_insurance_number = "123"
-    @patient.health_insurance_id = 1 
-    @patient.save!
-
-    @patient = Patient.new
-    @patient.name = "Name surname"
-    @patient.cpf = "22233344405"
-    @patient.rg = "0123456789"
-    @patient.sex = "Male"
-    @patient.birth_date = Date.today
-    @patient.address = "Address"
-    @patient.address_number = "123"
-    @patient.health_insurance_number = "123"
-    @patient.health_insurance_id = 1 
+    @patient = Factory.create(:patient, :cpf => '22233366638', :rg => '1234567890')
   end
 
   it "should be invalid patient with an empty name" do

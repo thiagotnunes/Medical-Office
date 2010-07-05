@@ -40,7 +40,7 @@ class Patient < ActiveRecord::Base
   end
 
   def rg_should_have_valid_format
-    return errors.add(:rg, "is invalid") if rg.empty? || rg.length != 10 || (/^[0-9]{10}$/ =~ rg).nil? || rg_is_repeated?
+    return errors.add(:rg, "is invalid") if rg.nil? || rg.empty? || rg.length != 10 || (/^[0-9]{10}$/ =~ rg).nil? || rg_is_repeated?
   end
 
   def rg_is_repeated?

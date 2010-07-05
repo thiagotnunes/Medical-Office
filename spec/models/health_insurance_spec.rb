@@ -2,12 +2,9 @@ require 'spec_helper'
 
 describe HealthInsurance do
 	before :each do
-    @health_insurance = HealthInsurance.new
-    @health_insurance.name = "SUS"
-    @health_insurance.save!
+    Factory.create(:health_insurance)
 
-		@health_insurance = HealthInsurance.new
-    @health_insurance.name = "IP"
+		@health_insurance = Factory.create(:health_insurance, :name => "IP")
 	end
 
 	it "should be invalid health insurance with an empty a name" do

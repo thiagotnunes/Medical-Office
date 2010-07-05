@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe Evolution do
   before(:each) do
-    @evolution = Evolution.new
-    @evolution.attendance_date = Date.today
-    @evolution.description = "Description"
+    @evolution = Factory.build(:evolution)
   end
 
   it "should be invalid evolution with empty attendance date" do
