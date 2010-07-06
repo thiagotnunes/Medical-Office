@@ -2,120 +2,36 @@ require 'spec_helper'
 
 describe Patient do
 
+  subject { Factory.create(:patient) }
+
+  it { should validate_presence_of(:name) }
+  it { should validate_numericality_of(:cpf) }
+  it { should validate_numericality_of(:rg) }
+  it { should_not allow_value('1' * 10).for(:cpf) }
+  it { should_not allow_value('1' * 12).for(:cpf) }
+  it { should_not allow_value('1' * 9).for(:rg) }
+  it { should_not allow_value('1' * 11).for(:rg) }
+  it { should_not allow_value('2' * 11).for(:cpf) }
+  it { should_not allow_value('3' * 10).for(:rg) }
   it { should validate_uniqueness_of(:cpf) }
+  it { should validate_uniqueness_of(:rg) }
+  it { should validate_presence_of(:sex) }
+  it { should validate_presence_of(:birth_date) }
+  it { should_not allow_value('a' * 4).for(:name) }
+  it { should_not allow_value('a' * 101).for(:name) }
+  it { should_not allow_value('a' * 11).for(:sex) }
+  it { should_not allow_value('2' * 51).for(:health_insurance_number) }
+  it { should_not allow_value('a' * 251).for(:address) }
+  it { should_not allow_value('a' * 101).for(:address_number) }
   
-  before(:each) do
-    @patient = Factory.create(:patient, :cpf => '22233366638', :rg => '1234567890')
-  end
-
-  it "should be invalid patient with an empty name" do
-    @patient.name = nil
-    @patient.should_not be_valid
-    @patient.name = ''
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with non-numerical cpf" do
-    @patient.cpf = "123abc123ab"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with non-numerical rg" do
-    @patient.rg = "123abc123a"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with cpf length different than 11 numbers" do
-    @patient.cpf = "2223336663"
-    @patient.should_not be_valid
-    @patient.cpf = "222333666381"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with rg length different than 10 numbers" do
-    @patient.rg = "012345678"
-    @patient.should_not be_valid
-    @patient.rg = "01234567890"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with invalid rg" do
-    @patient.rg = "2222222222"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with invalid cpf" do
-    @patient.cpf = "22222222222"
-    @patient.should_not be_valid
-    @patient.cpf = "01234567891"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with existing cpf" do
-    @patient.cpf = "22233366638"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with existing rg" do
-    @patient.rg = "1111111111"
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with an empty sex" do
-    @patient.sex = nil
-    @patient.should_not be_valid
-    @patient.sex = ''
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with an empty birth date" do
-    @patient.birth_date = nil
-    @patient.should_not be_valid
-  end
-
   it "should be invalid patient with a birth date on the future" do
-    @patient.birth_date = Date.today + 1
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with a name bigger than 100 characters" do
-    @patient.name = ''
-    101.times { @patient.name += 'a' }
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with a name smaller than 5 characters" do
-    @patient.name = ''
-    4.times { @patient.name += 'a' }
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with a sex bigger than 10 characters" do
-    @patient.sex = ''
-    11.times { @patient.sex += 'a' }
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with a health insurance number bigger than 51 characters" do
-    @patient.health_insurance_number = ''
-    51.times { @patient.health_insurance_number += 'a' }
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with a address bigger than 251 characters" do
-    @patient.address = ''
-    251.times { @patient.address += 'a' }
-    @patient.should_not be_valid
-  end
-
-  it "should be invalid patient with a address number bigger than 100 characters" do
-    @patient.address_number = ''
-    101.times { @patient.address_number += 'a' }
-    @patient.should_not be_valid
+    patient = Factory.build(:patient, :birth_date => Date.today + 1)
+    patient.should_not be_valid
   end
 
   it "should be valid patient with valid attributes" do
-    @patient.should be_valid
+    patient = Factory.build(:patient)
+    patient.should be_valid
   end
 
 end

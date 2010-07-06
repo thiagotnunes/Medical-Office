@@ -8,6 +8,9 @@ class Patient < ActiveRecord::Base
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true
 
 	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :health_insurance_id, :address, :address_number
+	validates_numericality_of :cpf, :rg
+	validates_length_of :cpf, :is => 11
+	validates_length_of :rg, :is => 10
   validates_length_of :name, :within => 5..100
   validates_length_of :sex, :maximum => 10
   validates_length_of :health_insurance_number, :maximum => 50
@@ -24,7 +27,7 @@ class Patient < ActiveRecord::Base
   end
 
   def cpf_should_have_valid_format
-    return errors.add(:cpf, "is invalid") if cpf.empty? || cpf.length != 11 || (/^[0-9]{11}$/ =~ cpf).nil? || cpf_is_repeated?
+    return errors.add(:cpf, "is invalid") if cpf_is_repeated?
 
     # ----------------------------------------------------
     # CPF first digit calculation
@@ -40,7 +43,7 @@ class Patient < ActiveRecord::Base
   end
 
   def rg_should_have_valid_format
-    return errors.add(:rg, "is invalid") if rg.nil? || rg.empty? || rg.length != 10 || (/^[0-9]{10}$/ =~ rg).nil? || rg_is_repeated?
+    return errors.add(:rg, "is invalid") if rg_is_repeated?
   end
 
   def rg_is_repeated?

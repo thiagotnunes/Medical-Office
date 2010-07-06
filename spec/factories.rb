@@ -18,3 +18,13 @@ Factory.define :patient do |p|
   p.health_insurance_number "123"
   p.health_insurance { |h| h.association(:health_insurance) } 
 end
+
+Factory.define :telephone_label do |tl|
+  tl.label "Residencial"
+end
+
+Factory.define :telephone do |t|
+  t.number "+1 55 51 33445566"
+  t.telephone_label { |tl| tl.association(:telephone_label) }
+  t.patient { |p| p.association(:patient) }
+end
