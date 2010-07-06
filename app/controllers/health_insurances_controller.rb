@@ -20,7 +20,7 @@ class HealthInsurancesController < ApplicationController
     @health_insurance = HealthInsurance.new(params[:health_insurance])
 
     if @health_insurance.save
-      flash[:notice] = 'HealthInsurance was successfully created.'
+      flash[:notice] = 'Health Insurance was successfully created.'
       redirect_to(@health_insurance)
     else
       render :action => "new"
@@ -31,7 +31,7 @@ class HealthInsurancesController < ApplicationController
     @health_insurance = HealthInsurance.find(params[:id])
 
     if @health_insurance.update_attributes(params[:health_insurance])
-      flash[:notice] = 'HealthInsurance was successfully updated.'
+      flash[:notice] = 'Health Insurance was successfully updated.'
       redirect_to(@health_insurance)
     else
       render :action => "edit"
