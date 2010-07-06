@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Evolution do
   
+  it { should have_many(:evolution_pictures) }
+  
   it { should validate_presence_of(:attendance_date) }
   it { should validate_presence_of(:description) }
   
