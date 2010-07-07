@@ -4,7 +4,10 @@ Feature: Manage Health Insurances
   I want to create and manage health insurances
 
   Scenario: Health Insurances List
-    Given I have health insurances named SUS, Unimed
+    Given I have the following health insurance records
+    | name |
+    | SUS |
+    | Unimed |
     When I am on the health insurances list
     Then I should see "SUS"
     And I should see "Unimed"
@@ -28,7 +31,9 @@ Feature: Manage Health Insurances
     Then I should see "error"
 
   Scenario: Edit a Health Insurance
-    Given I have health insurances named SUS
+    Given I have the following health insurance records 
+    | name |
+    | SUS |
     And I am on the health insurances list
     And I follow "Edit"
     When I fill in "Name" with "Unimed"
@@ -38,7 +43,9 @@ Feature: Manage Health Insurances
     And I should have 1 health insurance
 
   Scenario: Destroy a Health Insurance
-    Given I have health insurances named SUS
+    Given I have the following health insurance records 
+    | name |
+    | SUS |
     And I am on the health insurances list
     When I follow "Destroy"
     Then I should have 0 health insurance

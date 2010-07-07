@@ -1,9 +1,3 @@
-Given /^I have health insurances named (.+)$/ do |names|
-  names.split(', ').each do |name|
-    Factory(:health_insurance, :name => name)
-  end
-end
-
 Given /^I have no health insurances$/ do
   HealthInsurance.delete_all
 end

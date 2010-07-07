@@ -4,7 +4,10 @@ Feature: Manage Telephone Labels
   I want to create and manage telephone labels
 
   Scenario: Telephone Labels List
-    Given I have telephone labels labeled Residencial, Comercial
+    Given I have the following telephone label records
+    | label |
+    | Residencial |
+    | Comercial |
     When I am on the telephone labels list
     Then I should see "Residencial"
     And I should see "Comercial"
@@ -28,7 +31,9 @@ Feature: Manage Telephone Labels
     Then I should see "error"
 
   Scenario: Update a Telephone Label
-    Given I have telephone labels labeled Residencial
+    Given I have the following telephone label records
+    | label |
+    | Residencial |
     And I am on the telephone labels list
     When I follow "Edit"
     And I fill in "Label" with "Comercial"
