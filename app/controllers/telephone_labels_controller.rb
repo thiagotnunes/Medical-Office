@@ -20,7 +20,7 @@ class TelephoneLabelsController < ApplicationController
     @telephone_label = TelephoneLabel.new(params[:telephone_label])
 
     if @telephone_label.save
-      flash[:notice] = 'TelephoneLabel was successfully created.'
+      flash[:notice] = 'Telephone Label was successfully created.'
       redirect_to(@telephone_label)
     else
       render :action => "new"
@@ -31,7 +31,7 @@ class TelephoneLabelsController < ApplicationController
     @telephone_label = TelephoneLabel.find(params[:id])
 
     if @telephone_label.update_attributes(params[:telephone_label])
-      flash[:notice] = 'TelephoneLabel was successfully updated.'
+      flash[:notice] = 'Telephone Label was successfully updated.'
       redirect_to(@telephone_label)
     else
       render :action => "edit"
@@ -42,6 +42,6 @@ class TelephoneLabelsController < ApplicationController
     @telephone_label = TelephoneLabel.find(params[:id])
     @telephone_label.destroy
 
-    format.html { redirect_to(telephone_labels_url) }
+    redirect_to(telephone_labels_url)
   end
 end

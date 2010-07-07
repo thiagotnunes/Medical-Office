@@ -19,6 +19,14 @@ Feature: Manage Health Insurances
     And I should see "Unimed"
     And I should have 1 health insurances
 
+  Scenario: Try to Create an Invalid Health Insurance
+    Given I have no health insurances
+    And I am on the health insurances list
+    And I follow "New Health Insurance"
+    When I fill in "Name" with " "
+    And I press "Create"
+    Then I should see "error"
+
   Scenario: Edit a Health Insurance
     Given I have health insurances named SUS
     And I am on the health insurances list
