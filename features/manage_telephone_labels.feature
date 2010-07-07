@@ -17,7 +17,7 @@ Feature: Manage Telephone Labels
     And I press "Create"
     Then I should see "Telephone Label was successfully created."
     And I should see "Residencial"
-    And I should have 1 telephone labels
+    And I should have 1 telephone label
 
   Scenario: Try to Create an Invalid Telephone Label
     Given I have no telephone labels
@@ -35,11 +35,11 @@ Feature: Manage Telephone Labels
     And I press "Update"
     Then I should see "Telephone Label was successfully updated."
     And I should see "Comercial"
-    And I should have 1 telephone labels
+    And I should have 1 telephone label
 
   Scenario: Destroy a Telephone Label
     Given I have telephone labels labeled Residencial
     And I am on the telephone labels list
     When I follow "Destroy"
-    Then I should have 0 telephone labels
+    Then I should have 0 telephone label
 

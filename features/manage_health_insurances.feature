@@ -17,7 +17,7 @@ Feature: Manage Health Insurances
     And I press "Create"
     Then I should see "Health Insurance was successfully created."
     And I should see "Unimed"
-    And I should have 1 health insurances
+    And I should have 1 health insurance
 
   Scenario: Try to Create an Invalid Health Insurance
     Given I have no health insurances
@@ -35,10 +35,10 @@ Feature: Manage Health Insurances
     And I press "Update"
     Then I should see "Health Insurance was successfully updated."
     And I should see "Unimed"
-    And I should have 1 health insurances
+    And I should have 1 health insurance
 
   Scenario: Destroy a Health Insurance
     Given I have health insurances named SUS
     And I am on the health insurances list
     When I follow "Destroy"
-    Then I should have 0 health insurances
+    Then I should have 0 health insurance

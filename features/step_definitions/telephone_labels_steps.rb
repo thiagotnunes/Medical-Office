@@ -8,7 +8,7 @@ Given /^I have no telephone labels$/ do
   TelephoneLabel.delete_all
 end
 
-Then /^I should have (\d+) telephone labels$/ do |count|
+Then /^I should have (\d+) telephone labels?$/ do |count|
   TelephoneLabel.count.should == count.to_i
 end
 
