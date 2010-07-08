@@ -1,5 +1,5 @@
 Feature: Manage Telephone Labels
-  In order to assign telephones to a patient
+  In order to assign telephones labels to a patients 
   As a administrator
   I want to create and manage telephone labels
 
