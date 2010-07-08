@@ -1,5 +1,7 @@
 Given /^I have the following (.+) records?$/ do |factory, table|
-  factory[" "] = "_"
+  unless factory[" "].nil? 
+    factory[" "] = "_"
+  end
   table.hashes.each do |hash|
     Factory(factory, hash)
   end

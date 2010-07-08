@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem 'gherkin'
   config.gem 'cucumber-rails', :lib => false
   config.gem 'database_cleaner'
+  config.gem 'forgery'
 
   config.time_zone = 'UTC'
 

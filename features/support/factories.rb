@@ -1,30 +1,34 @@
+Factory.sequence :health_insurance_name do |n|
+  "#{Forgery::Name.company_name}#{n}"
+end
+
 Factory.define :evolution do |e|
   e.attendance_date Date.today
-  e.description "Description"
+  e.description Forgery::Basic.text
 end
 
 Factory.define :health_insurance do |hi|
-  hi.name "SUS"
+  hi.name Factory.next :health_insurance_name
 end
 
 Factory.define :patient do |p|
-  p.name "Name surname"
+  p.name Forgery::Name.full_name
   p.cpf "22233366638"
   p.rg "1234567890"
-  p.sex "Male"
+  p.sex Forgery::Personal.gender
   p.birth_date Date.today
-  p.address "Address"
-  p.address_number "123"
-  p.health_insurance_number "123"
+  p.address Forgery::Address.street_address
+  p.address_number Forgery::Basic.number
+  p.health_insurance_number Forgery::Basic.number
   p.health_insurance { |h| h.association(:health_insurance) } 
 end
 
 Factory.define :telephone_label do |tl|
-  tl.label "Residencial"
+  tl.label Forgery::Name.company_name
 end
 
 Factory.define :telephone do |t|
-  t.number "+1 55 51 33445566"
+  t.number Forgery::Basic.number
   t.telephone_label { |tl| tl.association(:telephone_label) }
   t.patient { |p| p.association(:patient) }
 end

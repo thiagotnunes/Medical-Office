@@ -14,6 +14,8 @@ module NavigationHelpers
       health_insurances_path
     when /the telephone labels list/
       telephone_labels_path
+    when /the patients list/
+      patients_path
     
 
     # Add more mappings here.
