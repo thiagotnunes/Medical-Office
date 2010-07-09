@@ -14,7 +14,7 @@ Feature: Manage Telephone Labels
 
   Scenario: Create a Valid Telephone Label
     Given I am on the telephone_labels list
-    And I have no telephone_labels
+    And 0 telephone_labels exist
     When I follow "New Telephone Label"
     And I fill in "Label" with "Residencial"
     And I press "Create"
@@ -23,7 +23,7 @@ Feature: Manage Telephone Labels
     And a telephone_label should exist
 
   Scenario: Try to Create an Invalid Telephone Label
-    Given I have no telephone_labels
+    Given 0 telephone_labels exist
     And I am on the telephone_labels list
     And I follow "New Telephone Label"
     When I fill in "Label" with " "

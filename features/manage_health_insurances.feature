@@ -13,7 +13,7 @@ Feature: Manage Health Insurances
     And I should see "Unimed"
 
   Scenario: Create a Valid Health Insurance
-    Given I have no health_insurances
+    Given 0 health_insurances exist
     And I am on the health_insurances list
     And I follow "New Health Insurance"
     When I fill in "Name" with "Unimed"
@@ -23,7 +23,7 @@ Feature: Manage Health Insurances
     And a health_insurance should exist
 
   Scenario: Try to Create an Invalid Health Insurance
-    Given I have no health_insurances
+    Given 0 health_insurances exist
     And I am on the health_insurances list
     And I follow "New Health Insurance"
     When I fill in "Name" with " "
