@@ -10,9 +10,13 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    when /the health insurances list/
+    when /the show page for (.+)/
+      polymorphic_path(model($1))
+    when /the path "(.+)"/
+      $1
+    when /the health_insurances list/
       health_insurances_path
-    when /the telephone labels list/
+    when /the telephone_labels list/
       telephone_labels_path
     when /the patients list/
       patients_path

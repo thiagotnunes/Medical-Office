@@ -4,7 +4,7 @@ Feature: Manage Patients
   I want to create and manage patients
 
   Scenario: Patient List
-    Given I have the following patient records
+    Given the following patients exist
       | name | cpf | rg | birth_date | sex | address | address_number | health_insurance_number |
       | Thiago da Silva | 93747868690 | 1234567890 | 1984-09-10 | Male | Address | 123 | 1234567890 |
       | Joao da Silva | 39095952274 | 2345678901 | 1985-09-11 | Male | Address | 123 | 1234567890 |

@@ -13,6 +13,7 @@ Rails::Initializer.run do |config|
   config.gem 'cucumber-rails', :lib => false
   config.gem 'database_cleaner'
   config.gem 'forgery'
+  config.gem 'pickle'
 
   config.time_zone = 'UTC'
 
