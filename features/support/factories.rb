@@ -5,6 +5,7 @@ end
 Factory.define :evolution do |e|
   e.attendance_date Date.today
   e.description Forgery::Basic.text
+  e.patient { |p| p.association(:patient) }
 end
 
 Factory.define :health_insurance do |hi|
