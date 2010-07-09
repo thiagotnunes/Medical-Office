@@ -14,7 +14,7 @@ end
 
 Factory.define :patient do |p|
   p.name Forgery::Name.full_name
-  p.cpf "22233366638"
+  p.cpf Forgery::Cpf.valid_cpf
   p.rg "1234567890"
   p.sex Forgery::Personal.gender
   p.birth_date Date.today
