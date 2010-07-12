@@ -5,9 +5,9 @@ Feature: Manage Health Insurances
 
   Scenario: Health Insurances List
     Given the following health_insurances exists
-    | name |
-    | SUS |
-    | Unimed |
+      | name   | 
+      | SUS    | 
+      | Unimed | 
     When I go to the health_insurances list
     Then I should see "SUS"
     And I should see "Unimed"
@@ -32,8 +32,8 @@ Feature: Manage Health Insurances
 
   Scenario: Edit a Health Insurance
     Given the following health_insurances exist
-    | name |
-    | SUS |
+      | name | 
+      | SUS  | 
     And I am on the health_insurances list
     And I follow "Edit"
     When I fill in "Name" with "Unimed"
@@ -44,8 +44,8 @@ Feature: Manage Health Insurances
 
   Scenario: Destroy a Health Insurance
     Given the following health insurances exist
-    | name |
-    | SUS |
+      | name |
+      | SUS  | 
     And I am on the health_insurances list
     When I follow "Destroy"
     Then 0 health_insurances should exist
