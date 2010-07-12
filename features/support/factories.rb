@@ -1,5 +1,5 @@
 Factory.sequence :telephone_label_label do |n|
-  "#{Forgery::Name.company_name}#{n}"
+  
 end
 
 Factory.define :evolution do |e|
@@ -25,7 +25,7 @@ Factory.define :patient do |p|
 end
 
 Factory.define :telephone_label do |tl|
-  tl.label Factory.next :telephone_label_label
+  tl.sequence(:label) { |n| "#{Forgery::Name.company_name}#{n} Label" }
 end
 
 Factory.define :telephone do |t|

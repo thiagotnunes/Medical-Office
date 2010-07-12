@@ -29,6 +29,7 @@ Feature: Manage Telephone Labels
     When I fill in "Label" with " "
     And I press "Create"
     Then I should see "error"
+    And 0 telephone_labels should exist
 
   Scenario: Update a Telephone Label
     Given the following telephone_labels exist

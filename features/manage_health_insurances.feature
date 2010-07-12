@@ -29,6 +29,7 @@ Feature: Manage Health Insurances
     When I fill in "Name" with " "
     And I press "Create"
     Then I should see "error"
+    And 0 health_insurances should exist
 
   Scenario: Edit a Health Insurance
     Given the following health_insurances exist
@@ -43,7 +44,7 @@ Feature: Manage Health Insurances
     And a health_insurance should exist
 
   Scenario: Destroy a Health Insurance
-    Given the following health insurances exist
+    Given the following health_insurances exist
       | name |
       | SUS  | 
     And I am on the health_insurances list
