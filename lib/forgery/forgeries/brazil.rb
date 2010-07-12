@@ -1,7 +1,7 @@
-class Forgery::Cpf < Forgery
+class Forgery::Brazil < Forgery
 
   def self.valid_cpf
-    cpf = ("%09d" % next_unique_cpf)
+    cpf = ("%09d" % next_unique_cpf_prefix)
     # ----------------------------------------------------
     # CPF first digit calculation
     first_digit = calculate_digit(sum_cpf_digits(10, 2, cpf))
@@ -13,15 +13,22 @@ class Forgery::Cpf < Forgery
     # ----------------------------------------------------
 
     cpf += first_digit.to_s + second_digit.to_s
-  end  
+  end
+
+ def self.valid_rg
+    @@rg += 1
+    @@rg = 0 if @@rg == 9999999999
+    @@rg += 1 if((@@rg % 1111111111) == 0)
+    "%10d" % @@rg
+  end
 
   private
   
   @@cpf_prefix = 0
+  @@rg = 0
 
-  def self.next_unique_cpf
-    if @@cpf_prefix == 999999999
-      @@cpf_prefix = 0
+  def self.next_unique_cpf_prefix
+    @@cpf_prefix = 0 if @@cpf_prefix == 999999999
     @@cpf_prefix += 1
   end
 
