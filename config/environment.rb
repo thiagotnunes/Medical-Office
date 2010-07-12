@@ -14,6 +14,7 @@ Rails::Initializer.run do |config|
   config.gem 'database_cleaner'
   config.gem 'forgery'
   config.gem 'pickle'
+  config.gem 'calendar_date_select'
 
   config.time_zone = 'UTC'
 
@@ -21,4 +22,8 @@ Rails::Initializer.run do |config|
     :key => '_office_session',
     :secret      => 'c336b706ba8db826c2032041c1e3bd491781f56e90cabff36bd38adf3307c6ebd9e5233d0745a901b793358840151be376978c80d97ccb7497496c0da542e11d'
   }
+
 end
+
+# Configure default date format for the date picker
+CalendarDateSelect.format = :finnish

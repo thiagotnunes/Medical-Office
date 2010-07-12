@@ -19,7 +19,7 @@
   </p>
 	<p>
     <%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date, :start_year => Time.now.year - 150, :order => [:day, :month, :year] %>
+    <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
   </p>
 	<p>
     <%= f.label :address %><br />

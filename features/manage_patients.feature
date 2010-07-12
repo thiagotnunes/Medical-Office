@@ -16,7 +16,6 @@ Feature: Manage Patients
     And I should see "39095952274"
     And I should see "2345678901"
 
-  @current
   Scenario: Create a Valid Patient
     Given 0 patients exist
     And the following health_insurances exist
@@ -29,11 +28,11 @@ Feature: Manage Patients
       | Name                    | Thiago da Silva | 
       | Cpf                     | 93747868690     | 
       | Rg                      | 1234567890      | 
+      | Birth date              | 10.09.1984      | 
       | Address                 | Address         | 
       | Address number          | 1234, ap. 123   | 
       | Health insurance number | 123456          | 
     And I select "Male" from "Sex"
-    And I select "1984-09-10" as the "Patient birth date" date
     And I select "SUS" from "Health insurance"
     And I press "Create"
     Then I should see "Patient was successfully created."
@@ -57,11 +56,11 @@ Feature: Manage Patients
       | Name                    | Thiago da Silva | 
       | Cpf                     | 12345678901     | 
       | Rg                      | 1234567890      | 
+      | Birth date              | 10.09.1984      | 
       | Address                 | Address         | 
       | Address number          | 1234, ap. 123   | 
       | Health insurance number | 123456          | 
     And I select "Male" from "Sex"
-    And I select "1984-09-10" as the "Patient birth date" date
     And I select "SUS" from "Health insurance"
     And I press "Create"
     Then I should see "error"
