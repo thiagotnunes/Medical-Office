@@ -8,8 +8,5 @@
 		<%= f.hidden_field :_destroy %>
 		<%= link_to_remove_fields "Remove evolution", f %>
 	</p>
-	<% f.fields_for :evolution_pictures do |builder| %>
-		<%= render 'evolution_picture', :f => builder %>
-	<% end %>
-	<p><%= link_to_add_fields "Add evolution picture", f, :evolution_pictures %></p>
+	<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolution_pictures %>
 </div>

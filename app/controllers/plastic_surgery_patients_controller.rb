@@ -1,4 +1,4 @@
-class PlasticSurgeryPatientsController < PatientsController
+class PlasticSurgeryPatientsController < ApplicationController
 
     def index
     @patients = PlasticSurgeryPatient.find(:all)
@@ -42,7 +42,7 @@ class PlasticSurgeryPatientsController < PatientsController
     @patient = PlasticSurgeryPatient.find(params[:id])
     @patient.destroy
 
-    redirect_to(patients_url)
+    redirect_to(plastic_surgery_patients_url)
   end
   
 end

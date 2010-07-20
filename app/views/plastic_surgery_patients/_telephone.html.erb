@@ -1,7 +1,0 @@
-<p class="fields">
-	<%= f.label :number, "Telephone" %> 
-	<%= f.collection_select :telephone_label_id, TelephoneLabel.all, :id, :label %>: <br />
-	<%= f.text_field :number %>
-	<%= f.hidden_field :_destroy %>
-	<%= link_to_remove_fields "Remove telephone", f %>
-</p>

@@ -1,4 +1,4 @@
-<h1>Listing patients</h1>
+<h1>Listing dermatology patients</h1>
 
 <table>
   <tr>
@@ -15,7 +15,7 @@
 		<td><%=h patient.rg %></td>
 		<td><%=h patient.health_insurance.name %></td>
     <td><%= link_to 'Show', patient %></td>
-    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+    <td><%= link_to 'Edit', edit_dermatology_patient_path(patient) %></td>
     <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -23,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'New Patient', new_dermatology_patient_path %>

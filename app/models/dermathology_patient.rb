@@ -1,2 +1,0 @@
-class DermathologyPatient < Patient
-end

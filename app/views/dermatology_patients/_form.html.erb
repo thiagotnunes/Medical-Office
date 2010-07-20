@@ -22,12 +22,12 @@
     <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
   </p>
 	<p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.label :residential_address %><br />
+    <%= f.text_field :residential_address %>
   </p>
 	<p>
-    <%= f.label :address_number %><br />
-    <%= f.text_field :address_number %>
+    <%= f.label :residential_address_complement %><br />
+    <%= f.text_field :residential_address_complement %>
   </p>
 	<p>
     <%= f.label :health_insurance_id %><br />
@@ -38,19 +38,9 @@
     <%= f.text_field :health_insurance_number %>
   </p>
 
-	<% f.fields_for :telephones do |builder| %>
-		<%= render 'telephone', :f => builder %>
-	<% end %>
-	<p>
-		<%= link_to_add_fields "Add telephone", f, :telephones %>
-	</p>
+	<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
 
-	<% f.fields_for :evolutions do |builder| %>
-		<%= render 'evolution', :f => builder %>
-	<% end %>
-	<p>
-		<%= link_to_add_fields "Add evolution", f, :evolutions %>
-	</p>
+  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolutions %>
 
   <p>
     <%= f.submit action %>

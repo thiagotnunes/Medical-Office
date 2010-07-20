@@ -1,23 +1,23 @@
-class PatientsController < ApplicationController
+class DermatologyPatientsController < ApplicationController
 
-  def index
-    @patients = Patient.find(:all)
+    def index
+    @patients = DermatologyPatient.find(:all)
   end
 
   def show
-    @patient = Patient.find(params[:id])
+    @patient = DermatologyPatient.find(params[:id])
   end
 
   def new
-    @patient = Patient.new
+    @patient = DermatologyPatient.new
   end
 
   def edit
-    @patient = Patient.find(params[:id])
+    @patient = DermatologyPatient.find(params[:id])
   end
 
   def create
-    @patient = Patient.new(params[:patient])
+    @patient = DermatologyPatient.new(params[:patient])
 
     if @patient.save
       flash[:notice] = 'Patient was successfully created.'
@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
   end
 
   def update
-    @patient = Patient.find(params[:id])
+    @patient = DermatologyPatient.find(params[:id])
 
     if @patient.update_attributes(params[:patient])
       flash[:notice] = 'Patient was successfully updated.'
@@ -39,9 +39,10 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-    @patient = Patient.find(params[:id])
+    @patient = DermatologyPatient.find(params[:id])
     @patient.destroy
 
-    redirect_to(patients_url)
+    redirect_to(Dermatology_patients_url)
   end
+  
 end
