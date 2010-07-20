@@ -1,0 +1,2 @@
+class OccupationalTherapyPatient < Patient
+end

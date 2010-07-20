@@ -1,0 +1,26 @@
+<h1>Listing plastic surgery patients</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>CPF</th>
+    <th>RG</th>
+    <th>Health Insurance</th>
+  </tr>
+
+<% for patient in @patients %>
+  <tr>
+		<td><%=h patient.name %></td>
+		<td><%=h patient.cpf %></td>
+		<td><%=h patient.rg %></td>
+		<td><%=h patient.health_insurance.name %></td>
+    <td><%= link_to 'Show', patient %></td>
+    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+    <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Patient', new_plastic_surgery_patient_path %>

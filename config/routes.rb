@@ -9,7 +9,9 @@ ActionController::Routing::Routes.draw do |map|
   map.patient_evolutions_list 'patients/:id/evolutions', :controller => 'evolutions', :action => 'index'
   map.patient_telephones_list 'patients/:id/telephones', :controller => 'telephones', :action => 'index'
 
-	map.root :controller => 'patients'
+  map.resources :plastic_surgery_patients
+
+	map.root :controller => 'plastic_surgery_patients'
 
 	map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

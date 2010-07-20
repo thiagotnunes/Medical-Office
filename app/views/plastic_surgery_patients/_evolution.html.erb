@@ -1,0 +1,15 @@
+<div class="fields">
+	<p>
+		Evolution <br />
+		<%= f.label :attendance_date, "Date" %> <br />
+    <%= f.calendar_date_select :attendance_date, :year_range => 150.years.ago..0.years.ago %><br />
+		<%= f.label :description, "Description" %> <br />
+		<%= f.text_area :description, :rows => 3 %>
+		<%= f.hidden_field :_destroy %>
+		<%= link_to_remove_fields "Remove evolution", f %>
+	</p>
+	<% f.fields_for :evolution_pictures do |builder| %>
+		<%= render 'evolution_picture', :f => builder %>
+	<% end %>
+	<p><%= link_to_add_fields "Add evolution picture", f, :evolution_pictures %></p>
+</div>

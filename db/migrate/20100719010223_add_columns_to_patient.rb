@@ -1,30 +1,31 @@
 class AddColumnsToPatient < ActiveRecord::Migration
   def self.up
     # Personal
-    add_column :patients, :record, :integer, :null => false
+    add_column :patients, :record, :integer, :null => false, :default => 0
     # Name
     # Birth date
     # Sex
-    add_column :patients, :fathers_name, :string, :null => false, :limit => 100
-    add_column :patients, :mothers_name, :string, :null => false, :limit => 100
-    add_column :patients, :color, :string, :null => false, :limit => 20
-    add_column :patients, :profession, :string, :null => false, :limit => 50
-    add_column :patients, :forwarded_by, :string :limit => 100
+    add_column :patients, :fathers_name, :string, :null => false, :limit => 100, :default => ''
+    add_column :patients, :mothers_name, :string, :null => false, :limit => 100, :default => ''
+    add_column :patients, :color, :string, :null => false, :limit => 20, :default => ''
+    add_column :patients, :profession, :string, :null => false, :limit => 50, :default => ''
+    add_column :patients, :forwarded_by, :string, :limit => 100
     rename_column :patients, :address, :residential_address
     rename_column :patients, :address_number, :residential_address_complement
-    add_column :patients, :marital_status, :string, :null => false, :limit => 50
-    add_column :patients, :city, :string, :null => false, :limit => 100
-    add_column :patients, :state, :string, :null => false, :limit => 50
-    add_column :patients, :nationality, :string, :null => false, :limit => 50
+    add_column :patients, :marital_status, :string, :null => false, :limit => 50, :default => ''
+    add_column :patients, :city, :string, :null => false, :limit => 100, :default => ''
+    add_column :patients, :state, :string, :null => false, :limit => 50, :default => ''
+    add_column :patients, :nationality, :string, :null => false, :limit => 50, :default => ''
     add_column :patients, :professional_address, :string, :limit => 250
     add_column :patients, :professional_address_complement, :string, :limit => 250
     # Patient photos
     
     # Plast - Clinical Data
     add_column :patients, :appointment_reason, :text
-    add_column :patients, :first_appointment, :date, :null => false
+    add_column :patients, :first_appointment, :date, :null => false, :default => 0
     add_column :patients, :injury_side, :string, :limit => 10
-    add_column :patients, :injury_exists_from, :datetime
+    add_column :patients, :injury_exists_from, :date
+    add_column :patients, :injury_time, :integer
     add_column :patients, :injury_appraiser_physician, :string, :limit =>100
     add_column :patients, :evolution_time, :string, :limit => 100
     add_column :patients, :personal_history, :text
@@ -76,7 +77,7 @@ class AddColumnsToPatient < ActiveRecord::Migration
     add_column :patients, :family_history, :text
     
     # Single Table Inheritance
-    add_column :patients, :type, :string, :null => false, :limit => 50
+    add_column :patients, :type, :string, :null => false, :limit => 50, :default => ''
   end
 
   def self.down

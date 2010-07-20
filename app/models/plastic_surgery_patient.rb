@@ -1,0 +1,2 @@
+class PlasticSurgeryPatient < Patient
+end

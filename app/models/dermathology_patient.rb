@@ -1,0 +1,2 @@
+class DermathologyPatient < Patient
+end

@@ -1,0 +1,73 @@
+<p>
+  <b>Name:</b>
+  <%=h @patient.name %>
+</p>
+<p>
+  <b>CPF:</b>
+  <%=h @patient.cpf %>
+</p>
+<p>
+  <b>RG:</b>
+  <%=h @patient.rg %>
+</p>
+<p>
+  <b>Sex:</b>
+  <%=h @patient.sex %>
+</p>
+<p>
+  <b>Birth Date:</b>
+  <%=h @patient.birth_date %>
+</p>
+<p>
+  <b>Address:</b>
+  <%=h @patient.address %>
+</p>
+<p>
+  <b>Address Number:</b>
+  <%=h @patient.address_number %>
+</p>
+<p>
+  <b>Health Insurance:</b>
+  <%=h @patient.health_insurance.name %>
+</p>
+<p>
+  <b>Health Insurance Number:</b>
+  <%=h @patient.health_insurance_number %>
+</p>
+
+<% if @patient.telephones.empty? %>
+  <b>No telephones</b><br /><br />
+<% else %>
+  <b>Telephones:</b>
+  <ul>
+  <% for telephone in @patient.telephones %>
+    <li>
+      <b><%=h telephone.telephone_label.label %></b>: 
+      <%=h telephone.number %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if @patient.evolutions.empty? %>
+  <b>No evolutions</b><br />
+<% else %>
+  <b>Evolutions:</b>
+  <ul>
+  <% for evolution in @patient.evolutions %>
+    <li>
+      <b>On <%=h evolution.attendance_date %></b>:
+      <%=h evolution.description %>
+      <% unless evolution.evolution_pictures.empty? %>
+        <br />
+        <% for evolution_picture in evolution.evolution_pictures %>
+          <%= image_tag evolution_picture.picture.url(:thumb) %> 
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+<br />
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>
