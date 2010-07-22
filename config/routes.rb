@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :address_labels
+
+  map.resources :address_labels
+
   map.resources :evolution_pictures
 
   map.resources :health_insurances
@@ -8,6 +12,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :plastic_surgery_patients
   map.resources :dermatology_patients
   map.resources :occupational_therapy_patients
+  
+  map.resources :address_labels
+  map.resources :patient_history_labels
 
 	map.root :controller => 'plastic_surgery_patients'
 

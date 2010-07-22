@@ -20,6 +20,10 @@ module NavigationHelpers
       telephone_labels_path
     when /the patients list/
       patients_path
+    when /the address_labels list/
+      address_labels_path
+    when /the patient_history_labels list/
+      patient_history_labels_path
     
 
     # Add more mappings here.

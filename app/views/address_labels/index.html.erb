@@ -1,0 +1,20 @@
+<h1>Listing Address Labels</h1>
+
+<table>
+  <tr>
+    <th>Label</th>
+  </tr>
+
+<% @address_labels.each do |address_label| %>
+  <tr>
+    <td><%=h address_label.label %></td>
+    <td><%= link_to 'Show', address_label %></td>
+    <td><%= link_to 'Edit', edit_address_label_path(address_label) %></td>
+    <td><%= link_to 'Destroy', address_label, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Address Label', new_address_label_path %>

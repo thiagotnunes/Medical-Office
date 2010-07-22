@@ -1,0 +1,11 @@
+<% form_for(@patient_history_label) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.submit action %>
+  </p>
+<% end %>

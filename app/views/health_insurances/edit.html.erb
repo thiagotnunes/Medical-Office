@@ -1,8 +1,6 @@
 <h1>Editing health_insurance</h1>
 
-<%= render :partial => "form", :locals => {
-		:action => "Update"
-} %>
+<%= render 'form', :action => 'Update' %>
 
 <%= link_to 'Show', @health_insurance %> |
 <%= link_to 'Back', health_insurances_path %>
