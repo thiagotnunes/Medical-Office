@@ -3,19 +3,24 @@ class Patient < ActiveRecord::Base
 	belongs_to :health_insurance
 	has_many :telephones, :dependent => :destroy
 	has_many :evolutions, :dependent => :destroy
+	
+	has_one :patient_history
+	has_many :patient_pictures
+	has_many :addresses
+	has_one :clinical_information
+	has_many :patient_surgeries
+	has_one :patient_therapy_information
 
 	accepts_nested_attributes_for :telephones, :allow_destroy => true
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
 
-	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :health_insurance_id, :residential_address, :residential_address_complement
+	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :health_insurance_id
 	validates_numericality_of :cpf, :rg
 	validates_length_of :cpf, :is => 11
 	validates_length_of :rg, :is => 10
   validates_length_of :name, :within => 5..100
   validates_length_of :sex, :maximum => 10
   validates_length_of :health_insurance_number, :maximum => 50
-  validates_length_of :residential_address, :maximum => 250
-  validates_length_of :residential_address_complement, :maximum => 100
 	validates_uniqueness_of :cpf, :rg
 	validates_associated :health_insurance, :telephones
   validate :birth_date_should_not_be_in_the_future, :cpf_should_have_valid_format, :rg_should_have_valid_format

@@ -7,10 +7,11 @@ class AddColumnsToPatient < ActiveRecord::Migration
     add_column :patients, :color, :string, :null => false, :limit => 20, :default => ''
     # Birth date
     add_column :patients, :profession, :string, :null => false, :limit => 50, :default => ''
-    rename_column :patients, :address, :residential_address
-    rename_column :patients, :address_number, :residential_address_complement
-    add_column :patients, :professional_address, :string, :limit => 250
-    add_column :patients, :professional_address_complement, :string, :limit => 250
+    # Adresses
+    remove_column :patients, :address
+    remove_column :patients, :address_number
+    # Telephones
+    # Other info
     add_column :patients, :city, :string, :null => false, :limit => 100, :default => ''
     add_column :patients, :state, :string, :null => false, :limit => 50, :default => ''
     add_column :patients, :country, :string, :null => false, :limit => 50, :default => '' # nationality (naturalidade)
@@ -20,63 +21,24 @@ class AddColumnsToPatient < ActiveRecord::Migration
     add_column :patients, :marital_status, :string, :null => false, :limit => 50, :default => ''
     # Patient photos
     
-    # Plast - Clinical Data
-    add_column :patients, :clazz, :string, :limit => 100
-    add_column :patients, :appointment_reason, :text
+    # Plast - Histories
     add_column :patients, :first_appointment, :date, :null => false, :default => 0
-    add_column :patients, :injury_exists_from, :date
-    add_column :patients, :injury_side, :string, :limit => 10
-    add_column :patients, :evolution_time, :string, :limit => 100
-    add_column :patients, :medical_history, :text
-    add_column :patients, :physical_exam, :text
-    add_column :patients, :physical_exam_date, :date
-    add_column :patients, :diagnostics_hypothesis, :text
-    
-    # Plast - Evaluations
-    add_column :patients, :evaluations_results, :text
-    add_column :patients, :indicated_conduct, :string, :limit => 250
-    add_column :patients, :cid, :string, :limit => 30
-    add_column :patients, :surgery_performed, :text
-    add_column :patients, :surgery_date, :date
-    add_column :patients, :surgery_performed_at, :string, :limit => 250
-    add_column :patients, :surgery_anesthethist, :string, :limit => 250
-    add_column :patients, :surgery_description, :text
-    add_column :patients, :po_imediate_result, :string, :limit => 250
-    add_column :patients, :intercurrences, :text
-    add_column :patients, :pathology_material, :string, :limit => 50
-    add_column :patients, :pathology_result, :string, :limit => 250
-    add_column :patients, :diagnosis, :string, :limit => 250
-    # Other surgeries
+    # Plast - Clinical Data
+    # Plast - Surgeries
     
     # Therapy
-    # Diagnosis
-    add_column :patients, :injury_time, :integer
-    # Injury exists from
-    add_column :patients, :injury_appraiser_physician, :string, :limit =>100
-    add_column :patients, :main_complaint, :text
-    add_column :patients, :disease_history, :text
-    # Other surgeries
-    add_column :patients, :impaired_limb, :string, :limit => 250
-    add_column :patients, :dominance, :text
-    add_column :patients, :adm, :text
-    add_column :patients, :fm, :text
-    add_column :patients, :sensibility, :text
-    add_column :patients, :aspect, :text
-    add_column :patients, :fo, :text
-    add_column :patients, :circumference, :text
-    add_column :patients, :avds, :text
-    add_column :patients, :dnpm, :text
     add_column :patients, :orthoses, :text
     add_column :patients, :conclusions, :text
     add_column :patients, :objectives, :text
     add_column :patients, :frequency, :text
+    # Occupational Therapy Information
+    # Other surgeries
     
     # Dermathology
     # Main complaint
-    add_column :patients, :personal_history, :text
-    add_column :patients, :family_history, :text
+    # Histories
     
-    # Single Table Inheritance
+    # Single Table Inheritance Type
     add_column :patients, :type, :string, :null => false, :limit => 50, :default => ''
   end
 
