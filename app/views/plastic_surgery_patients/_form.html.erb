@@ -1,40 +1,6 @@
 <% form_for(@patient, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
-
-	<p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-	<p>
-    <%= f.label :cpf %><br />
-    <%= f.text_field :cpf %>
-  </p>
-	<p>
-    <%= f.label :rg %><br />
-    <%= f.text_field :rg %>
-  </p>
-	<p>
-		<%= f.label :sex %><br />
-    <%= f.select :sex, ["", "Male", "Female"] %>
-  </p>
-	<p>
-    <%= f.label :birth_date %><br />
-    <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
-  </p>
-	<p>
-    <%= f.label :health_insurance_id %><br />
-    <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
-  </p>
-  <p>
-    <%= f.label :health_insurance_number %><br />
-    <%= f.text_field :health_insurance_number %>
-  </p>
-
-  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
-
-  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolutions %>
   
-  <p>
-    <%= f.submit action %>
-  </p>
+  <%= render 'patients/personal_information', :f => f, :action => action %>
+  
 <% end %>

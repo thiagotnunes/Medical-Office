@@ -1,0 +1,147 @@
+  <table>
+    <tr>
+      <td>
+	      <%= f.label :name %>
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :sex %>
+      </td>
+      <td>
+        <%= f.select :sex, ["", "Male", "Female"] %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :cpf %>
+      </td>
+      <td>
+        <%= f.text_field :cpf %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :rg %>
+      </td>
+      <td>
+        <%= f.text_field :rg %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :color %>
+      </td>
+      <td>
+        <%= f.text_field :color %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :birth_date %>
+      </td>
+      <td>
+        <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :profession %>
+      </td>
+      <td>
+        <%= f.text_field :profession %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :city %>
+      </td>
+      <td>
+        <%= f.text_field :city %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :state %>
+      </td>
+      <td>
+        <%= f.select :state, ["", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"] %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :country %>
+      </td>
+      <td>
+        <%= f.text_field :country %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :fathers_name %>
+      </td>
+      <td>
+        <%= f.text_field :fathers_name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :mothers_name %>
+      </td>
+      <td>
+        <%= f.text_field :mothers_name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :forwarded_by %>
+      </td>
+      <td>
+        <%= f.text_field :forwarded_by %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :marital_status %>
+      </td>
+      <td>
+        <%= f.text_field :marital_status %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :health_insurance_id %>
+      </td>
+      <td>
+        <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :health_insurance_number %><br />
+      </td>
+      <td>
+        <%= f.text_field :health_insurance_number %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Telephones <br />
+        <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td colspan="2">
+        Evolutions <br />
+        <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolutions %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.submit action %>
+      </td>
+    </tr>
+  </table>

@@ -1,4 +1,3 @@
-@current
 Feature: Manage Patient History Labels
   In order to assign history labels to patient's histories
   As a administrator
