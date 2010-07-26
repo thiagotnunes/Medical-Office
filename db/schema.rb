@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(:version => 20100722005623) do
     t.string   "mothers_name",            :limit => 100, :default => "", :null => false
     t.string   "forwarded_by",            :limit => 100
     t.string   "marital_status",          :limit => 50,  :default => "", :null => false
-    t.date     "first_appointment",                                      :null => false
+    t.date     "first_appointment"
     t.text     "orthoses"
     t.text     "conclusions"
     t.text     "objectives"

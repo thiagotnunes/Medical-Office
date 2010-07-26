@@ -3,16 +3,17 @@ class Patient < ActiveRecord::Base
 	belongs_to :health_insurance
 	has_many :telephones, :dependent => :destroy
 	has_many :evolutions, :dependent => :destroy
+	has_many :addresses, :dependent => :destroy
 	
 	has_one :patient_history
 	has_many :patient_pictures
-	has_many :addresses
 	has_one :clinical_information
 	has_many :patient_surgeries
 	has_one :patient_therapy_information
 
 	accepts_nested_attributes_for :telephones, :allow_destroy => true
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
+	accepts_nested_attributes_for :addresses, :allow_destroy => true
 
 	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :health_insurance_id
 	validates_numericality_of :cpf, :rg
@@ -22,10 +23,22 @@ class Patient < ActiveRecord::Base
   validates_length_of :sex, :maximum => 10
   validates_length_of :health_insurance_number, :maximum => 50
 	validates_uniqueness_of :cpf, :rg
-	validates_associated :health_insurance, :telephones
-  validate :birth_date_should_not_be_in_the_future, :cpf_should_have_valid_format, :rg_should_have_valid_format
+	validates_associated :health_insurance, :telephones, :addresses
+  validate :birth_date_should_not_be_in_the_future
+  validate :cpf_should_have_valid_format
+  validate :rg_should_have_valid_format
+  validate :should_have_at_least_one_address
+  validate :should_have_at_least_one_telephone
     
   private
+
+  def should_have_at_least_one_address
+    errors.add("A patient should have at least one address") if self.addresses.size < 1
+  end
+  
+  def should_have_at_least_one_telephone
+    errors.add("A patient should have at least one telephone") if self.telephones.size < 1
+  end
 
   def birth_date_should_not_be_in_the_future
     errors.add(:birth_date, "can't be in the future") if birth_date != nil && birth_date > Date.today

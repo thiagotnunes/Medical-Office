@@ -22,7 +22,7 @@ class AddColumnsToPatient < ActiveRecord::Migration
     # Patient photos
     
     # Plast - Histories
-    add_column :patients, :first_appointment, :date, :null => false, :default => 0
+    add_column :patients, :first_appointment, :date, :default => 0
     # Plast - Clinical Data
     # Plast - Surgeries
     

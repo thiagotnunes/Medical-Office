@@ -1,6 +1,6 @@
 class PlasticSurgeryPatientsController < ApplicationController
 
-    def index
+  def index
     @patients = PlasticSurgeryPatient.find(:all)
   end
 
@@ -10,6 +10,8 @@ class PlasticSurgeryPatientsController < ApplicationController
 
   def new
     @patient = PlasticSurgeryPatient.new
+    @patient.telephones.build
+    @patient.addresses.build
   end
 
   def edit
@@ -17,7 +19,7 @@ class PlasticSurgeryPatientsController < ApplicationController
   end
 
   def create
-    @patient = PlasticSurgeryPatient.new(params[:patient])
+    @patient = PlasticSurgeryPatient.new(params[:plastic_surgery_patient])
 
     if @patient.save
       flash[:notice] = 'Patient was successfully created.'
@@ -30,7 +32,7 @@ class PlasticSurgeryPatientsController < ApplicationController
   def update
     @patient = PlasticSurgeryPatient.find(params[:id])
 
-    if @patient.update_attributes(params[:patient])
+    if @patient.update_attributes(params[:plastic_surgery_patient])
       flash[:notice] = 'Patient was successfully updated.'
       redirect_to(@patient)
     else

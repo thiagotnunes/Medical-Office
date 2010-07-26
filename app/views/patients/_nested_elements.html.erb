@@ -1,5 +1,5 @@
 <% f.fields_for element do |builder| %>
-	<%= render element.to_s.singularize, :f => builder %>
+	<%= render "#{prefix}/#{element.to_s.singularize}", :f => builder %>
 <% end %>
 <p>
 	<%= link_to_add_fields "Add #{element.to_s.singularize.gsub('_', ' ')}", f, prefix, element %>

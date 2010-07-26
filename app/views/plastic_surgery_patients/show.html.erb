@@ -1,73 +1,157 @@
-<p>
-  <b>Name:</b>
-  <%=h @patient.name %>
-</p>
-<p>
-  <b>CPF:</b>
-  <%=h @patient.cpf %>
-</p>
-<p>
-  <b>RG:</b>
-  <%=h @patient.rg %>
-</p>
-<p>
-  <b>Sex:</b>
-  <%=h @patient.sex %>
-</p>
-<p>
-  <b>Birth Date:</b>
-  <%=h @patient.birth_date %>
-</p>
-<p>
-  <b>Address:</b>
-  <%=h @patient.address %>
-</p>
-<p>
-  <b>Address Number:</b>
-  <%=h @patient.address_number %>
-</p>
-<p>
-  <b>Health Insurance:</b>
-  <%=h @patient.health_insurance.name %>
-</p>
-<p>
-  <b>Health Insurance Number:</b>
-  <%=h @patient.health_insurance_number %>
-</p>
+<table>
+  <tr>
+    <td>
+      Name:
+    </td>
+    <td>
+      <%=h @patient.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Sex:
+    </td>
+    <td>
+      <%=h @patient.sex %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CPF:
+    </td>
+    <td>
+      <%=h @patient.cpf %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RG:
+    </td>
+    <td>
+      <%=h @patient.rg %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Birth Date:
+    </td>
+    <td>
+      <%=h @patient.birth_date %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Color:
+    </td>
+    <td>
+      <%=h @patient.color %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Profession:
+    </td>
+    <td>
+      <%=h @patient.profession %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      City:
+    </td>
+    <td>
+      <%=h @patient.city %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      State:
+    </td>
+    <td>
+      <%=h @patient.state %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Country:
+    </td>
+    <td>
+      <%=h @patient.country %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Health Insurance:
+    </td>
+    <td>
+      <%=h @patient.health_insurance.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Health Insurance Number:
+    </td>
+    <td>
+      <%=h @patient.health_insurance_number %>
+    </td>
+  </tr>
 
-<% if @patient.telephones.empty? %>
-  <b>No telephones</b><br /><br />
-<% else %>
-  <b>Telephones:</b>
-  <ul>
-  <% for telephone in @patient.telephones %>
-    <li>
-      <b><%=h telephone.telephone_label.label %></b>: 
-      <%=h telephone.number %>
-    </li>
+  <% if @patient.telephones.empty? %>
+    <tr>
+      <td colspan="2">
+        No telephones
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td colspan="2">
+        Telephones:
+      </td>
+    </tr>
+    <% for telephone in @patient.telephones %>
+      <tr>
+        <td>
+          <%=h telephone.telephone_label.label %>
+        </td>
+        <td>
+          <%=h telephone.number %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
-  </ul>
-<% end %>
 
-<% if @patient.evolutions.empty? %>
-  <b>No evolutions</b><br />
-<% else %>
-  <b>Evolutions:</b>
-  <ul>
-  <% for evolution in @patient.evolutions %>
-    <li>
-      <b>On <%=h evolution.attendance_date %></b>:
-      <%=h evolution.description %>
+  <% if @patient.evolutions.empty? %>
+    <tr>
+      <td colspan="2">
+        No evolutions
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td colspan="2">
+        Evolutions:
+      </td>
+    </tr>
+    <% for evolution in @patient.evolutions %>
+      <tr>
+        <td>
+          On <%=h evolution.attendance_date %>
+        </td>
+        <td>
+          <%=h evolution.description %>
+        </td>
+      </tr>
       <% unless evolution.evolution_pictures.empty? %>
-        <br />
-        <% for evolution_picture in evolution.evolution_pictures %>
-          <%= image_tag evolution_picture.picture.url(:thumb) %> 
+        <tr> 
+          <td colspan="2">
+            <% for evolution_picture in evolution.evolution_pictures %>
+              <%= image_tag evolution_picture.picture.url(:thumb) %> 
+            <% end %>
+          </td>
+        </tr>
         <% end %>
-      <% end %>
-    </li>
+    <% end %>
   <% end %>
-  </ul>
-<% end %>
-<br />
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+</table>
+<%= link_to 'Edit', edit_plastic_surgery_patient_path(@patient) %> |
+<%= link_to 'Back', plastic_surgery_patients_path %>

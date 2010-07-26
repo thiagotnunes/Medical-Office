@@ -32,6 +32,12 @@
       </td>
     </tr>
     <tr>
+      <td colspan="2">
+        Addresses <br />
+        <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses %>
+      </td>
+    </tr>
+    <tr>
       <td>
         <%= f.label :color %>
       </td>
@@ -116,7 +122,7 @@
         <%= f.label :health_insurance_id %>
       </td>
       <td>
-        <%= collection_select :patient, :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
+        <%= f.collection_select :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
       </td>
     </tr>
     <tr>
