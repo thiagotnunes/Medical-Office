@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100722005623) do
+ActiveRecord::Schema.define(:version => 20100727174805) do
 
   create_table "address_labels", :force => true do |t|
     t.string   "label",      :limit => 100, :null => false
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20100722005623) do
   end
 
   create_table "addresses", :force => true do |t|
-    t.string   "address",          :limit => 250, :null => false
+    t.string   "location",         :limit => 250, :null => false
     t.string   "complement",       :limit => 250
     t.integer  "address_label_id"
     t.integer  "patient_id"

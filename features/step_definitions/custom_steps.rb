@@ -1,6 +1,5 @@
-When /^I fill in "([^"]*)" \#(\d+) of the "([^"]*)" with "([^"]*)" for the "([^"]*)"$/ do |nested_field,  number, field, value, clazz|
+When /^I fill in "([^"]*)" of the "([^"]*)" \#(\d+) with "([^"]*)" for the "([^"]*)"$/ do |nested_field, field, number, value, clazz|
     name = "#{clazz.gsub(" ", "_").downcase}[" + field.gsub(" ", "_").downcase.pluralize + "_attributes][#{number}][#{nested_field.gsub(" ", "_").downcase}]"
-    puts %{I fill in "#{name}" with "#{value}"}
     When %{I fill in "#{name}" with "#{value}"}
 end
 

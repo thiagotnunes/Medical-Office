@@ -3,19 +3,14 @@ Feature: Manage Plastic Surgery Patients
   As a administrator
   I want to create and manage plastic surgery patients
 
+  @current
   Scenario: Patient List
-    Given the following health_insurances exist
-      | name |
-      | SUS |
-    And the following plastic_surgery_patients exist
-      | name            | sex  | cpf         | rg         | color | birth_date | profession | city | state | country | marital_status  | health_insurance_id | health_insurance_number | 
-      | Thiago da Silva | Male | 93747868690 | 1234567890 | caucasian | 1984-09-10 | programmer | Porto Alegre | RS | Brazil | single | 1 | 1234567890              |
+    Given a patient exists with name: "Thiago"
     When I am on the plastic_surgery_patients list
     Then I should see "Thiago"
     And I should see "93747868690"
     And I should see "1234567890"
 
-  @current
   Scenario: Create a Valid Plastic Surgery Patient
     Given 0 plastic_surgery_patients exist
     And the following health_insurances exist
@@ -23,8 +18,11 @@ Feature: Manage Plastic Surgery Patients
       | SUS    | 
       | Unimed | 
     And the following address_labels exist
-      | label           | 
-      | Residencial     | 
+      | label       | 
+      | Residencial | 
+    And the following telephone_labels exist
+      | label       | 
+      | Residencial | 
     And I am on the plastic_surgery_patients list
     And I follow "New Patient"
     When I fill in the following:
@@ -37,13 +35,12 @@ Feature: Manage Plastic Surgery Patients
       | City                    | Porto Alegre    | 
       | Country                 | Brazil          |
       | Marital status          | single          |
-      | Health insurance number | 123456          | 
-      | Complement              | Complement      |
+      | Health insurance number | 1234567890      | 
     And I select "Male" from "Sex"
     And I select "RS" from "State"
     And I select "SUS" from "Health insurance"
     And I fill in "Address" #0 with "Street xyz" for the "Plastic Surgery Patient"
-    And I fill in "Number" #0 of the "Telephone" with "33233232" for the "Plastic Surgery Patient"
+    And I fill in "Number" of the "Telephone" #0 with "33233232" for the "Plastic Surgery Patient"
     And I press "Create"
     Then I should see "Patient was successfully created."
     And I should see "Thiago da Silva"

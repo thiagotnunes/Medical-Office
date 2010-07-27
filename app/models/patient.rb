@@ -15,7 +15,7 @@ class Patient < ActiveRecord::Base
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
 	accepts_nested_attributes_for :addresses, :allow_destroy => true
 
-	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :health_insurance_id
+	validates_presence_of :name, :cpf, :rg, :sex, :birth_date
 	validates_numericality_of :cpf, :rg
 	validates_length_of :cpf, :is => 11
 	validates_length_of :rg, :is => 10
@@ -33,11 +33,15 @@ class Patient < ActiveRecord::Base
   private
 
   def should_have_at_least_one_address
-    errors.add("A patient should have at least one address") if self.addresses.size < 1
+    unless addresses.any?{|a| !a.marked_for_destruction? }
+      errors.add("A patient should have at least one address")
+    end
   end
   
   def should_have_at_least_one_telephone
-    errors.add("A patient should have at least one telephone") if self.telephones.size < 1
+    unless telephones.any?{|t| !t.marked_for_destruction? }
+      errors.add("A patient should have at least one telephone")
+    end
   end
 
   def birth_date_should_not_be_in_the_future
