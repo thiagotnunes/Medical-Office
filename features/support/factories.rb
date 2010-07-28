@@ -1,18 +1,9 @@
-Factory.define :evolution do |e|
-  e.attendance_date Date.today
-  e.description Forgery::Basic.text
-  e.patient { |p| p.association(:patient) }
+Factory.sequence :telephone_label do |n|
+  "#{Forgery::Name.telephone_label} #{n}"
 end
 
-Factory.define :health_insurance do |hi|
-  hi.sequence(:name) { |n| "#{Forgery::Name.company_name}#{n}" }
-end
-
-Factory.define :Address do |a|
-  a.location Forgery::Address.street_address
-  a.complement Forgery::Address.street_number
-  a.address_label { |al| al.association(:address_label) }
-  a.patient { |p| p.association(:patient) }
+Factory.sequence :address_label do |n|
+  "#{Forgery::Name.address_label} #{n}"
 end
 
 Factory.define :patient do |p|
@@ -29,21 +20,46 @@ Factory.define :patient do |p|
   p.fathers_name Forgery::Name.male_first_name
   p.mothers_name Forgery::Name.female_first_name
   p.forwarded_by Forgery::Name.full_name
-  p.marital_status Forgery::Name.marital_status
+  p.marital_status Forgery::Personal.marital_status
   p.health_insurance_number Forgery::Basic.number
-  p.health_insurance { |h| h.association(:health_insurance) } 
+  p.association :health_insurance, :factory => :health_insurance
+  p.first_appointment Date.today
+  p.addresses do 
+    [Factory.build(:address), Factory.build(:address)]
+  end
+  p.telephones do
+    [Factory.build(:telephone)]
+  end
 end
 
-Factory.define :address_label do |al|
-  al.sequence(:label) { |n| "#{Forgery::Name.address_label} #{n}" }
+Factory.define :plastic_surgery_patient, :parent => :patient do |psp|
+  psp.type "PlasticSurgeryPatient"
 end
 
-Factory.define :telephone_label do |tl|
-  tl.sequence(:label) { |n| "#{Forgery::Name.telephone_label} #{n}" }
+Factory.define :evolution do |e|
+  e.attendance_date Date.today
+  e.description Forgery::Basic.text
+end
+
+Factory.define :health_insurance do |hi|
+  hi.sequence(:name) { |n| "#{Forgery::Name.company_name} #{n}" }
+end
+
+Factory.define :address do |a|
+  a.location Forgery::Address.street_address
+  a.complement Forgery::Address.street_number
+  a.address_label { |al| al.association(:address_label, :label => Factory.next(:address_label)) }
 end
 
 Factory.define :telephone do |t|
-  t.number "%10d" % Forgery::Basic.number
-  t.telephone_label { |tl| tl.association(:telephone_label) }
-  t.patient { |p| p.association(:patient) }
+  t.number "%010d" % Forgery::Basic.number
+  t.telephone_label { |tl| tl.association(:telephone_label, :label => Factory.next(:telephone_label)) }
+end
+
+Factory.define :telephone_label do |tl|
+  tl.label Factory.next(:telephone_label)
+end
+
+Factory.define :address_label do |al|
+  al.label Factory.next(:address_label)
 end

@@ -19,7 +19,7 @@ class Forgery::Brazil < Forgery
     @@rg += 1
     @@rg = 0 if @@rg == 9999999999
     @@rg += 1 if((@@rg % 1111111111) == 0)
-    "%10d" % @@rg
+    ("%010d" % @@rg)
   end
 
   private
