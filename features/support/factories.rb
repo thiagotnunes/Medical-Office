@@ -6,6 +6,10 @@ Factory.sequence :address_label do |n|
   "#{Forgery::Name.address_label} #{n}"
 end
 
+Factory.sequence :patient_history_label do |n|
+  "#{Forgery::Name.patient_history_label} #{n}"
+end
+
 Factory.define :patient do |p|
   p.name Forgery::Name.full_name
   p.cpf Forgery::Brazil.valid_cpf
@@ -54,6 +58,10 @@ end
 Factory.define :telephone do |t|
   t.number "%010d" % Forgery::Basic.number
   t.telephone_label { |tl| tl.association(:telephone_label, :label => Factory.next(:telephone_label)) }
+end
+
+Factory.define :patient_history_label do |ph|
+  ph.label Factory.next(:patient_history_label)
 end
 
 Factory.define :telephone_label do |tl|

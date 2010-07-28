@@ -4,10 +4,8 @@ Feature: Manage Address Labels
   I want to create and manage address labels
   
   Scenario: Address Labels List
-    Given the following address_labels exists
-      | label |
-      | Residencial |
-      | Profissional |
+    Given an address_label exists with label: "Residencial"
+    And an address_label exists with label: "Profissional"
     When I go to the address_labels list
     Then I should see "Residencial"
     And I should see "Profissional"
@@ -31,9 +29,7 @@ Feature: Manage Address Labels
     And 0 address_labels should exist
     
   Scenario: Edit an Address Label
-    Given the following address_labels exist
-      | label |
-      | Residencial |
+    Given an address_label exists
     And I am on the address_labels list
     When I follow "Edit"
     And I fill in "Label" with "Comercial"
@@ -43,9 +39,7 @@ Feature: Manage Address Labels
     And a address_label should exist
     
   Scenario: Destroy an Address Label
-    Given the following address_labels exist
-      | label |
-      | Residencial |
+    Given an address_label exists
     And I am on the address_labels list
     When I follow "Destroy"
     Then 0 address_labels should exist

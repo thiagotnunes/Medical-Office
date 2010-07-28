@@ -31,6 +31,30 @@
       <%=h @patient.rg %>
     </td>
   </tr>
+  <% if @patient.addresses.empty? %>
+    <tr>
+      <td colspan="2">
+        No addresses
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td colspan="2">
+        Addresses:
+      </td>
+    </tr>
+    <% for address in @patient.addresses %>
+      <tr>
+        <td>
+          <%=h address.address_label.label %>
+        </td>
+        <td>
+          <%=h address.location %>
+          <%=h address.complement %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
   <tr>
     <td>
       Birth Date:
@@ -77,6 +101,14 @@
     </td>
     <td>
       <%=h @patient.country %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Marital status:
+    </td>
+    <td>
+      <%=h @patient.marital_status %>
     </td>
   </tr>
   <tr>

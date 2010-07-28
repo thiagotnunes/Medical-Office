@@ -4,9 +4,7 @@ Feature: Manage Patient History Labels
   I want to create and manage patient history labels
   
   Scenario: Patient History Labels List
-    Given the following patient_history_labels exist
-      | label |
-      | Medico |
+    Given a patient_history_label exists with label: "Medico"
     When I go to the patient_history_labels list
     Then I should see "Medico"
     And a patient_history_label should exist
@@ -22,9 +20,7 @@ Feature: Manage Patient History Labels
     And a patient_history_label should exist
     
   Scenario: Try to Create an Invalid Patient
-    Given the following patient_history_labels exist
-      | label |
-      | Medico |
+    Given a patient_history_label exists with label: "Medico"
     And I am on the patient_history_labels list
     And I follow "New Patient History Label"
     When I fill in "Label" with "Medico"
@@ -33,9 +29,7 @@ Feature: Manage Patient History Labels
     And 1 patient_history_labels should exist
     
   Scenario: Edit a Patient History Label
-    Given the following patient_history_labels exist
-      | label |
-      | Medico |
+    Given a patient_history_label exists
     And I am on the patient_history_labels list
     And I follow "Edit"
     When I fill in "Label" with "Pessoal"
@@ -45,9 +39,7 @@ Feature: Manage Patient History Labels
     And a patient_history_label should exist
 
   Scenario: Destroy a Patient History Label
-    Given the following patient_history_labels exist
-      | label |
-      | Medico |
+    Given a patient_history_label exists
     And I am on the patient_history_labels list
     When I follow "Destroy"
     Then 0 patient_history_labels should exist
