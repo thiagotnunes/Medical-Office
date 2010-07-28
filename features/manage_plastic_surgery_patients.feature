@@ -5,11 +5,11 @@ Feature: Manage Plastic Surgery Patients
 
   @current
   Scenario: Patient List
-    Given a patient exists with name: "Thiago"
+    Given a plastic_surgery_patient exists with name: "Thiago", cpf: "22233366638", rg: "2080057852"
     When I am on the plastic_surgery_patients list
     Then I should see "Thiago"
-    And I should see "93747868690"
-    And I should see "1234567890"
+	And I should see "22233366638"
+	And I should see "2080057852"
 
   Scenario: Create a Valid Plastic Surgery Patient
     Given 0 plastic_surgery_patients exist
