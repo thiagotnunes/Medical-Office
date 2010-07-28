@@ -37,6 +37,12 @@
         <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses %>
       </td>
     </tr>
+	<tr>
+      <td colspan="2">
+        Telephones <br />
+        <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
+      </td>
+    </tr>
     <tr>
       <td>
         <%= f.label :color %>
@@ -133,12 +139,14 @@
         <%= f.text_field :health_insurance_number %>
       </td>
     </tr>
-    <tr>
-      <td colspan="2">
-        Telephones <br />
-        <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
-      </td>
-    </tr>
+	<tr>
+	  <td>
+	    <%= f.label :first_appointment %>
+	  </td>
+	  <td>
+		<%= f.calendar_date_select :first_appointment, :year_range => 30.years.ago..0.years.ago%>
+	  </td>
+	</tr>
     <tr valign="top">
       <td colspan="2">
         Evolutions <br />

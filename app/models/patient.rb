@@ -15,7 +15,7 @@ class Patient < ActiveRecord::Base
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
 	accepts_nested_attributes_for :addresses, :allow_destroy => true
 
-	validates_presence_of :name, :cpf, :rg, :sex, :birth_date
+	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :first_appointment
 	validates_numericality_of :cpf, :rg
 	validates_length_of :cpf, :is => 11
 	validates_length_of :rg, :is => 10
@@ -25,6 +25,7 @@ class Patient < ActiveRecord::Base
 	validates_uniqueness_of :cpf, :rg
 	validates_associated :health_insurance, :telephones, :addresses
   validate :birth_date_should_not_be_in_the_future
+  validate :first_appointment_should_not_be_in_the_future
   validate :cpf_should_have_valid_format
   validate :rg_should_have_valid_format
   validate :should_have_at_least_one_address
@@ -46,6 +47,10 @@ class Patient < ActiveRecord::Base
 
   def birth_date_should_not_be_in_the_future
     errors.add(:birth_date, "can't be in the future") if birth_date != nil && birth_date > Date.today
+  end
+  
+  def first_appointment_should_not_be_in_the_future
+    errors.add(:first_appointment, "can't be in the future") if first_appointment != nil && first_appointment > Date.today
   end
 
   def cpf_should_have_valid_format
