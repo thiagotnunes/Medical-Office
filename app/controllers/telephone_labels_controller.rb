@@ -1,7 +1,7 @@
 class TelephoneLabelsController < ApplicationController
 
   def index
-    @telephone_labels = TelephoneLabel.find(:all)
+    @telephone_labels = TelephoneLabel.all
   end
 
   def show

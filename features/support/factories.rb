@@ -1,13 +1,13 @@
 Factory.sequence :telephone_label do |n|
-  "#{Forgery::Name.telephone_label} #{n}"
+  "#{Forgery::Name.telephone_label} #{n + (rand * 10)}"
 end
 
 Factory.sequence :address_label do |n|
-  "#{Forgery::Name.address_label} #{n}"
+  "#{Forgery::Name.address_label} #{n + (rand * 10)}"
 end
 
 Factory.sequence :patient_history_label do |n|
-  "#{Forgery::Name.patient_history_label} #{n}"
+  "#{Forgery::Name.patient_history_label} #{n + (rand * 10)}"
 end
 
 Factory.define :patient do |p|
@@ -29,7 +29,7 @@ Factory.define :patient do |p|
   p.association :health_insurance, :factory => :health_insurance
   p.first_appointment Date.today
   p.addresses do 
-    [Factory.build(:address), Factory.build(:address)]
+    [Factory.build(:address)]
   end
   p.telephones do
     [Factory.build(:telephone)]

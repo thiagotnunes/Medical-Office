@@ -1,7 +1,7 @@
 class HealthInsurancesController < ApplicationController
 
   def index
-    @health_insurances = HealthInsurance.find(:all)
+    @health_insurances = HealthInsurance.all
   end
 
   def show

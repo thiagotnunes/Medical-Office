@@ -1,7 +1,7 @@
 class DermatologyPatientsController < ApplicationController
 
     def index
-    @patients = DermatologyPatient.find(:all)
+    @patients = DermatologyPatient.all
   end
 
   def show

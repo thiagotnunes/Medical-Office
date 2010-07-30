@@ -11,9 +11,9 @@ class Patient < ActiveRecord::Base
 	has_many :patient_surgeries
 	has_one :patient_therapy_information
 
-	accepts_nested_attributes_for :telephones, :allow_destroy => true
+	accepts_nested_attributes_for :telephones
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
-	accepts_nested_attributes_for :addresses, :allow_destroy => true
+	accepts_nested_attributes_for :addresses
 
 	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :first_appointment
 	validates_numericality_of :cpf, :rg

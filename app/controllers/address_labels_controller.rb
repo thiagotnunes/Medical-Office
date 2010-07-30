@@ -1,6 +1,6 @@
 class AddressLabelsController < ApplicationController
   def index
-    @address_labels = AddressLabel.find(:all)
+    @address_labels = AddressLabel.all
   end
 
   def show

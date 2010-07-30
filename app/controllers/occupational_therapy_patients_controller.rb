@@ -1,7 +1,7 @@
 class OccupationalTherapyPatientsController < ApplicationController
 
     def index
-    @patients = OccupationalTherapyPatient.find(:all)
+    @patients = OccupationalTherapyPatient.all
   end
 
   def show

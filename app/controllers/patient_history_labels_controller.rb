@@ -1,7 +1,7 @@
 class PatientHistoryLabelsController < ApplicationController
 
   def index
-    @patient_history_labels = PatientHistoryLabel.find(:all)
+    @patient_history_labels = PatientHistoryLabel.all
   end
 
   def show
