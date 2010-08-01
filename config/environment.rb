@@ -26,4 +26,4 @@ Rails::Initializer.run do |config|
 end
 
 # Configure default date format for the date picker
-CalendarDateSelect.format = :finnish
+#CalendarDateSelect.format = :finnish
