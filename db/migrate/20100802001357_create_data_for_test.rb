@@ -8,6 +8,9 @@ class CreateDataForTest < ActiveRecord::Migration
     HealthInsurance.create!(:name => 'SUS')
     HealthInsurance.create!(:name => 'Unimed')
     HealthInsurance.create!(:name => 'IP')
+    PatientHistoryLabel.create!(:label => 'Personal')
+    PatientHistoryLabel.create!(:label => 'Family')
+    PatientHistoryLabel.create!(:label => 'Medical')
   end
 
   def self.down

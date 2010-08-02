@@ -13,6 +13,7 @@ class Patient < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :addresses, :allow_destroy => true
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
+	accepts_nested_attributes_for :patient_histories, :allow_destroy => true
 	accepts_nested_attributes_for :telephones, :allow_destroy => true
 
 	validates_presence_of :record, :name, :cpf, :rg, :sex, :color, :birth_date, :profession, :city, :state, :country, :fathers_name, :mothers_name, :marital_status, :health_insurance

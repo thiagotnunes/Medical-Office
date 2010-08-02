@@ -192,6 +192,30 @@
         <% end %>
     <% end %>
   <% end %>
+  
+  <% if @patient.patient_histories.empty? %>
+    <tr>
+      <td colspan="2">
+        No histories
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td colspan="2">
+        Patient Histories:
+      </td>
+    </tr>
+    <% for patient_history in @patient.patient_histories %>
+      <tr>
+        <td>
+          History <%=h patient_history.patient_history_label.label %>
+        </td>
+        <td>
+          <%=h patient_history.history %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
 </table>
 <%= link_to 'Edit', edit_plastic_surgery_patient_path(@patient) %> |
 <%= link_to 'Back', plastic_surgery_patients_path %>

@@ -2,5 +2,13 @@
   <%= f.error_messages %>
   
   <%= render 'patients/personal_information', :f => f, :action => action %>
+  <%= render 'patients/history_information', :f => f, :action => action %>
+  <table>
+    <tr>
+      <td colspan="2">
+        <%= f.submit action %>
+      </td>
+    </tr>
+  </table>
   
 <% end %>
