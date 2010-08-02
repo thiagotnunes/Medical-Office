@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td>
-        Address <%= f.collection_select :address_label_id, AddressLabel.all, :id, :label %>
+        Address <%= f.collection_select :address_label_id, AddressLabel.all, :id, :label, :include_blank => true %>
       </td>
       <td>
         <%= f.label :complement %>

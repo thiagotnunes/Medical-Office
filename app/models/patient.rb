@@ -1,33 +1,42 @@
 class Patient < ActiveRecord::Base
 
 	belongs_to :health_insurance
-	has_many :telephones, :dependent => :destroy
-	has_many :evolutions, :dependent => :destroy
+
 	has_many :addresses, :dependent => :destroy
-	
-	has_one :patient_history
-	has_many :patient_pictures
+  has_many :evolutions, :dependent => :destroy
+	has_many :telephones, :dependent => :destroy
+		
 	has_one :clinical_information
-	has_many :patient_surgeries
+	has_one :patient_history
 	has_one :patient_therapy_information
+	has_many :patient_pictures
+	has_many :patient_surgeries
 
-	accepts_nested_attributes_for :telephones, :allow_destroy => true
-	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
 	accepts_nested_attributes_for :addresses, :allow_destroy => true
+	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
+	accepts_nested_attributes_for :telephones, :allow_destroy => true
 
-	validates_presence_of :name, :cpf, :rg, :sex, :birth_date, :first_appointment
-	validates_numericality_of :cpf, :rg
+	validates_presence_of :record, :name, :cpf, :rg, :sex, :color, :birth_date, :profession, :city, :state, :country, :fathers_name, :mothers_name, :marital_status, :health_insurance
+	validates_numericality_of :record, :cpf, :rg
+	validates_length_of :name, :within => 5..100
 	validates_length_of :cpf, :is => 11
 	validates_length_of :rg, :is => 10
-  validates_length_of :name, :within => 5..100
   validates_length_of :sex, :maximum => 10
+  validates_length_of :color, :maximum => 20
+  validates_length_of :profession, :maximum => 50
+  validates_length_of :city, :maximum => 100
+  validates_length_of :state, :maximum => 50
+  validates_length_of :country, :maximum => 100
+  validates_length_of :fathers_name, :within => 5..100
+  validates_length_of :mothers_name, :within => 5..100
+  validates_length_of :marital_status, :maximum => 50
   validates_length_of :health_insurance_number, :maximum => 50
 	validates_uniqueness_of :cpf, :rg
 	validates_associated :health_insurance, :telephones, :addresses
-  validate :birth_date_should_not_be_in_the_future
-  validate :first_appointment_should_not_be_in_the_future
-  validate :cpf_should_have_valid_format
-  validate :rg_should_have_valid_format
+  validate :should_not_have_birth_date_in_the_future
+  validate :should_not_have_first_appointment_in_the_future
+  validate :should_have_cpf_in_valid_format
+  validate :should_have_rg_in_valid_format
   validate :should_have_at_least_one_address
   validate :should_have_at_least_one_telephone
     
@@ -45,15 +54,15 @@ class Patient < ActiveRecord::Base
     end
   end
 
-  def birth_date_should_not_be_in_the_future
+  def should_not_have_birth_date_in_the_future
     errors.add(:birth_date, "can't be in the future") if birth_date != nil && birth_date > Date.today
   end
   
-  def first_appointment_should_not_be_in_the_future
+  def should_not_have_first_appointment_in_the_future
     errors.add(:first_appointment, "can't be in the future") if first_appointment != nil && first_appointment > Date.today
   end
-
-  def cpf_should_have_valid_format
+  
+  def should_have_cpf_in_valid_format
     return errors.add(:cpf, "is invalid") if cpf_is_repeated?
 
     # ----------------------------------------------------
@@ -69,7 +78,7 @@ class Patient < ActiveRecord::Base
     errors.add(:cpf, "is invalid") unless first_digit == cpf[9, 1].to_i && second_digit == cpf[10, 1].to_i
   end
 
-  def rg_should_have_valid_format
+  def should_have_rg_in_valid_format
     return errors.add(:rg, "is invalid") if rg_is_repeated?
   end
 

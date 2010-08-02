@@ -3,6 +3,8 @@ class AddColumnsToPatient < ActiveRecord::Migration
     # Personal
     add_column :patients, :record, :integer, :null => false, :default => 0
     # Name
+    # Cpf
+    # Rg
     # Sex
     add_column :patients, :color, :string, :null => false, :limit => 20, :default => ''
     # Birth date

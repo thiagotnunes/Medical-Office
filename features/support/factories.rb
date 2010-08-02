@@ -11,6 +11,7 @@ Factory.sequence :patient_history_label do |n|
 end
 
 Factory.define :patient do |p|
+  p.record Forgery::Basic.number
   p.name Forgery::Name.full_name
   p.cpf Forgery::Brazil.valid_cpf
   p.rg Forgery::Brazil.valid_rg
@@ -21,8 +22,8 @@ Factory.define :patient do |p|
   p.city Forgery::Address.city
   p.state Forgery::Address.state
   p.country Forgery::Address.country
-  p.fathers_name Forgery::Name.male_first_name
-  p.mothers_name Forgery::Name.female_first_name
+  p.fathers_name "#{Forgery::Name.male_first_name} #{Forgery::Name.last_name}"
+  p.mothers_name "#{Forgery::Name.female_first_name} #{Forgery::Name.last_name}"
   p.forwarded_by Forgery::Name.full_name
   p.marital_status Forgery::Personal.marital_status
   p.health_insurance_number Forgery::Basic.number

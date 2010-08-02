@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td>
-	      <%= f.collection_select :telephone_label_id, TelephoneLabel.all, :id, :label %>:
+	      <%= f.collection_select :telephone_label_id, TelephoneLabel.all, :id, :label, :include_blank => true %>:
       </td>
       <td>
 	      <%= f.text_field :number %>

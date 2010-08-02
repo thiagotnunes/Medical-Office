@@ -30,12 +30,16 @@ Feature: Manage Plastic Surgery Patients
       | Profession              | Programmer      |
       | City                    | Porto Alegre    | 
       | Country                 | Brazil          |
+	  | Fathers name            | Joao da Silva   |
+	  | Mothers name            | Maria da Silva  |
       | Marital status          | single          |
       | Health insurance number | 1234567890      | 
     And I select "Male" from "Sex"
     And I select "RS" from "State"
     And I select "SUS" from "Health insurance"
+	And I select "Residencial" from the "Address Label" of the "Address" 0 for the "Plastic Surgery Patient"
     And I fill in "Location" of the "Address" 0 with "Street xyz" for the "Plastic Surgery Patient"
+	And I select "Comercial" from the "Telephone Label" of the "Telephone" 0 for the "Plastic Surgery Patient"
     And I fill in "Number" of the "Telephone" 0 with "33233232" for the "Plastic Surgery Patient"
     And I press "Create"
     Then I should see "Patient was successfully created."
