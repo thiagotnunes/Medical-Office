@@ -3,7 +3,7 @@ class CreatePatientHistories < ActiveRecord::Migration
       create_table :patient_histories do |t|
         t.text :history
         
-        t.references :patient_history_labels
+        t.references :patient_history_label
         t.references :patient
         t.timestamps
       end 

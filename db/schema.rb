@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20100802025135) do
 
   create_table "patient_histories", :force => true do |t|
     t.text     "history"
-    t.integer  "patient_history_labels_id"
+    t.integer  "patient_history_label_id"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20100802025135) do
     t.string   "picture_file_name",    :limit => 250, :null => false
     t.string   "picture_content_type", :limit => 250, :null => false
     t.integer  "picture_file_size",                   :null => false
-    t.integer  "patients_id"
+    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

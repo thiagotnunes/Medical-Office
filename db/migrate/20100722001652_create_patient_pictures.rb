@@ -5,7 +5,7 @@ class CreatePatientPictures < ActiveRecord::Migration
   		t.string :picture_content_type, :limit => 250, :null => false
   		t.integer :picture_file_size, :null => false
   		
-      t.references :patients
+      t.references :patient
       t.timestamps
     end
   end
