@@ -9,7 +9,7 @@ describe Patient do
   it { should have_many(:addresses) }
   it { should have_many(:evolutions) }
   it { should have_many(:patient_histories) }
-  #it { should have_many(:patient_pictures) }
+  it { should have_many(:patient_pictures) }
   it { should have_many(:patient_surgeries) }
   it { should have_many(:telephones) }
 

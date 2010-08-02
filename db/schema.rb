@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100802001357) do
+ActiveRecord::Schema.define(:version => 20100802025135) do
 
   create_table "address_labels", :force => true do |t|
     t.string   "label",      :limit => 100, :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20100802001357) do
   end
 
   create_table "patient_clinical_informations", :force => true do |t|
-    t.string   "class",                      :limit => 100
+    t.string   "clazz",                      :limit => 100
     t.text     "appointment_reason",                        :null => false
     t.date     "injury_exists_from"
     t.string   "injury_side",                :limit => 10

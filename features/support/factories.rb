@@ -65,6 +65,57 @@ Factory.define :telephone do |t|
   t.telephone_label { |tl| tl.association(:telephone_label, :label => Factory.next(:telephone_label)) }
 end
 
+Factory.define :patient_history do |ph|
+  ph.history Forgery::LoremIpsum.text
+  ph.patient_history_label { |phl| phl.association(:patient_history_label) }
+end
+
+Factory.define :patient_clinical_information do |pch|
+  pch.clazz "Class"
+  pch.appointment_reason Forgery::LoremIpsum.text
+  pch.injury_exists_from Date.today
+  pch.injury_side "Right"
+  pch.injury_appraiser_physician Forgery::Name.full_name
+  pch.evolution_time Forgery::Basic.number
+  pch.physical_exam Forgery::LoremIpsum.text
+  pch.physical_exam_date Date.today
+  pch.diagnostics_hypothesis Forgery::LoremIpsum.text
+end
+
+Factory.define :patient_therapy_information do |pti|
+  pti.diagnosis "Diagnosis of the patient"
+  pti.injury_time Forgery::Basic.number
+  pti.injury_appraiser_physician Forgery::Name.full_name
+  pti.main_complaint Forgery::LoremIpsum.text
+  pti.disease_history Forgery::LoremIpsum.text
+  pti.impaired_limb "Left Arm"
+  pti.dominance Forgery::LoremIpsum.text
+  pti.adm Forgery::LoremIpsum.text
+  pti.fm Forgery::LoremIpsum.text
+  pti.sensibility Forgery::LoremIpsum.text
+  pti.aspect Forgery::LoremIpsum.text
+  pti.fo Forgery::LoremIpsum.text
+  pti.circumference Forgery::LoremIpsum.text
+  pti.avds Forgery::LoremIpsum.text
+  pti.dnpm Forgery::LoremIpsum.text
+end
+
+Factory.define :patient_surgery do |ps|
+  ps.evaluations_results Forgery::LoremIpsum.text
+  ps.indicated_conduct "Conduct"
+  ps.cid "1234567890"
+  ps.surgery_performed "Surgery"
+  ps.surgery_date Date.today
+  ps.surgery_performed_at "Hospital"
+  ps.surgery_anesthethist Forgery::Name.full_name
+  ps.surgery_description Forgery::LoremIpsum.text
+  ps.po_imediate_result "Result of the surgery"
+  ps.intercurrences Forgery::LoremIpsum.text
+  ps.pathology_material "Pathology material"
+  ps.pathology_result "Pathology result"
+  ps.diagnosis "Diagnosis"
+end
+
 Factory.define :patient_history_label do |ph|
   ph.label Factory.next(:patient_history_label)
 end

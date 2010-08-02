@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Evolution do
   
+  it { should belong_to(:patient) }
   it { should have_many(:evolution_pictures) }
   
   it { should validate_presence_of(:attendance_date) }
@@ -11,4 +12,5 @@ describe Evolution do
     evolution = Factory.build(:evolution)
     evolution.should be_valid
   end
+  
 end
