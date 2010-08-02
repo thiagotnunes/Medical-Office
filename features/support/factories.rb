@@ -10,8 +10,12 @@ Factory.sequence :patient_history_label do |n|
   "#{Forgery::Name.patient_history_label} #{n + (rand * 10)}"
 end
 
+Factory.sequence :patient_record do |n|
+  n
+end
+
 Factory.define :patient do |p|
-  p.record Forgery::Basic.number
+  p.record Factory.next(:patient_record)
   p.name Forgery::Name.full_name
   p.cpf Forgery::Brazil.valid_cpf
   p.rg Forgery::Brazil.valid_rg

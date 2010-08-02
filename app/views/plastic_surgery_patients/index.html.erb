@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+	<th>Record</th>
     <th>Name</th>
     <th>CPF</th>
     <th>RG</th>
@@ -10,6 +11,7 @@
 
 <% for patient in @patients %>
   <tr>
+		<td><%=h patient.record %></td>
 		<td><%=h patient.name %></td>
 		<td><%=h patient.cpf %></td>
 		<td><%=h patient.rg %></td>

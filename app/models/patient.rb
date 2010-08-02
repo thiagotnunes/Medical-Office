@@ -2,22 +2,23 @@ class Patient < ActiveRecord::Base
 
 	belongs_to :health_insurance
 
+  has_one :patient_clinical_information, :dependent => :destroy
+
 	has_many :addresses, :dependent => :destroy
   has_many :evolutions, :dependent => :destroy
+  has_many :patient_histories, :dependent => :destroy
+  has_many :patient_pictures, :dependent => :destroy
+	has_many :patient_surgeries, :dependent => :destroy
 	has_many :telephones, :dependent => :destroy
-		
-	has_one :clinical_information
-	has_one :patient_history
-	has_one :patient_therapy_information
-	has_many :patient_pictures
-	has_many :patient_surgeries
-
+	
 	accepts_nested_attributes_for :addresses, :allow_destroy => true
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
 	accepts_nested_attributes_for :telephones, :allow_destroy => true
 
 	validates_presence_of :record, :name, :cpf, :rg, :sex, :color, :birth_date, :profession, :city, :state, :country, :fathers_name, :mothers_name, :marital_status, :health_insurance
+	
 	validates_numericality_of :record, :cpf, :rg
+	
 	validates_length_of :name, :within => 5..100
 	validates_length_of :cpf, :is => 11
 	validates_length_of :rg, :is => 10
@@ -31,8 +32,11 @@ class Patient < ActiveRecord::Base
   validates_length_of :mothers_name, :within => 5..100
   validates_length_of :marital_status, :maximum => 50
   validates_length_of :health_insurance_number, :maximum => 50
+  
 	validates_uniqueness_of :cpf, :rg
+	
 	validates_associated :health_insurance, :telephones, :addresses
+	
   validate :should_not_have_birth_date_in_the_future
   validate :should_not_have_first_appointment_in_the_future
   validate :should_have_cpf_in_valid_format

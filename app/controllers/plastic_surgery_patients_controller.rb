@@ -10,6 +10,11 @@ class PlasticSurgeryPatientsController < ApplicationController
 
   def new
     @patient = PlasticSurgeryPatient.new
+    
+    # Calculates the latest record number for insertion
+    record = PlasticSurgeryPatient.maximum(:record)
+    @patient.record = record.nil? ? 0 : record + 1
+    
     @patient.telephones.build
     @patient.addresses.build
   end
