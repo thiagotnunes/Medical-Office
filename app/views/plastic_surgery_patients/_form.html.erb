@@ -6,6 +6,7 @@
   <% f.fields_for :patient_clinical_information do |builder| %>
   	<%= render 'patients/patient_clinical_information', :f => builder %>
   <% end %>
+  <%= render 'patients/patient_surgery_information', :f => f %>
   <%= render 'patients/evolution_information', :f => f %>
   <table>
     <tr>

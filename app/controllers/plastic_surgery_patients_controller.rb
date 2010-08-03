@@ -17,6 +17,7 @@ class PlasticSurgeryPatientsController < ApplicationController
     
     @patient.addresses.build
     @patient.patient_clinical_information = PatientClinicalInformation.new
+    @patient.patient_surgeries.build
     @patient.telephones.build
   end
 

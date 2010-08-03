@@ -1,0 +1,106 @@
+<table>
+  <tr>
+    <td>
+      <%= f.label :evaluations_results %>
+    </td>
+    <td>
+      <%= f.text_area :evaluations_results, :rows => 3 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :indicated_conduct %>
+    </td>
+    <td>
+      <%= f.text_field :indicated_conduct %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :cid %>
+    </td>
+    <td>
+      <%= f.text_field :cid %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :surgery_performed %>
+    </td>
+    <td>
+      <%= f.text_area :surgery_performed, :rows => 3 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :surgery_date %>
+    </td>
+    <td>
+      <%= f.calendar_date_select :surgery_date, :year_range => 150.years.ago..0.years.ago %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :surgery_performed_at %>
+    </td>
+    <td>
+      <%= f.text_field :surgery_performed_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :surgery_anesthethist %>
+    </td>
+    <td>
+      <%= f.text_field :surgery_anesthethist %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :surgery_description %>
+    </td>
+    <td>
+      <%= f.text_area :surgery_description, :rows => 3 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :po_imediate_result %>
+    </td>
+    <td>
+      <%= f.text_field :po_imediate_result %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :intercurrences %>
+    </td>
+    <td>
+      <%= f.text_area :intercurrences, :rows => 3 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :pathology_material %>
+    </td>
+    <td>
+      <%= f.text_field :pathology_material %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :pathology_result %>
+    </td>
+    <td>
+      <%= f.text_field :pathology_result %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :diagnosis %>
+    </td>
+    <td>
+      <%= f.text_field :diagnosis %>
+    </td>
+  </tr>
+</table>

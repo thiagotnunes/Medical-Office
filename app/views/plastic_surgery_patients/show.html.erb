@@ -176,39 +176,6 @@
     <% end %>
   <% end %>
 
-  <% if @patient.evolutions.empty? %>
-    <tr>
-      <td colspan="2">
-        No evolutions
-      </td>
-    </tr>
-  <% else %>
-    <tr>
-      <td colspan="2">
-        Evolutions:
-      </td>
-    </tr>
-    <% for evolution in @patient.evolutions %>
-      <tr>
-        <td>
-          On <%=h evolution.attendance_date %>
-        </td>
-        <td>
-          <%=h evolution.description %>
-        </td>
-      </tr>
-      <% unless evolution.evolution_pictures.empty? %>
-        <tr> 
-          <td colspan="2">
-            <% for evolution_picture in evolution.evolution_pictures %>
-              <%= image_tag evolution_picture.picture.url(:thumb) %> 
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-    <% end %>
-  <% end %>
-  
   <% if @patient.patient_histories.empty? %>
     <tr>
       <td colspan="2">
@@ -318,6 +285,159 @@
         <%=h patient_clinical_information.diagnostics_hypothesis %>
       </td>
     </tr>
+    
+    <% if @patient.patient_surgeries.empty? %>
+      <tr>
+        <td colspan="2">
+          No surgeries
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td colspan="2">
+          Patient Surgeries:
+        </td>
+      </tr>
+      <% for patient_surgery in @patient.patient_surgeries %>
+        <tr>
+          <td>
+            Evaluations Results
+          </td>
+          <td>
+            <%=h patient_surgery.evaluations_results %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Indicated Conduct
+          </td>
+          <td>
+            <%=h patient_surgery.indicated_conduct %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            CID
+          </td>
+          <td>
+            <%=h patient_surgery.cid %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Surgery performed
+          </td>
+          <td>
+            <%=h patient_surgery.surgery_performed %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Surgery date
+          </td>
+          <td>
+            <%=h patient_surgery.surgery_date %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Surgery performed at
+          </td>
+          <td>
+            <%=h patient_surgery.surgery_performed_at %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Surgery anesthethist
+          </td>
+          <td>
+            <%=h patient_surgery.surgery_anesthethist %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Surgery description
+          </td>
+          <td>
+            <%=h patient_surgery.surgery_description %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PO imediate result
+          </td>
+          <td>
+            <%=h patient_surgery.po_imediate_result %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Intercurrences
+          </td>
+          <td>
+            <%=h patient_surgery.intercurrences %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Pathology material
+          </td>
+          <td>
+            <%=h patient_surgery.pathology_material %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Pathology result
+          </td>
+          <td>
+            <%=h patient_surgery.pathology_result %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Diagnosis
+          </td>
+          <td>
+            <%=h patient_surgery.diagnosis %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <% if @patient.evolutions.empty? %>
+    <tr>
+      <td colspan="2">
+        No evolutions
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td colspan="2">
+        Evolutions:
+      </td>
+    </tr>
+    <% for evolution in @patient.evolutions %>
+      <tr>
+        <td>
+          On <%=h evolution.attendance_date %>
+        </td>
+        <td>
+          <%=h evolution.description %>
+        </td>
+      </tr>
+      <% unless evolution.evolution_pictures.empty? %>
+        <tr> 
+          <td colspan="2">
+            <% for evolution_picture in evolution.evolution_pictures %>
+              <%= image_tag evolution_picture.picture.url(:thumb) %> 
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    <% end %>
   <% end %>
 </table>
 <br />
