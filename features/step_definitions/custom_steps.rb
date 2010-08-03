@@ -8,6 +8,7 @@ When /^I fill in the following of the "([^"]*)" (\d+) for the "([^"]*)":$/ do |f
     field = field.gsub(" ", "_").downcase.pluralize
     table.rows_hash.each do |nested_field, value|
       name = "#{clazz}_" + field + "_attributes_#{number}_#{nested_field.gsub(" ", "_").downcase}"
+      puts name + value
       When %{I fill in "#{name}" with "#{value}"}
     end
 end
