@@ -3,60 +3,81 @@
     Personal Information
   </legend>
   
-  <%= f.label :record %>
-  <%= f.text_field :record %>
+  <ol>
+    <li>
+      <%= f.label :record, 'Record <em>*</em>' %>
+      <%= f.text_field :record %>
+    </li>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :sex %>
+      <%= f.select :sex, ["", "Male", "Female"] %>
+    </li>
+    <li>
+      <%= f.label :cpf %>
+      <%= f.text_field :cpf %>
+    </li>
+    <li>
+      <%= f.label :rg %>
+      <%= f.text_field :rg %>
+    </li>
   
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <!--Addresses <br /-->
+  <%#= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses %>
   
-  <%= f.label :sex %>
-  <%= f.select :sex, ["", "Male", "Female"] %>
+  <!--Telephones <br /-->
+  <%#= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
   
-  <%= f.label :cpf %>
-  <%= f.text_field :cpf %>
-  
-  <%= f.label :rg %>
-  <%= f.text_field :rg %>
-  
-  Addresses <br />
-  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses %>
-  
-  Telephones <br />
-  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
-  
-  <%= f.label :color %>
-  <%= f.text_field :color %>
-  
-  <%= f.label :birth_date %>
-  <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
-  
-  <%= f.label :profession %>
-  <%= f.text_field :profession %>
-  
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  
-  <%= f.label :state %>
-  <%= f.select :state, ["", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"] %>
-  
-  <%= f.label :country %>
-  <%= f.text_field :country %>
-  
-  <%= f.label :fathers_name %>
-  <%= f.text_field :fathers_name %>
-  
-  <%= f.label :mothers_name %>
-  <%= f.text_field :mothers_name %>
-  
-  <%= f.label :forwarded_by %>
-  <%= f.text_field :forwarded_by %>
-  
-  <%= f.label :marital_status %>
-  <%= f.text_field :marital_status %>
-  
-  <%= f.label :health_insurance_id %>
-  <%= f.collection_select :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
-  
-  <%= f.label :health_insurance_number %><br />
-  <%= f.text_field :health_insurance_number %>
+    <li>
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+    </li>
+    <li>
+      <%= f.label :birth_date %>
+      <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
+    </li>
+    <li>
+      <%= f.label :profession %>
+      <%= f.text_field :profession %>
+    </li>
+    <li>
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </li>
+    <li>
+      <%= f.label :state %>
+      <%= f.select :state, ["", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"] %>
+    </li>
+    <li>
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </li>
+    <li>
+      <%= f.label :fathers_name %>
+      <%= f.text_field :fathers_name %>
+    </li>
+    <li>
+      <%= f.label :mothers_name %>
+      <%= f.text_field :mothers_name %>
+    </li>
+    <li>
+      <%= f.label :forwarded_by %>
+      <%= f.text_field :forwarded_by %>
+    </li>
+    <li>
+      <%= f.label :marital_status %>
+      <%= f.text_field :marital_status %>
+    </li>
+    <li>
+      <%= f.label :health_insurance_id %>
+      <%= f.collection_select :health_insurance_id, HealthInsurance.all, :id, :name, :include_blank => true %>
+    </li>
+    <li>
+      <%= f.label :health_insurance_number %>
+      <%= f.text_field :health_insurance_number %>
+    </li>
+  </ol>
 </fieldset>
