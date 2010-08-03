@@ -1,24 +1,10 @@
 <div class="fields">
-  <table>
-    <tr>
-      <td>
-        Address <%= f.collection_select :address_label_id, AddressLabel.all, :id, :label, :include_blank => true %>
-      </td>
-      <td>
-        <%= f.label :complement %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= f.text_field :location %>
-      </td>
-      <td>
-        <%= f.text_field :complement %>
-      </td>
-      <td>
-	      <%= f.hidden_field :_destroy %>
-	      <%= link_to_remove_fields "X", f %>
-      </td>
-    </tr>
-  </table>
+  <%= f.label :location, "Address #{f.collection_select :address_label_id, AddressLabel.all, :id, :label, :include_blank => true}" %>
+  <%= f.text_field :location %>
+  
+  <%= f.label :complement %>
+  <%= f.text_field :complement %>
+  
+  <%= f.hidden_field :_destroy %>
+	<%= link_to_remove_fields "X", f %>
 </div>

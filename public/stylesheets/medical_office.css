@@ -1,0 +1,50 @@
+/* <strong class="highlight">CSS</strong> Document */
+ 
+input {
+    /*we will first set the border styles.*/
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999999;
+    /*we are now going to add in the shadow image that we created earlier*/
+    background-image: url(back_field.gif);
+    background-repeat: repeat-x;
+    /*I am going to add some text formatting of my own*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    width: 300px;
+    height: 15px;
+}
+
+label {    
+    float: left;    
+    width: 10em;    
+    margin-right: 1em;    
+    text-align: right;    
+}
+ 
+.outer_fieldset {
+    width: 700px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999999;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F1F1F1;
+}
+
+.outer_fieldset:hover {
+    border-color: #222222;
+}
+
+.outer_legend {
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #777777;
+    font-weight: bold;
+}
+
+.field_column {
+    text-align: right;
+    
+}
