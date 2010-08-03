@@ -10,6 +10,7 @@ Feature: Manage Plastic Surgery Patients
 	  And I should see "22233366638"
 	  And I should see "2080057852"
 
+  @current
   Scenario: Create a Valid Plastic Surgery Patient
     Given 0 plastic_surgery_patients exist
     And a health_insurance exists with name: "SUS"
@@ -30,17 +31,27 @@ Feature: Manage Plastic Surgery Patients
       | Profession              | Programmer      |
       | City                    | Porto Alegre    | 
       | Country                 | Brazil          |
-	  | Fathers name            | Joao da Silva   |
-	  | Mothers name            | Maria da Silva  |
+	    | Fathers name            | Joao da Silva   |
+	    | Mothers name            | Maria da Silva  |
       | Marital status          | single          |
-      | Health insurance number | 1234567890      | 
+      | Health insurance number | 0001112223      | 
     And I select "Male" from "Sex"
     And I select "RS" from "State"
     And I select "SUS" from "Health insurance"
-	And I select "Residencial" from the "Address Label" of the "Address" 0 for the "Plastic Surgery Patient"
+	  And I select "Residencial" from the "Address Label" of the "Address" 0 for the "Plastic Surgery Patient"
     And I fill in "Location" of the "Address" 0 with "Street xyz" for the "Plastic Surgery Patient"
-	And I select "Comercial" from the "Telephone Label" of the "Telephone" 0 for the "Plastic Surgery Patient"
+	  And I select "Comercial" from the "Telephone Label" of the "Telephone" 0 for the "Plastic Surgery Patient"
     And I fill in "Number" of the "Telephone" 0 with "33233232" for the "Plastic Surgery Patient"
+    And I fill in the following of the "Patient Clinical Information" for the "Plastic Surgery Patient":
+      | Clazz | First Class |
+      | Appointment reason | Checkup |
+      | Injury exists from | 10.09.1984 |
+      | Injury appraiser physician | Jorge da Silva |
+      | Evolution time | 5 days |
+      | Physical exam | Stress test |
+      | Physical exam date | 10.09.2010 |
+      | Diagnostics hypothesis | Nothing yet |
+    And I choose "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
     And I press "Create"
     Then I should see "Patient was successfully created."
     And I should see "Thiago da Silva"
@@ -52,8 +63,23 @@ Feature: Manage Plastic Surgery Patients
     And I should see "Porto Alegre"
     And I should see "RS"
     And I should see "Brazil"
+    And I should see "Joao da Silva"
+    And I should see "Maria da Silva"
+    And I should see "single"
     And I should see "SUS"
-    And I should see "123456"
+    And I should see "0001112223"
+    And I should see "Residencial"
+    And I should see "Street xyz"
+    And I should see "Comercial"
+    And I should see "33233232"
+    And I should see "First Class"
+    And I should see "Checkup"
+    And I should see "Jorge da Silva"
+    And I should see "5 days"
+    And I should see "Stress test"
+    And I should see "Nothing yet"
+    And I should see "Right"
+    And show me the page
     And a plastic_surgery_patient should exist
 
   Scenario: Try to Create an Invalid Plastic Surgery Patient

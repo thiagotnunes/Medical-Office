@@ -113,6 +113,22 @@
   </tr>
   <tr>
     <td>
+      Fathers name:
+    </td>
+    <td>
+      <%=h @patient.fathers_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mothers name:
+    </td>
+    <td>
+      <%=h @patient.mothers_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
       Marital status:
     </td>
     <td>
@@ -216,6 +232,94 @@
       </tr>
     <% end %>
   <% end %>
+  
+  <% if @patient.patient_clinical_information.nil? %>
+    <tr>
+      <td colspan="2">
+        No patient clinical information
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td colspan="2">
+        Patient Clinical Information:
+      </td>
+    </tr>
+    <% patient_clinical_information = @patient.patient_clinical_information %>
+    <tr>
+      <td>
+        Clazz:
+      </td>
+      <td>
+        <%=h patient_clinical_information.clazz %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Appointment reason:
+      </td>
+      <td>
+        <%=h patient_clinical_information.appointment_reason %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Injury exists from:
+      </td>
+      <td>
+        <%=h patient_clinical_information.injury_exists_from %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Injury side:
+      </td>
+      <td>
+        <%=h patient_clinical_information.injury_side %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Injury appraiser physician:
+      </td>
+      <td>
+        <%=h patient_clinical_information.injury_appraiser_physician %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Evolution time:
+      </td>
+      <td>
+        <%=h patient_clinical_information.evolution_time %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Physical exam:
+      </td>
+      <td>
+        <%=h patient_clinical_information.physical_exam %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Physical exam date:
+      </td>
+      <td>
+        <%=h patient_clinical_information.physical_exam_date %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Diagnostics hypothesis:
+      </td>
+      <td>
+        <%=h patient_clinical_information.diagnostics_hypothesis %>
+      </td>
+    </tr>
+  <% end %>
 </table>
+<br />
 <%= link_to 'Edit', edit_plastic_surgery_patient_path(@patient) %> |
 <%= link_to 'Back', plastic_surgery_patients_path %>
