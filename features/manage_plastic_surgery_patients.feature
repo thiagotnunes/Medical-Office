@@ -79,7 +79,6 @@ Feature: Manage Plastic Surgery Patients
     And I should see "Stress test"
     And I should see "Nothing yet"
     And I should see "Right"
-    And show me the page
     And a plastic_surgery_patient should exist
 
   Scenario: Try to Create an Invalid Plastic Surgery Patient
@@ -132,6 +131,16 @@ Feature: Manage Plastic Surgery Patients
     And I select "SUS" from "Health insurance"
     And I fill in "Location" of the "Address" 0 with "Street xyz" for the "Plastic Surgery Patient"
     And I fill in "Number" of the "Telephone" 0 with "33233232" for the "Plastic Surgery Patient"
+    And I fill in the following of the "Patient Clinical Information" for the "Plastic Surgery Patient":
+      | Clazz | First Class |
+      | Appointment reason | Checkup |
+      | Injury exists from | 10.09.1984 |
+      | Injury appraiser physician | Jorge da Silva |
+      | Evolution time | 5 days |
+      | Physical exam | Stress test |
+      | Physical exam date | 10.09.2010 |
+      | Diagnostics hypothesis | Nothing yet |
+    And I choose "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
     And I press "Update"
     Then I should see "Patient was successfully updated."
     And I should see "Thiago da Silva"
@@ -148,6 +157,13 @@ Feature: Manage Plastic Surgery Patients
     And I should see "1234567891"
     And I should see "Street xyz"
     And I should see "33233232"
+    And I should see "First Class"
+    And I should see "Checkup"
+    And I should see "Jorge da Silva"
+    And I should see "5 days"
+    And I should see "Stress test"
+    And I should see "Nothing yet"
+    And I should see "Right"
     And a plastic_surgery_patient should exist
 
   Scenario: Destroy a Plastic Surgery Patient
