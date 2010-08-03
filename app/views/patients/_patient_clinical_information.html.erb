@@ -1,0 +1,75 @@
+<table>
+	<tr>
+		<td>
+			<%= f.label :clazz %>
+		</td>
+		<td>
+			<%= f.text_field :clazz %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :appointment_reason %>
+		</td>
+		<td>
+			<%= f.text_field :appointment_reason %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :injury_exists_from %>
+		</td>
+		<td>
+			<%= f.calendar_date_select :injury_exists_from, :year_range => 150.years.ago..0.years.ago %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :injury_side %>
+		</td>
+		<td>
+			<%= f.radio_button :injury_side, 'R' %> Right
+			<%= f.radio_button :injury_side, 'L' %> Left
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :injury_appraiser_physician %>
+		</td>
+		<td>
+			<%= f.text_field :injury_appraiser_physician %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :evolution_time %>
+		</td>
+		<td>
+			<%= f.text_field :evolution_time %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :physical_exam %>
+		</td>
+		<td>
+			<%= f.text_area :physical_exam, :rows => 3 %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :physical_exam_date %>
+		</td>
+		<td>
+			<%= f.calendar_date_select :physical_exam_date, :year_range => 150.years.ago..0.years.ago %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label :diagnostics_hypothesis %>
+		</td>
+		<td>
+			<%= f.text_area :diagnostics_hypothesis, :rows => 3 %>
+		</td>
+	</tr>
+</table>

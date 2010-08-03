@@ -15,8 +15,9 @@ class PlasticSurgeryPatientsController < ApplicationController
     record = PlasticSurgeryPatient.maximum(:record)
     @patient.record = record.nil? ? 0 : record + 1
     
-    @patient.telephones.build
     @patient.addresses.build
+    @patient.patient_clinical_information = PatientClinicalInformation.new
+    @patient.telephones.build
   end
 
   def edit

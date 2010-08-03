@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td>
+      <%= f.label :first_appointment %>
+    </td>
+    <td>
+   <%= f.calendar_date_select :first_appointment, :year_range => 30.years.ago..0.years.ago%>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td colspan="2">
+      Histories <br />
+      <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_histories %>
+    </td>
+  </tr>
+</table>

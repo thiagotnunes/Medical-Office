@@ -1,8 +1,12 @@
 <% form_for(@patient, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
   
-  <%= render 'patients/personal_information', :f => f, :action => action %>
-  <%= render 'patients/history_information', :f => f, :action => action %>
+  <%= render 'patients/personal_information', :f => f %>
+  <%= render 'patients/patient_history_information', :f => f %>
+  <% f.fields_for :patient_clinical_information do |builder| %>
+  	<%= render 'patients/patient_clinical_information', :f => builder %>
+  <% end %>
+  <%= render 'patients/evolution_information', :f => f %>
   <table>
     <tr>
       <td colspan="2">
