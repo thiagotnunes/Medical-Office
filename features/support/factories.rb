@@ -39,6 +39,9 @@ Factory.define :patient do |p|
   p.telephones do
     [Factory.build(:telephone)]
   end
+  p.patient_surgeries do
+    [Factory.build(:patient_surgery)]
+  end
   p.association :patient_clinical_information, :factory => :patient_clinical_information
 end
 

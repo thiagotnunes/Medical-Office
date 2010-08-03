@@ -10,7 +10,6 @@ Feature: Manage Plastic Surgery Patients
 	  And I should see "22233366638"
 	  And I should see "2080057852"
 
-  @current
   Scenario: Create a Valid Plastic Surgery Patient
     Given 0 plastic_surgery_patients exist
     And a health_insurance exists with name: "SUS"
@@ -164,11 +163,26 @@ Feature: Manage Plastic Surgery Patients
       | Injury appraiser physician | Jorge da Silva |
       | Evolution time | 5 days |
       | Physical exam | Stress test |
-      | Physical exam date | 10.09.2010 |
+      | Physical exam date | 10.09.2009 |
       | Diagnostics hypothesis | Nothing yet |
     And I choose "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
-    And I press "Update"
-    Then I should see "Patient was successfully updated."
+    And I fill in the following of the "Patient Surgery" 0 for the "Plastic Surgery Patient":
+      | Evaluations results | bruises |
+      | Indicated conduct | surgery |
+      | CID | 1234 |
+      | Surgery performed | Special Surgery |
+      | Surgery date | 10.09.2009 |
+      | Surgery performed at | Hospital |
+      | Surgery anesthethist | Jose da Silva |
+      | Surgery description | It went well |
+      | PO imediate result | ok |
+      | Intercurrences | No intercurrences |
+      | Pathology material | No pathology material |
+      | Pathology result | No pathology result |
+      | Diagnosis | Disease |
+    #And I press "Update"
+    Then show me the page 
+    And I should see "Patient was successfully updated."
     And I should see "Thiago da Silva"
     And I should see "Male"
     And I should see "22233366638"
@@ -190,6 +204,18 @@ Feature: Manage Plastic Surgery Patients
     And I should see "Stress test"
     And I should see "Nothing yet"
     And I should see "Right"
+    And I should see "bruises"
+    And I should see "surgery"
+    And I should see "1234"
+    And I should see "Special Surgery"
+    And I should see "Hospital"
+    And I should see "Jose da Silva"
+    And I should see "It went well"
+    And I should see "ok"
+    And I should see "No intercurrences"
+    And I should see "No pathology material"
+    And I should see "No pathology result"
+    And I should see "Disease"
     And a plastic_surgery_patient should exist
 
   Scenario: Destroy a Plastic Surgery Patient

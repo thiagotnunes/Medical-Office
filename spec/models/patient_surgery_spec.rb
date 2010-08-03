@@ -18,6 +18,11 @@ describe PatientSurgery do
   it { should ensure_length_of(:pathology_result).is_at_most(250) }
   it { should ensure_length_of(:diagnosis).is_at_most(250) }
   
+  it "should be invalid patient surgery with a surgery date on the future" do
+    patient_surgery = Factory.build(:patient_surgery, :surgery_date => Date.today + 1)
+    patient_surgery.should_not be_valid
+  end
+  
   it "should be valid patient surgery with valid attributes" do
     patient_surgery = Factory.build(:patient_surgery)
     patient_surgery.should be_valid

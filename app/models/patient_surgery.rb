@@ -13,4 +13,10 @@ class PatientSurgery < ActiveRecord::Base
   validates_length_of :pathology_result, :maximum => 250
   validates_length_of :diagnosis, :maximum => 250
   
+  validate :should_not_have_surgery_date_in_the_future
+  
+  def should_not_have_surgery_date_in_the_future
+    errors.add(:surgery_date, "can't be in the future") if surgery_date != nil && surgery_date > Date.today
+  end
+  
 end
