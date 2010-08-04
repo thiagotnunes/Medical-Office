@@ -24,13 +24,12 @@
       <%= f.label :rg, 'Rg <em>*</em>' %>
       <%= f.text_field :rg %>
     </li>
-  
-  <!--Addresses <br /-->
-  <%#= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses %>
-  
-  <!--Telephones <br /-->
-  <%#= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones %>
-  
+  	<li>
+  		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses, :render_remove_button => false %>
+	</li>
+	<li>
+		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones, :render_remove_button => false %>
+    </li>
     <li>
       <%= f.label :color, 'Color <em>*</em>' %>
       <%= f.text_field :color %>

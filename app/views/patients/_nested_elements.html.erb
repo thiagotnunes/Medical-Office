@@ -1,6 +1,7 @@
+<% render_remove_button = true unless defined? render_remove_button %>
 <% f.fields_for element do |builder| %>
-	<%= render "#{prefix}/#{element.to_s.singularize}", :f => builder %>
+	<%= render "#{prefix}/#{element.to_s.singularize}", :f => builder, :render_remove_button => render_remove_button %>
 <% end %>
-<p>
+<div class="div_add">
 	<%= link_to_add_fields "Add #{element.to_s.singularize.gsub('_', ' ')}", f, prefix, element %>
-</p>
+</div>
