@@ -1,19 +1,22 @@
 <% form_for(@patient, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
   
-  <%= render 'patients/personal_information', :f => f %>
-  <%= render 'patients/patient_history_information', :f => f %>
-  <% f.fields_for :patient_clinical_information do |builder| %>
-  	<%= render 'patients/patient_clinical_information', :f => builder %>
-  <% end %>
-  <%= render 'patients/patient_surgery_information', :f => f %>
-  <%= render 'patients/evolution_information', :f => f %>
-  <table>
-    <tr>
-      <td colspan="2">
-        <%= f.submit action %>
-      </td>
-    </tr>
-  </table>
+  <div id="divPersonalInformation">
+    <%= render 'patients/personal_information', :f => f %>
+  </div>
+  <div id="divPatientHistoryInformation">
+    <%= render 'patients/patient_history_information', :f => f %>
+  </div>
+  <div id="divPatientClinicalInformation">
+    <% f.fields_for :patient_clinical_information do |builder| %>
+    	<%= render 'patients/patient_clinical_information', :f => builder %>
+    <% end %>
+  </div>
+  <div id="divPatientSurgeryInformation">
+    <%= render 'patients/patient_surgery_information', :f => f %>
+  </div>
+  <div id="divEvolutionInformation">
+    <%= render 'patients/evolution_information', :f => f %>
+  </div>
   
 <% end %>

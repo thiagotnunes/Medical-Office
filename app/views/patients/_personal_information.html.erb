@@ -26,8 +26,8 @@
     </li>
   	<li>
   		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses, :render_remove_button => false %>
-	</li>
-	<li>
+	  </li>
+	  <li>
 		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones, :render_remove_button => false %>
     </li>
     <li>
@@ -78,5 +78,8 @@
       <%= f.label :health_insurance_number, 'Health insurance number <em>*</em>' %>
       <%= f.text_field :health_insurance_number %>
     </li>
+    <div class="div_previous_next">
+      <%= link_to_function("Next", "link_to_next()") %>
+    </div>
   </ol>
 </fieldset>

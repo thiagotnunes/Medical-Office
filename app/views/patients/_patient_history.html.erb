@@ -1,16 +1,16 @@
 <div class="fields">
-  <table>
-    <tr>
-      <td>
-	      <%= f.collection_select :patient_history_label_id, PatientHistoryLabel.all, :id, :label, :include_blank => true %>:
-      </td>
-      <td>
-	      <%= f.text_area :history, :rows => 3 %>
-      </td>
-      <td>
-	      <%= f.hidden_field :_destroy %>
-	      <%= link_to_remove_fields "X", f %>
-      </td>
-    </tr>
-  </table>
-</span>
+  <li>
+    <%= f.label :patient_history_label_id, 'History <em>*</em>'%>
+    <%= f.collection_select :patient_history_label_id, PatientHistoryLabel.all, :id, :label, :include_blank => true %>
+  </li>
+  <li>
+    <%= f.label :history, 'Description <em>*</em>'%>
+    <%= f.text_area :history, :rows => 3 %>
+  </li>
+  <% if render_remove_button %>
+		<div class="div_remove">
+      <%= f.hidden_field :_destroy %>
+      <%= link_to_remove_fields "Remove history", f %>
+    </div>
+  <% end %>
+</div>
