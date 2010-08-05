@@ -16,6 +16,8 @@ Rails::Initializer.run do |config|
   config.gem 'pickle'
   config.gem 'calendar_date_select'
   config.gem 'formtastic'
+  config.gem 'iso-3166-country-select'
+  config.gem 'validation-reflection'
 
   config.time_zone = 'UTC'
 

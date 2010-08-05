@@ -1,15 +1,3 @@
-<fieldset class="outer_fieldset">
-  <legend class="outer_legend">
-    Surgeries
-  </legend>
-  <ol>
-    <li>
-      <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_surgeries %>
-    </li>
-    <div class="div_previous_next">
-      <%= link_to_function("Previous", "link_to_previous()") %>
-       - 
-      <%= link_to_function("Next", "link_to_next()") %>
-    </div>
-  </ol>
-</fieldset>
+<% f.inputs "Surgeries" do %>
+  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_surgeries %>
+<% end %>

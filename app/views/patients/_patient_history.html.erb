@@ -1,12 +1,6 @@
 <div class="fields">
-  <li>
-    <%= f.label :patient_history_label_id, 'History <em>*</em>'%>
-    <%= f.collection_select :patient_history_label_id, PatientHistoryLabel.all, :id, :label, :include_blank => true %>
-  </li>
-  <li>
-    <%= f.label :history, 'Description <em>*</em>'%>
-    <%= f.text_area :history, :rows => 3 %>
-  </li>
+  <%= f.input :patient_history_label_id, :collection => PatientHistoryLabel.all, :label_method => :label, :include_blank => true %>
+  <%= f.input :history %>
   <% if render_remove_button %>
 		<div class="div_remove">
       <%= f.hidden_field :_destroy %>

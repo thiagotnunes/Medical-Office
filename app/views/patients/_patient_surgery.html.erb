@@ -1,56 +1,20 @@
 <div class="fields">
-  <li>
-    <%= f.label :evaluations_results %>
-    <%= f.text_area :evaluations_results, :rows => 3 %>
-  </li>
-  <li>
-    <%= f.label :indicated_conduct %>
-    <%= f.text_field :indicated_conduct %>
-  </li>
-  <li>
-    <%= f.label :cid %>
-    <%= f.text_field :cid %>
-  </li>
-  <li>
-    <%= f.label :surgery_performed %>
-    <%= f.text_area :surgery_performed, :rows => 3 %>
-  </li>
-  <li>
-    <%= f.label :surgery_date %>
-    <%= f.calendar_date_select :surgery_date, :year_range => 150.years.ago..0.years.ago %>
-  </li>
-  <li>
-    <%= f.label :surgery_performed_at %>
-    <%= f.text_field :surgery_performed_at %>
-  </li>
-  <li>
-    <%= f.label :surgery_anesthethist %>
-    <%= f.text_field :surgery_anesthethist %>
-  </li>
-  <li>
-    <%= f.label :surgery_description %>
-    <%= f.text_area :surgery_description, :rows => 3 %>
-  </li>
-  <li>
-    <%= f.label :po_imediate_result %>
-    <%= f.text_field :po_imediate_result %>
-  </li>
-  <li>
-    <%= f.label :intercurrences %>
-    <%= f.text_area :intercurrences, :rows => 3 %>
-  </li>
-  <li>
-    <%= f.label :pathology_material %>
-    <%= f.text_field :pathology_material %>
-  </li>
-  <li>
-    <%= f.label :pathology_result %>
-    <%= f.text_field :pathology_result %>
-  </li>
-  <li>
-    <%= f.label :diagnosis %>
-    <%= f.text_field :diagnosis %>
-  </li>
+  <%= f.input :evaluations_results %>
+  <%= f.input :indicated_conduct %>
+  <%= f.input :cid %>
+  <%= f.input :surgery_performed %>
+  
+  <%= f.label :surgery_date %>
+  <%= f.calendar_date_select :surgery_date, :year_range => 150.years.ago..0.years.ago %>
+
+  <%= f.input :surgery_performed_at %>
+  <%= f.input :surgery_anesthethist %>
+  <%= f.input :surgery_description %>
+  <%= f.input :po_imediate_result %>
+  <%= f.input :intercurrences %>
+  <%= f.input :pathology_material %>
+  <%= f.input :pathology_result %>
+  <%= f.input :diagnosis %>
   <% if render_remove_button %>
 		<div class="div_remove">
       <%= f.hidden_field :_destroy %>

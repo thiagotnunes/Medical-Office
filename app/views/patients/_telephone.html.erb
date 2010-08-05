@@ -1,12 +1,6 @@
 <div class="fields">
-  <li>
-	<%= f.label :telephone_label_id, 'Telephone <em>*</em>' %>
-	<%= f.collection_select :telephone_label_id, TelephoneLabel.all, :id, :label, :include_blank => true %>
-  </li>
-  <li>
-	<%= f.label :number, 'Number <em>*</em>' %>
-    <%= f.text_field :number %>
-  </li>
+	<%= f.input :telephone_label_id, :collection => TelephoneLabel.all, :include_blank => true, :label_method => :label %>
+	<%= f.input :number %>
   <% if render_remove_button %>
 	<div class="div_remove">
   		<%= f.hidden_field :_destroy %>

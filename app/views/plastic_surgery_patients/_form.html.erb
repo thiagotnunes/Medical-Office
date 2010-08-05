@@ -1,21 +1,9 @@
 <% semantic_form_for(@patient, :html => { :multipart => true }) do |f| %>
   
-  <div id="divPersonalInformation">
-    <%= render 'patients/personal_information', :f => f, :action => action %>
-  </div>
-  <div id="divPatientHistoryInformation">
-    <%#= render 'patients/patient_history_information', :f => f, :action => action %>
-  </div>
-  <div id="divPatientClinicalInformation">
-    <% f.fields_for :patient_clinical_information do |builder| %>
-    	<%#= render 'patients/patient_clinical_information', :f => builder, :action => action %>
-    <% end %>
-  </div>
-  <div id="divPatientSurgeryInformation">
-    <%#= render 'patients/patient_surgery_information', :f => f, :action => action %>
-  </div>
-  <div id="divEvolutionInformation">
-    <%#= render 'patients/evolution_information', :f => f, :action => action %>
-  </div>
+  <%= render 'patients/personal_information', :f => f, :action => action %>
+  <%= render 'patients/patient_history_information', :f => f, :action => action %>
+	<%= render 'patients/patient_clinical_information', :f => f, :action => action %>
+  <%= render 'patients/patient_surgery_information', :f => f, :action => action %>
+  <%= render 'patients/evolution_information', :f => f, :action => action %>
   
 <% end %>

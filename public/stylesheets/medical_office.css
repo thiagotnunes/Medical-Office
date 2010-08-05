@@ -15,6 +15,7 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #333333;
+    height: 80px;
 }
 
 select, input[type="text"], textarea {
@@ -48,19 +49,14 @@ abbr {
     text-align: right;
 }
 
-.div_previous_next {
-    width: 365px;    
-    text-align: right;
-}
-
-.outer_fieldset li {
+fieldset li {
     list-style: none;
     clear: both;
-    padding: 2px 0px 2px 0px;
+    padding: 3px 0px 3px 0px;
     
 }
  
-.outer_fieldset {
+fieldset {
     width: 600px;
     border-style: solid;
     border-width: 1px;
@@ -70,7 +66,7 @@ abbr {
     background-color: #F8F8F8;
 }
 
-.outer_legend {
+legend {
     font-family: sans-serif;
     font-size: 14px;
     color: #777777;
@@ -102,4 +98,5 @@ a:active {
 
 .inline-errors {
     color: #FF0000;
+    font-size: 11px;
 }

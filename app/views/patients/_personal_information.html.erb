@@ -1,67 +1,28 @@
-<fieldset class="outer_fieldset">
-  <legend class="outer_legend">
-    Personal Information
-  </legend>
-  
-  <ol>
-    <li>
-      <%= f.input :record %>
-    </li>
-    <li>
-      <%= f.input :name %>
-    </li>
-    <li>
-      <%= f.input :sex, :as => :select, :collection => ["Male", "Female"], :include_blank => true %>
-    </li>
-    <li>
-      <%= f.input :cpf %>
-    </li>
-    <li>
-      <%= f.input :rg %>
-    </li>
-  	<li>
-  		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses, :render_remove_button => false %>
-	  </li>
-	  <li>
+<% f.inputs "Personal Information" do %>
+
+    <%= f.input :record %>
+    <%= f.input :name %>
+    <%= f.input :sex, :collection => ["Male", "Female"], :include_blank => true %>
+    <%= f.input :cpf %>
+    <%= f.input :rg %>
+  	
+  	<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses, :render_remove_button => false %>
 		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones, :render_remove_button => false %>
-    </li>
-    <li>
-      <%= f.input :color %>
-    </li>
-    <li>
-      <%= f.label :birth_date, 'Birth date <em>*</em>' %>
-      <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
-    </li>
-    <li>
-      <%= f.input :profession %>
-    </li>
-    <li>
-      <%= f.input :city %>
-    </li>
-    <li>
-      <%= f.input :state, :as => :select, :collection => ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"], :include_blank => true %>
-    </li>
-    <li>
-      <%= f.input :country, :include_blank => true %>
-    </li>
-    <li>
-      <%= f.input :fathers_name %>
-    </li>
-    <li>
-      <%= f.input :mothers_name %>
-    </li>
-    <li>
-      <%= f.input :forwarded_by %>
-    </li>
-    <li>
-      <%= f.input :marital_status, :as => :select, :collection => ["Single", "Maried", "Widower"], :include_blank => true %>
-    </li>
-    <li>
-      <%= f.input :health_insurance_id, :as => :select, :collection => HealthInsurance.all, :include_blank => true %>
-    </li>
-    <li>
-      <%= f.input :health_insurance_number %>
-    </li>
-    <%= f.submit action %>
-  </ol>
-</fieldset>
+    
+    <%= f.input :color %>
+    
+    <%= f.label :birth_date, 'Birth date <em>*</em>' %>
+    <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
+    
+    <%= f.input :profession %>
+    <%= f.input :city %>
+    <%= f.input :state, :collection => ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"], :include_blank => true %>
+    <%= f.input :country, :include_blank => true %>
+    <%= f.input :fathers_name %>
+    <%= f.input :mothers_name %>
+    <%= f.input :forwarded_by %>
+    <%= f.input :marital_status, :collection => ["Single", "Maried", "Widower"], :include_blank => true %>
+    <%= f.input :health_insurance_id, :collection => HealthInsurance.all, :label_method => :name, :include_blank => true %>
+    <%= f.input :health_insurance_number %>
+
+<% end %>

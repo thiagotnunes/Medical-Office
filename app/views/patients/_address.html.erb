@@ -1,16 +1,7 @@
 <div class="fields">
-	<li>
-		<%= f.label :address_label_id, "Address <em>*</em>" %>
-		<%= f.collection_select :address_label_id, AddressLabel.all, :id, :label, :include_blank => true %>
-	</li>
-	<li>
- 		<%= f.label :location, "Location <em>*</em>" %>
- 		<%= f.text_field :location %>
-	</li>
- 	<li>
- 		<%= f.label :complement %>
- 		<%= f.text_field :complement %>
-	</li>
+	<%= f.input :address_label_id, :collection => AddressLabel.all, :include_blank => true, :label_method => :label %>
+	<%= f.input :location %>
+ 	<%= f.input :complement %>
 	<% if render_remove_button %>
 		<div class="div_remove">
 			<%= f.hidden_field :_destroy %>

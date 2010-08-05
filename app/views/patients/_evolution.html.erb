@@ -1,19 +1,12 @@
 <div class="fields">
-  <li>
-    <%= f.label :attendance_date, "Date" %>
-    <%= f.calendar_date_select :attendance_date, :year_range => 150.years.ago..0.years.ago, :size => 7 %>
-  </li>
-  <li>
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description, :rows => 3 %>
-  </li>
+  <%= f.label :attendance_date, "Date" %>
+  <%= f.calendar_date_select :attendance_date, :year_range => 150.years.ago..0.years.ago, :size => 7 %>
+  <%= f.input :description %>
   <% if render_remove_button %>
 		<div class="div_remove">
       <%= f.hidden_field :_destroy %>
       <%= link_to_remove_fields "Remove Evolution", f %>
     </div>
   <% end %>
-	<li>
-		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolution_pictures %>
-	</li>
+  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolution_pictures %>
 </div>

@@ -1,19 +1,7 @@
-<fieldset class="outer_fieldset">
-  <legend class="outer_legend">
-    Histories
-  </legend>
-  <ol>
-    <li>
-      <%= f.label :first_appointment %>
-      <%= f.calendar_date_select :first_appointment, :year_range => 30.years.ago..0.years.ago%>
-    </li>
-    <li>
-      <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_histories %>
-    </li>
-    <div class="div_previous_next">
-      <%= link_to_function("Previous", "link_to_previous()") %>
-       - 
-      <%= link_to_function("Next", "link_to_next()") %>
-    </div>
-  </ol>
-</fieldset>
+<% f.inputs "Histories" do %>
+
+  <%= f.label :first_appointment %>
+  <%= f.calendar_date_select :first_appointment, :year_range => 30.years.ago..0.years.ago%>
+  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_histories %>
+
+<% end %>
