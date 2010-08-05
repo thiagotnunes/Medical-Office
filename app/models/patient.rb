@@ -18,7 +18,7 @@ class Patient < ActiveRecord::Base
 	accepts_nested_attributes_for :patient_surgeries, :allow_destroy => true
 	accepts_nested_attributes_for :telephones, :allow_destroy => true
 
-	  validates_presence_of :record, :name, :cpf, :rg, :sex, :color, :birth_date, :profession, :city, :state, :country, :fathers_name, :mothers_name, :marital_status, :health_insurance
+	  validates_presence_of :record, :name, :cpf, :rg, :sex, :color, :birth_date, :profession, :city, :state, :country, :fathers_name, :mothers_name, :marital_status, :health_insurance, :health_insurance_number
 	
 	validates_numericality_of :record, :cpf, :rg
 	

@@ -1,17 +1,11 @@
 <div class="fields">
-  <table>
-    <tr>
-      <td>
-	      <% if f.object.new_record? %>
-		      <%= f.file_field :picture %>
-	      <% else %>
-		      <%= image_tag f.object.picture.url(:thumb) %>
-	      <% end %>
-      </td>
-      <td>
-	      <%= f.hidden_field :_destroy %>
-	      <%= link_to_remove_fields "X", f %>
-      </td>
-    </tr>
-  </table>
+  <li>
+    <% if f.object.new_record? %>
+      <%= f.file_field :picture %>
+    <% else %>
+      <%= image_tag f.object.picture.url(:thumb) %>
+    <% end %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_remove_fields "Remove Evolution Picture", f %>
+  </li>
 </div>

@@ -1,8 +1,15 @@
-<table>
-	<tr valign="top">
-      <td colspan="2">
-        Evolutions <br />
-        <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolutions %>
-      </td>
-    </tr>
-</table>
+<fieldset class="outer_fieldset">
+  <legend class="outer_legend">
+    Evolutions
+  </legend>
+  <ol>
+    <li>
+      <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolutions %>
+    </li>
+    <div class="div_previous_next">
+      <%= link_to_function("Previous", "link_to_previous()") %>
+       - 
+      <%= f.submit action %>
+    </div>
+  </ol>
+</fieldset>

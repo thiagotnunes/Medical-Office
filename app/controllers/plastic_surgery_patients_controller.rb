@@ -16,7 +16,9 @@ class PlasticSurgeryPatientsController < ApplicationController
     @patient.record = record.nil? ? 0 : record + 1
     
     @patient.addresses.build
+    @patient.evolutions.build
     @patient.patient_clinical_information = PatientClinicalInformation.new
+    @patient.patient_histories.build
     @patient.patient_surgeries.build
     @patient.telephones.build
   end

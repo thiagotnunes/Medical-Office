@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.gem 'forgery'
   config.gem 'pickle'
   config.gem 'calendar_date_select'
+  config.gem 'formtastic'
 
   config.time_zone = 'UTC'
 

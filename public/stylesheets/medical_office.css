@@ -30,11 +30,12 @@ label {
     clear: right;
 }
 
-label em {        
+abbr {        
     color: #FF0000;        
     font-size: 110%;
     font-style: normal;        
     text-transform: uppercase;
+    margin-left: 3px;
 }
 
 .div_remove {   
@@ -55,7 +56,8 @@ label em {
 .outer_fieldset li {
     list-style: none;
     clear: both;
-    padding: 5px 0px 5px 0px;
+    padding: 2px 0px 2px 0px;
+    
 }
  
 .outer_fieldset {
@@ -96,4 +98,8 @@ a:hover {
 a:active {
 	font-size: 11px;
 	text-decoration: none
+}
+
+.inline-errors {
+    color: #FF0000;
 }
