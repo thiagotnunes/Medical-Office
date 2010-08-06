@@ -3,10 +3,7 @@
   <%= f.input :indicated_conduct %>
   <%= f.input :cid %>
   <%= f.input :surgery_performed %>
-  
-  <%= f.label :surgery_date %>
-  <%= f.calendar_date_select :surgery_date, :year_range => 150.years.ago..0.years.ago %>
-
+  <%= f.input :surgery_date, :as => 'calendar', :year_range => 150.years.ago..0.years.ago %>
   <%= f.input :surgery_performed_at %>
   <%= f.input :surgery_anesthethist %>
   <%= f.input :surgery_description %>

@@ -10,14 +10,11 @@
 		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones, :render_remove_button => false %>
     
     <%= f.input :color %>
-    
-    <%= f.label :birth_date, 'Birth date <em>*</em>' %>
-    <%= f.calendar_date_select :birth_date, :year_range => 150.years.ago..0.years.ago %>
-    
+    <%= f.input :birth_date, :as => 'calendar' %>
     <%= f.input :profession %>
     <%= f.input :city %>
     <%= f.input :state, :collection => ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"], :include_blank => true %>
-    <%= f.input :country, :include_blank => true %>
+    <%= f.input :country, :priority_countries => ["Brazil"], :include_blank => true %>
     <%= f.input :fathers_name %>
     <%= f.input :mothers_name %>
     <%= f.input :forwarded_by %>

@@ -1,7 +1,6 @@
 <% f.inputs "Histories" do %>
 
-  <%= f.label :first_appointment %>
-  <%= f.calendar_date_select :first_appointment, :year_range => 30.years.ago..0.years.ago%>
+  <%= f.input :first_appointment, :as => 'calendar', :year_range => 30.years.ago..0.years.ago%>
   <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_histories %>
 
 <% end %>

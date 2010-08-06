@@ -3,18 +3,12 @@
   <% f.semantic_fields_for :patient_clinical_information do |builder| %>
 	  <%= builder.input :clazz %>
 	  <%= builder.input :appointment_reason %>
-	
-	  <%= builder.label :injury_exists_from %>
-	  <%= builder.calendar_date_select :injury_exists_from, :year_range => 150.years.ago..0.years.ago %>
-	
+	  <%= builder.input :injury_exists_from, :as => 'calendar', :year_range => 150.years.ago..0.years.ago %>
 	  <%= builder.input :injury_side, :as => :select, :collection => ['Right', 'Left'] %>
 	  <%= builder.input :injury_appraiser_physician %>
 	  <%= builder.input :evolution_time %>
 	  <%= builder.input :physical_exam %>
-	
-	  <%= builder.label :physical_exam_date %>
-	  <%= builder.calendar_date_select :physical_exam_date, :year_range => 150.years.ago..0.years.ago %>
-	
+	  <%= builder.input :physical_exam_date, :as => 'calendar', :year_range => 150.years.ago..0.years.ago %>
 	  <%= builder.input :diagnostics_hypothesis %>
 	<% end %>
 	

@@ -1,3 +1,4 @@
+@current
 Feature: Manage Plastic Surgery Patients
   In order to keep a plastic surgery patient registry
   As a administrator
@@ -29,13 +30,13 @@ Feature: Manage Plastic Surgery Patients
       | First appointment       | 10.09.1984      | 
       | Profession              | Programmer      |
       | City                    | Porto Alegre    | 
-      | Country                 | Brazil          |
 	    | Fathers name            | Joao da Silva   |
 	    | Mothers name            | Maria da Silva  |
-      | Marital status          | single          |
       | Health insurance number | 0001112223      | 
     And I select "Male" from "Sex"
     And I select "RS" from "State"
+    And I select "Brazil" from "Country"
+    And I select "Single" from "Marital status"
     And I select "SUS" from "Health insurance"
 	  And I select "Residencial" from the "Address Label" of the "Address" 0 for the "Plastic Surgery Patient"
     And I fill in "Location" of the "Address" 0 with "Street xyz" for the "Plastic Surgery Patient"
@@ -50,7 +51,7 @@ Feature: Manage Plastic Surgery Patients
       | Physical exam | Stress test |
       | Physical exam date | 10.09.2009 |
       | Diagnostics hypothesis | Nothing yet |
-    And I choose "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
+    And I select "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
     And I fill in the following of the "Patient Surgery" 0 for the "Plastic Surgery Patient":
       | Evaluations results | bruises |
       | Indicated conduct | surgery |
@@ -79,7 +80,7 @@ Feature: Manage Plastic Surgery Patients
     And I should see "Brazil"
     And I should see "Joao da Silva"
     And I should see "Maria da Silva"
-    And I should see "single"
+    And I should see "Single"
     And I should see "SUS"
     And I should see "0001112223"
     And I should see "Residencial"
@@ -123,17 +124,15 @@ Feature: Manage Plastic Surgery Patients
       | Birth date              | 10.09.1984      | 
       | Profession              | Programmer      |
       | City                    | Porto Alegre    | 
-      | Country                 | Brazil          |
-      | Marital status          | single          |
       | Health insurance number | 123456          | 
     And I select "Male" from "Sex"
+    And I select "Brazil" from "Country"
     And I select "RS" from "State"
     And I select "SUS" from "Health insurance"
     And I press "Create"
     Then I should see "error"
     And 0 plastic_surgery_patients should exist
 
-  @current
   Scenario: Edit a Plastic Surgery Patient
     Given a health_insurance exists with name: "SUS"
     And an address_label exists with label: "Residencial"
@@ -150,11 +149,11 @@ Feature: Manage Plastic Surgery Patients
       | First appointment       | 10.09.1984      | 
       | Profession              | Programmer      |
       | City                    | Porto Alegre    | 
-      | Country                 | Brazil          |
-      | Marital status          | single          |
       | Health insurance number | 1234567891      | 
     And I select "Male" from "Sex"
     And I select "RS" from "State"
+    And I select "Single" from "Marital status"
+    And I select "Brazil" from "Country"
     And I select "SUS" from "Health insurance"
     And I fill in "Location" of the "Address" 0 with "Street xyz" for the "Plastic Surgery Patient"
     And I fill in "Number" of the "Telephone" 0 with "33233232" for the "Plastic Surgery Patient"
@@ -167,7 +166,7 @@ Feature: Manage Plastic Surgery Patients
       | Physical exam | Stress test |
       | Physical exam date | 10.09.2009 |
       | Diagnostics hypothesis | Nothing yet |
-    And I choose "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
+    And I select "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
     And I press "Update"
     And I should see "Patient was successfully updated."
     And I should see "Thiago da Silva"
@@ -179,7 +178,7 @@ Feature: Manage Plastic Surgery Patients
     And I should see "Porto Alegre"
     And I should see "RS"
     And I should see "Brazil"
-    And I should see "single"
+    And I should see "Single"
     And I should see "SUS"
     And I should see "1234567891"
     And I should see "Street xyz"

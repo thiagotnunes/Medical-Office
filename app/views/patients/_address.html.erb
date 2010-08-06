@@ -1,5 +1,5 @@
 <div class="fields">
-	<%= f.input :address_label_id, :collection => AddressLabel.all, :include_blank => true, :label_method => :label %>
+	<%= f.input :address_label, :collection => AddressLabel.all, :include_blank => true, :label_method => :label %>
 	<%= f.input :location %>
  	<%= f.input :complement %>
 	<% if render_remove_button %>
