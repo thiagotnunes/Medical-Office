@@ -1,4 +1,10 @@
 <% semantic_form_for(@patient, :html => { :multipart => true }) do |f| %>
+
+  <% unless @patient.errors.empty? %>
+    <div class="div_error_title">
+      An error has occurred!
+    </div>
+  <% end %>
   
   <%= render 'patients/personal_information', :f => f, :action => action %>
   <%= render 'patients/patient_history_information', :f => f, :action => action %>

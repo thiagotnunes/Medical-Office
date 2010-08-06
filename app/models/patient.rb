@@ -13,7 +13,7 @@ class Patient < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :addresses, :allow_destroy => true
 	accepts_nested_attributes_for :evolutions, :allow_destroy => true, :reject_if => proc { |e| e['description'].nil? || e['description'].empty? }
-	accepts_nested_attributes_for :patient_histories, :allow_destroy => true
+	accepts_nested_attributes_for :patient_histories, :allow_destroy => true, :reject_if => proc { |ph| ph['history'].nil? || ph['history'].empty? }
 	accepts_nested_attributes_for :patient_clinical_information
 	accepts_nested_attributes_for :patient_surgeries, :allow_destroy => true
 	accepts_nested_attributes_for :telephones, :allow_destroy => true

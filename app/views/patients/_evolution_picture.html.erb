@@ -1,9 +1,11 @@
 <div class="fields">
   <% if f.object.new_record? %>
-    <%= f.file_field :picture %>
+    <%= f.input :picture %>
   <% else %>
     <%= image_tag f.object.picture.url(:thumb) %>
   <% end %>
-  <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields "Remove Evolution Picture", f %>
+  <div class="div_remove">
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_remove_fields "Remove Picture", f %>
+  </div>
 </div>

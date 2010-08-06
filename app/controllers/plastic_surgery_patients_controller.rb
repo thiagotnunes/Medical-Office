@@ -34,6 +34,8 @@ class PlasticSurgeryPatientsController < ApplicationController
       flash[:notice] = 'Patient was successfully created.'
       redirect_to(@patient)
     else
+      @patient.evolutions.build if @patient.evolutions.empty?
+      @patient.patient_histories.build if @patient.patient_histories.empty?
       render :action => "new"
     end
   end

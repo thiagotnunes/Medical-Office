@@ -113,3 +113,14 @@ abbr {
     text-transform: uppercase;
     margin-left: 3px;
 }
+
+.div_error_title {
+    border: 1px solid #FF0000;
+    width: 800px;
+    background-color: #FFBBBB;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+    margin: auto;
+    margin-bottom: 5px;
+}
