@@ -124,3 +124,11 @@ abbr {
     margin: auto;
     margin-bottom: 5px;
 }
+
+.div_submit_button {
+	width: 819px;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+	margin: auto;
+	margin-top: 5px;
+}

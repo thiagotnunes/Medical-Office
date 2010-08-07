@@ -12,6 +12,9 @@
   <%= render 'patients/patient_surgery_information', :f => f, :action => action %>
   <%= render 'patients/evolution_information', :f => f, :action => action %>
   
-  <%= f.submit action %>
+	<div class="div_submit_button">
+  	<%= f.submit action %>
+		<%= submit_tag "Cancel" %>
+	</div>
   
 <% end %>

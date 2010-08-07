@@ -30,7 +30,9 @@ class PlasticSurgeryPatientsController < ApplicationController
   def create
     @patient = PlasticSurgeryPatient.new(params[:plastic_surgery_patient])
 
-    if @patient.save
+    if params[:commit] == "Cancel"
+      redirect_to(plastic_surgery_patients_url)
+    elsif @patient.save
       flash[:notice] = 'Patient was successfully created.'
       redirect_to(@patient)
     else
@@ -41,16 +43,20 @@ class PlasticSurgeryPatientsController < ApplicationController
   end
 
   def update
-    # To overcome the bug of not editing/destroying associated nested attributes it is necessary
-    # to load these associations when the patient is loaded
-    # For more information see https://rails.lighthouseapp.com/projects/8994/tickets/4766-nested_attributes-fails-to-updatedestroy-when-association-is-loaded-between-setting-attributes-and-saving-parent
-    @patient = Patient.find(params[:id], :include => [:evolutions, :addresses, :telephones])
-    
-    if @patient.update_attributes(params[:plastic_surgery_patient])
-      flash[:notice] = 'Patient was successfully updated.'
-      redirect_to(@patient)
+    if params[:commit] == "Cancel"
+      redirect_to(plastic_surgery_patients_url)
     else
-      render :action => "edit"
+      # To overcome the bug of not editing/destroying associated nested attributes it is necessary
+      # to load these associations when the patient is loaded
+      # For more information see https://rails.lighthouseapp.com/projects/8994/tickets/4766-nested_attributes-fails-to-updatedestroy-when-association-is-loaded-between-setting-attributes-and-saving-parent
+      @patient = Patient.find(params[:id], :include => [:evolutions, :addresses, :telephones])
+    
+      if @patient.update_attributes(params[:plastic_surgery_patient])
+        flash[:notice] = 'Patient was successfully updated.'
+        redirect_to(@patient)
+      else
+        render :action => "edit"
+      end
     end
   end
 
