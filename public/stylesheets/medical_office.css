@@ -1,3 +1,7 @@
+img {
+	border: 1px solid #000000;
+}
+
 input[type="text"] {
     border-width: 1px;
     border-style: solid;
@@ -34,33 +38,6 @@ label {
     clear: right;
 }
 
-.div_remove {   
-    width: 365px;    
-    text-align: right;
-}
-
-.div_add {
-    width: 365px;    
-    text-align: right;
-}
-
-.inputs li {
-    list-style: none;
-    clear: both;
-    padding: 3px 0px 3px 0px;
-    
-}
- 
-.inputs {
-    width: 800px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #999999;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #F8F8F8;
-}
-
 legend {
     font-family: sans-serif;
     font-size: 14px;
@@ -91,6 +68,50 @@ a:active {
 	text-decoration: none
 }
 
+abbr {        
+    color: #FF0000;        
+    font-size: 110%;
+    font-style: normal;        
+    text-transform: uppercase;
+    margin-left: 3px;
+}
+
+.div_remove {   
+    width: 365px;    
+    text-align: right;
+}
+
+.div_add {
+    width: 365px;    
+    text-align: right;
+}
+
+.div_area_title {
+	margin: auto;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	width: 800px;
+}
+
+.inputs li {
+    list-style: none;
+    clear: both;
+    padding: 3px 0px 3px 0px;
+    
+}
+ 
+.inputs {
+    width: 800px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999999;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8F8F8;
+}
+
 .inline-errors {
    float: left;
    color:#FF0000;
@@ -104,14 +125,6 @@ a:active {
 .calendar_date_select_popup_icon {
   float: left;  
   margin-left: 3px;
-}
-
-abbr {        
-    color: #FF0000;        
-    font-size: 110%;
-    font-style: normal;        
-    text-transform: uppercase;
-    margin-left: 3px;
 }
 
 .div_error_title {
