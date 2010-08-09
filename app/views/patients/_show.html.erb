@@ -111,6 +111,22 @@
 				</li>
 	    <% end %>
 	  <% end %>
+	  
+	  <% if @patient.patient_pictures.empty? %>
+	  	<li>
+	    	<label>
+	    		No pictures have been registered for this patient
+	    	</label>
+			</li>
+	  <% else %>
+	    <% for patient_picture in @patient.patient_pictures %>
+			  <li>
+					<label>Picture:</label>
+					<%= link_to (image_tag patient_picture.picture.url(:thumb)), patient_picture.picture.url(:medium), :rel => "lightbox" %>
+				</li>
+			<% end %>
+		<% end %>
+	  
 	</ol>
 </fieldset>
 

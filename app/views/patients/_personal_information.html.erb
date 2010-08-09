@@ -21,5 +21,7 @@
     <%= f.input :marital_status, :collection => ["Single", "Maried", "Widower"], :include_blank => true %>
     <%= f.input :health_insurance_id, :collection => HealthInsurance.all, :label_method => :name, :include_blank => true %>
     <%= f.input :health_insurance_number %>
+    
+    <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_pictures %>
 
 <% end %>
