@@ -53,13 +53,13 @@ legend {
 a:link {
 	font-size: 12px;
 	color: #0000FF;
-	text-decoration: none
+	text-decoration: none;
 }
 
 a:visited {
 	font-size: 12px;
 	color: #0000FF;
-	text-decoration: none
+	text-decoration: none;
 }
 
 a:hover {
@@ -70,7 +70,7 @@ a:hover {
 
 a:active {
 	font-size: 12px;
-	text-decoration: none
+	text-decoration: none;
 }
 
 abbr {        
@@ -84,11 +84,13 @@ abbr {
 .div_remove {   
     width: 365px;    
     text-align: right;
+    margin: 5px 0 5px 0;
 }
 
 .div_add {
     width: 365px;    
     text-align: right;
+    margin: 5px 0 5px 0;
 }
 
 .div_area_title {
@@ -98,6 +100,25 @@ abbr {
 	font-size: 18px;
 	font-weight: bold;
 	width: 800px;
+}
+
+.div_error_title {
+    border: 1px solid #FF0000;
+    width: 800px;
+    background-color: #FFBBBB;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.div_footnote_links_buttons {
+	width: 819px;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+	margin: auto;
+	margin: 5px 0px 5px 0px;
 }
 
 .inputs li, .inputs_show li {
@@ -137,28 +158,10 @@ abbr {
   margin-left: 3px;
 }
 
-.div_error_title {
-    border: 1px solid #FF0000;
-    width: 800px;
-    background-color: #FFBBBB;
-    text-align: center;
-    font-weight: bold;
-    padding: 5px 0px 5px 0px;
-    margin: auto;
-    margin-bottom: 5px;
-}
-
-.div_footnote_links_buttons {
-	width: 819px;
-	padding: 5px 0px 5px 0px;
-	text-align: center;
-	margin: auto;
-	margin-top: 5px;
-}
-
 .table_index {
     border-collapse: collapse;
     border: 1px solid #999;
+    margin: auto;
 }
 
 .table_index th { 
