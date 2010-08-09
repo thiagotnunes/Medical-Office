@@ -25,13 +25,7 @@
 			<%=h @patient.rg %>
 		</li>
 		
-		<% if @patient.addresses.empty? %>
-			<li>
-	    	<label>
-	    		No addresses have been registered for this patient
-	    	</label>
-			</li>
-	  <% else %>
+		<% unless @patient.addresses.empty? %>
 	    <% for address in @patient.addresses %>
 				<li>
 	      	<label>Address:</label>
@@ -93,13 +87,7 @@
 			<%=h @patient.health_insurance_number %>
 		</li>
 		
-		<% if @patient.telephones.empty? %>
-			<li>
-	    	<label>
-	    		No telephones have been registered for this patient
-	    	</label>
-			</li>
-	  <% else %>
+		<% unless @patient.telephones.empty? %>
 	    <% for telephone in @patient.telephones %>
 				<li>
 	      	<label>Telephone:</label>
@@ -112,13 +100,7 @@
 	    <% end %>
 	  <% end %>
 	  
-	  <% if @patient.patient_pictures.empty? %>
-	  	<li>
-	    	<label>
-	    		No pictures have been registered for this patient
-	    	</label>
-			</li>
-	  <% else %>
+	  <% unless @patient.patient_pictures.empty? %>
 	    <% for patient_picture in @patient.patient_pictures %>
 			  <li>
 					<label>Picture:</label>
@@ -147,10 +129,6 @@
 					<%=h history.history %>
 				</li>
 			<% end %>
-		<% else %>
-			<li>
-				No history have been registered for this patient
-			</li>
 		<% end %>
 	</ol>
 </fieldset>
@@ -261,10 +239,6 @@
 					<%=h surgery.diagnosis %>
 				</li>
 			<% end %>
-		<% else %>
-			<li>
-				No surgery have been registered for this patient
-			</li>
 		<% end %>
 	</ol>
 </fieldset>
@@ -292,10 +266,6 @@
 					</li>
 				<% end %>
 			<% end %>
-		<% else %>
-			<li>
-				No evolution have been registered for this patient
-			</li>
 		<% end %>
 	</ol>
 </fieldset>
