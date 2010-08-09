@@ -25,6 +25,9 @@ class PlasticSurgeryPatientsController < ApplicationController
 
   def edit
     @patient = PlasticSurgeryPatient.find(params[:id])
+    
+    @patient.evolutions.build if @patient.evolutions.empty?
+    @patient.patient_histories.build if @patient.patient_histories.empty?
   end
 
   def create
@@ -55,6 +58,8 @@ class PlasticSurgeryPatientsController < ApplicationController
         flash[:notice] = 'Patient was successfully updated.'
         redirect_to(@patient)
       else
+        @patient.evolutions.build if @patient.evolutions.empty?
+        @patient.patient_histories.build if @patient.patient_histories.empty?
         render :action => "edit"
       end
     end
