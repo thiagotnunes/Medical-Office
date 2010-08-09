@@ -1,0 +1,285 @@
+<fieldset class="inputs_show">
+	<legend>
+		Personal Information
+	</legend>
+	
+	<ol>
+		<li>
+			<label>Record:</label>
+			<%=h @patient.record %>
+		</li>
+		<li>
+			<label>Name:</label>
+			<%=h @patient.name %>
+		</li>
+		<li>
+			<label>Sex:</label>
+			<%=h @patient.sex %>
+		</li>
+		<li>
+			<label>Cpf:</label>
+			<%=h @patient.cpf %>
+		</li>
+		<li>
+			<label>Rg:</label>
+			<%=h @patient.rg %>
+		</li>
+		
+		<% if @patient.addresses.empty? %>
+			<li>
+	    	<label>
+	    		No addresses have been registered for this patient
+	    	</label>
+			</li>
+	  <% else %>
+	    <% for address in @patient.addresses %>
+				<li>
+	      	<label>Address:</label>
+		    	<%=h address.address_label.label %>
+				</li>
+				<li>
+	        <label>Location:</label>
+	        <%=h address.location %>
+				</li>
+				<li>
+					<label>Complement</label>
+	        <%=h address.complement %>
+	      </li>
+	    <% end %>
+	  <% end %>
+		
+		<li>
+			<label>Birth date:</label>
+			<%=h @patient.birth_date %>
+		</li>
+		<li>
+			<label>Color:</label>
+			<%=h @patient.color %>
+		</li>
+		<li>
+			<label>Profession:</label>
+			<%=h @patient.profession %>
+		</li>
+		<li>
+			<label>City:</label>
+			<%=h @patient.city %>
+		</li>
+		<li>
+			<label>State:</label>
+			<%=h @patient.state %>
+		</li>
+		<li>
+			<label>Country:</label>
+			<%=h @patient.country %>
+		</li>
+		<li>
+			<label>Fathers name:</label>
+			<%=h @patient.fathers_name %>
+		</li>
+		<li>
+			<label>Mothers name:</label>
+			<%=h @patient.mothers_name %>
+		</li>
+		<li>
+			<label>Marital status:</label>
+			<%=h @patient.marital_status %>
+		</li>
+		<li>
+			<label>Health insurance:</label>
+			<%=h @patient.health_insurance.name %>
+		</li>
+		<li>
+			<label>Health insurance number:</label>
+			<%=h @patient.health_insurance_number %>
+		</li>
+		
+		<% if @patient.telephones.empty? %>
+			<li>
+	    	<label>
+	    		No telephones have been registered for this patient
+	    	</label>
+			</li>
+	  <% else %>
+	    <% for telephone in @patient.telephones %>
+				<li>
+	      	<label>Telephone:</label>
+		    	<%=h telephone.telephone_label.label %>
+				</li>
+				<li>
+	        <label>Number:</label>
+	        <%=h telephone.number %>
+				</li>
+	    <% end %>
+	  <% end %>
+	</ol>
+</fieldset>
+
+<fieldset class="inputs_show">
+	<legend>
+		Histories
+	</legend>
+
+	<ol>
+		<% unless @patient.patient_histories.empty? %>
+			<% for history in @patient.patient_histories %>
+				<li>
+					<label>History:</label>
+					<%=h history.patient_history_label.label %>
+				</li>
+				<li>
+					<label>Description:</label>
+					<%=h history.history %>
+				</li>
+			<% end %>
+		<% else %>
+			<li>
+				No history have been registered for this patient
+			</li>
+		<% end %>
+	</ol>
+</fieldset>
+
+<fieldset class="inputs_show">
+	<legend>
+		Clinical Information
+	</legend>
+
+	<ol>
+		<li>
+			<label>Clazz:</label>
+			<%=h @patient.patient_clinical_information.clazz %>
+		</li>
+		<li>
+			<label>Appointment reason:</label>
+			<%=h @patient.patient_clinical_information.appointment_reason %>
+		</li>
+		<li>
+			<label>Injury exists from:</label>
+			<%=h @patient.patient_clinical_information.injury_exists_from %>
+		</li>
+		<li>
+			<label>Injury side:</label>
+			<%=h @patient.patient_clinical_information.injury_side %>
+		</li>
+		<li>
+			<label>Injury appraiser physician:</label>
+			<%=h @patient.patient_clinical_information.injury_appraiser_physician %>
+		</li>
+		<li>
+			<label>Evolution time:</label>
+			<%=h @patient.patient_clinical_information.evolution_time %>
+		</li>
+		<li>
+			<label>Physical exam:</label>
+			<%=h @patient.patient_clinical_information.physical_exam %>
+		</li>
+		<li>
+			<label>Physical exam date:</label>
+			<%=h @patient.patient_clinical_information.physical_exam_date %>
+		</li>
+		<li>
+			<label>Diagnostics hypothesis:</label>
+			<%=h @patient.patient_clinical_information.diagnostics_hypothesis %>
+		</li>
+	</ol>
+</fieldset>
+
+<fieldset class="inputs_show">
+	<legend>
+		Surgeries
+	</legend>
+
+	<ol>
+		<% unless @patient.patient_surgeries.empty? %>
+			<% for surgery in @patient.patient_surgeries %>
+				<li>
+					<label>Evaluations results:</label>
+					<%=h surgery.evaluations_results %>
+				</li>
+				<li>
+					<label>Indicated conduct:</label>
+					<%=h surgery.indicated_conduct %>
+				</li>
+				<li>
+					<label>CID:</label>
+					<%=h surgery.cid %>
+				</li>
+				<li>
+					<label>Surgery performed:</label>
+					<%=h surgery.surgery_performed %>
+				</li>
+				<li>
+					<label>Surgery date:</label>
+					<%=h surgery.surgery_date %>
+				</li>
+				<li>
+					<label>Surgery performed at:</label>
+					<%=h surgery.surgery_performed_at %>
+				</li>
+				<li>
+					<label>Surgery anesthethist:</label>
+					<%=h surgery.surgery_anesthethist %>
+				</li>
+				<li>
+					<label>Surgery description:</label>
+					<%=h surgery.surgery_description %>
+				</li>
+				<li>
+					<label>PO imediate result:</label>
+					<%=h surgery.po_imediate_result %>
+				</li>
+				<li>
+					<label>Intercurrences:</label>
+					<%=h surgery.intercurrences %>
+				</li>
+				<li>
+					<label>Pathology material:</label>
+					<%=h surgery.pathology_material %>
+				</li>
+				<li>
+					<label>Pathology result:</label>
+					<%=h surgery.pathology_result %>
+				</li>
+				<li>
+					<label>Diagnosis:</label>
+					<%=h surgery.diagnosis %>
+				</li>
+			<% end %>
+		<% else %>
+			<li>
+				No surgery have been registered for this patient
+			</li>
+		<% end %>
+	</ol>
+</fieldset>
+
+<fieldset class="inputs_show">
+	<legend>
+		Evolutions
+	</legend>
+
+	<ol>
+		<% unless @patient.evolutions.empty? %>
+			<% for evolution in @patient.evolutions %>
+				<li>
+					<label>Attendance date:</label>
+					<%=h evolution.attendance_date %>
+				</li>
+				<li>
+					<label>Description:</label>
+					<%=h evolution.description %>
+				</li>
+				<% for evolution_picture in evolution.evolution_pictures %>
+					<li>
+						<label>Picture:</label>
+						<%= link_to (image_tag evolution_picture.picture.url(:thumb)), evolution_picture.picture.url(:medium), :rel => "lightbox" %>
+					</li>
+				<% end %>
+			<% end %>
+		<% else %>
+			<li>
+				No evolution have been registered for this patient
+			</li>
+		<% end %>
+	</ol>
+</fieldset>

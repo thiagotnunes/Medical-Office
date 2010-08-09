@@ -95,21 +95,26 @@ abbr {
 	width: 800px;
 }
 
-.inputs li {
+.inputs li, .inputs_show li {
     list-style: none;
     clear: both;
     padding: 3px 0px 3px 0px;
     
 }
  
-.inputs {
+.inputs, .inputs_show {
     width: 800px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #999999;
-    margin-left: auto;
-    margin-right: auto;
+    border: 1px solid #999999;
+    margin: auto;
     background-color: #F8F8F8;
+}
+
+.inputs_show {
+	width: 450px;
+}
+
+.inputs_show label {
+	font-weight: bold;
 }
 
 .inline-errors {
@@ -138,7 +143,7 @@ abbr {
     margin-bottom: 5px;
 }
 
-.div_submit_button {
+.div_footnote_links_buttons {
 	width: 819px;
 	padding: 5px 0px 5px 0px;
 	text-align: center;
