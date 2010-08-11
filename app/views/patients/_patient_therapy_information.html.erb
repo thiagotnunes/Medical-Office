@@ -1,0 +1,21 @@
+<% f.inputs "Therapy Information" do %>
+
+  <% f.semantic_fields_for :patient_therapy_information do |builder| %>
+	  <%= builder.input :diagnosis %>
+	  <%= builder.input :injury_time %>
+	  <%= builder.input :injury_appraiser_physician %>
+	  <%= builder.input :main_complaint %>
+	  <%= builder.input :disease_history %>
+	  <%= builder.input :impaired_limb %>
+	  <%= builder.input :dominance %>
+	  <%= builder.input :adm %>
+	  <%= builder.input :fm %>
+	  <%= builder.input :sensibility %>
+	  <%= builder.input :aspect %>
+	  <%= builder.input :fo %>
+	  <%= builder.input :circumference %>
+	  <%= builder.input :avds %>
+	  <%= builder.input :dnpm %>
+	<% end %>
+	
+<% end %>

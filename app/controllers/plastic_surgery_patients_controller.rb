@@ -52,7 +52,7 @@ class PlasticSurgeryPatientsController < ApplicationController
       # To overcome the bug of not editing/destroying associated nested attributes it is necessary
       # to load these associations when the patient is loaded
       # For more information see https://rails.lighthouseapp.com/projects/8994/tickets/4766-nested_attributes-fails-to-updatedestroy-when-association-is-loaded-between-setting-attributes-and-saving-parent
-      @patient = Patient.find(params[:id], :include => [:addresses, :evolutions, :patient_histories, :patient_pictures, :patient_surgeries, :telephones])
+      @patient = PlasticSurgeryPatient.find(params[:id], :include => [:addresses, :evolutions, :patient_histories, :patient_pictures, :patient_surgeries, :telephones])
     
       if @patient.update_attributes(params[:plastic_surgery_patient])
         flash[:notice] = 'Patient was successfully updated.'

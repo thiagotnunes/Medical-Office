@@ -42,11 +42,16 @@ Factory.define :patient do |p|
   p.patient_surgeries do
     [Factory.build(:patient_surgery)]
   end
-  p.association :patient_clinical_information, :factory => :patient_clinical_information
 end
 
 Factory.define :plastic_surgery_patient, :parent => :patient do |psp|
   psp.type "PlasticSurgeryPatient"
+  psp.association :patient_clinical_information, :factory => :patient_clinical_information
+end
+
+Factory.define :occupational_therapy_patient, :parent => :patient do |otp|
+  otp.type "OccupationalTherapyPatient"
+  otp.association :patient_therapy_information, :factory => :patient_therapy_information
 end
 
 Factory.define :evolution do |e|

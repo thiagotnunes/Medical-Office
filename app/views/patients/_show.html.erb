@@ -112,71 +112,144 @@
 	</ol>
 </fieldset>
 
+<% unless @patient.patient_histories.empty? %>
+  <fieldset class="inputs_show">
+	  <legend>
+		  Histories
+	  </legend>
+
+	  <ol>
+		  <% for history in @patient.patient_histories %>
+			  <li>
+				  <label>History:</label>
+				  <%=h history.patient_history_label.label %>
+			  </li>
+			  <li>
+				  <label>Description:</label>
+				  <%=h history.history %>
+			  </li>
+		  <% end %>
+	  </ol>
+  </fieldset>
+<% end %>
+
+<% unless @patient.patient_clinical_information.nil? %>
+  <fieldset class="inputs_show">
+	  <legend>
+		  Clinical Information
+	  </legend>
+
+	  <ol>
+		  <li>
+			  <label>Clazz:</label>
+			  <%=h @patient.patient_clinical_information.clazz %>
+		  </li>
+		  <li>
+			  <label>Appointment reason:</label>
+			  <%=h @patient.patient_clinical_information.appointment_reason %>
+		  </li>
+		  <li>
+			  <label>Injury exists from:</label>
+			  <%=h @patient.patient_clinical_information.injury_exists_from %>
+		  </li>
+		  <li>
+			  <label>Injury side:</label>
+			  <%=h @patient.patient_clinical_information.injury_side %>
+		  </li>
+		  <li>
+			  <label>Injury appraiser physician:</label>
+			  <%=h @patient.patient_clinical_information.injury_appraiser_physician %>
+		  </li>
+		  <li>
+			  <label>Evolution time:</label>
+			  <%=h @patient.patient_clinical_information.evolution_time %>
+		  </li>
+		  <li>
+			  <label>Physical exam:</label>
+			  <%=h @patient.patient_clinical_information.physical_exam %>
+		  </li>
+		  <li>
+			  <label>Physical exam date:</label>
+			  <%=h @patient.patient_clinical_information.physical_exam_date %>
+		  </li>
+		  <li>
+			  <label>Diagnostics hypothesis:</label>
+			  <%=h @patient.patient_clinical_information.diagnostics_hypothesis %>
+		  </li>
+	  </ol>
+  </fieldset>
+<% end %>
+
+<% unless @patient.patient_therapy_information.nil? %>
 <fieldset class="inputs_show">
 	<legend>
-		Histories
+		Therapy Information
 	</legend>
 
 	<ol>
-		<% unless @patient.patient_histories.empty? %>
-			<% for history in @patient.patient_histories %>
-				<li>
-					<label>History:</label>
-					<%=h history.patient_history_label.label %>
-				</li>
-				<li>
-					<label>Description:</label>
-					<%=h history.history %>
-				</li>
-			<% end %>
-		<% end %>
+	  <li>
+	    <label>Diagnosis:</label>
+	    <%=h @patient.patient_therapy_information.diagnosis %>
+	  </li>
+	  <li>
+	    <label>Injury time:</label>
+	    <%=h @patient.patient_therapy_information.injury_time %>
+	  </li>
+	  <li>
+	    <label>Injury appraiser physician:</label>
+	    <%=h @patient.patient_therapy_information.injury_appraiser_physician %>
+	  </li>
+	  <li>
+	    <label>Main complaint:</label>
+	    <%=h @patient.patient_therapy_information.main_complaint %>
+	  </li>
+	  <li>
+	    <label>Disease history</label>
+	    <%=h @patient.patient_therapy_information.disease_history %>
+	  </li>
+	  <li>
+	    <label>Impaired limb</label>
+	    <%=h @patient.patient_therapy_information.impaired_limb %>
+	  </li>
+	  <li>
+	    <label>Dominance:</label>
+	    <%=h @patient.patient_therapy_information.dominance %>
+	  </li>
+	  <li>
+	    <label>Adm:</label>
+	    <%=h @patient.patient_therapy_information.adm %>
+	  </li>
+	  <li>
+	    <label>Fm:</label>
+	    <%=h @patient.patient_therapy_information.fm %>
+	  </li>
+	  <li>
+	    <label>Sensibility:</label>
+	    <%=h @patient.patient_therapy_information.sensibility %>
+	  </li>
+	  <li>
+	    <label>Aspect:</label>
+	    <%=h @patient.patient_therapy_information.aspect %>
+	  </li>
+	  <li>
+	    <label>Fo:</label>
+	    <%=h @patient.patient_therapy_information.fo %>
+	  </li>
+	  <li>
+	    <label>Circumference:</label>
+	    <%=h @patient.patient_therapy_information.circumference %>
+	  </li>
+	  <li>
+	    <label>Avds:</label>
+	    <%=h @patient.patient_therapy_information.avds %>
+	  </li>
+	  <li>
+	    <label>Dnpm:</label>
+	    <%=h @patient.patient_therapy_information.dnpm %>
+	  </li>
 	</ol>
 </fieldset>
-
-<fieldset class="inputs_show">
-	<legend>
-		Clinical Information
-	</legend>
-
-	<ol>
-		<li>
-			<label>Clazz:</label>
-			<%=h @patient.patient_clinical_information.clazz %>
-		</li>
-		<li>
-			<label>Appointment reason:</label>
-			<%=h @patient.patient_clinical_information.appointment_reason %>
-		</li>
-		<li>
-			<label>Injury exists from:</label>
-			<%=h @patient.patient_clinical_information.injury_exists_from %>
-		</li>
-		<li>
-			<label>Injury side:</label>
-			<%=h @patient.patient_clinical_information.injury_side %>
-		</li>
-		<li>
-			<label>Injury appraiser physician:</label>
-			<%=h @patient.patient_clinical_information.injury_appraiser_physician %>
-		</li>
-		<li>
-			<label>Evolution time:</label>
-			<%=h @patient.patient_clinical_information.evolution_time %>
-		</li>
-		<li>
-			<label>Physical exam:</label>
-			<%=h @patient.patient_clinical_information.physical_exam %>
-		</li>
-		<li>
-			<label>Physical exam date:</label>
-			<%=h @patient.patient_clinical_information.physical_exam_date %>
-		</li>
-		<li>
-			<label>Diagnostics hypothesis:</label>
-			<%=h @patient.patient_clinical_information.diagnostics_hypothesis %>
-		</li>
-	</ol>
-</fieldset>
+<% end %>
 
 <fieldset class="inputs_show">
 	<legend>
@@ -243,29 +316,29 @@
 	</ol>
 </fieldset>
 
-<fieldset class="inputs_show">
-	<legend>
-		Evolutions
-	</legend>
+<% unless @patient.evolutions.empty? %>
+  <fieldset class="inputs_show">
+	  <legend>
+		  Evolutions
+	  </legend>
 
-	<ol>
-		<% unless @patient.evolutions.empty? %>
-			<% for evolution in @patient.evolutions %>
-				<li>
-					<label>Attendance date:</label>
-					<%=h evolution.attendance_date %>
-				</li>
-				<li>
-					<label>Description:</label>
-					<%=h evolution.description %>
-				</li>
-				<% for evolution_picture in evolution.evolution_pictures %>
-					<li>
-						<label>Picture:</label>
-						<%= link_to (image_tag evolution_picture.picture.url(:thumb)), evolution_picture.picture.url(:medium), :rel => "lightbox" %>
-					</li>
-				<% end %>
-			<% end %>
-		<% end %>
-	</ol>
-</fieldset>
+	  <ol>
+		  <% for evolution in @patient.evolutions %>
+			  <li>
+				  <label>Attendance date:</label>
+				  <%=h evolution.attendance_date %>
+			  </li>
+			  <li>
+				  <label>Description:</label>
+				  <%=h evolution.description %>
+			  </li>
+			  <% for evolution_picture in evolution.evolution_pictures %>
+				  <li>
+					  <label>Picture:</label>
+					  <%= link_to (image_tag evolution_picture.picture.url(:thumb)), evolution_picture.picture.url(:medium), :rel => "lightbox" %>
+				  </li>
+			  <% end %>
+		  <% end %>
+	  </ol>
+  </fieldset>
+<% end %>

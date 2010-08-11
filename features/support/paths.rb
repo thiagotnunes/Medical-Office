@@ -18,8 +18,10 @@ module NavigationHelpers
       health_insurances_path
     when /the telephone_labels list/
       telephone_labels_path
-  when /the plastic_surgery_patients list/
+    when /the plastic_surgery_patients list/
       plastic_surgery_patients_path
+    when /the occupational_therapy_patients list/
+      occupational_therapy_patients_path
     when /the address_labels list/
       address_labels_path
     when /the patient_history_labels list/

@@ -1,4 +1,19 @@
-<% form_for(@patient, :html => { :multipart => true }) do |f| %>
-  <%= f.error_messages %>
+<% semantic_form_for(@patient, :html => { :multipart => true }) do |f| %>
+  
+  <% unless @patient.errors.empty? %>
+    <div class="div_error_title">
+      An error has occurred!
+    </div>
+  <% end %>
+  
+  <%= render 'patients/personal_information', :f => f, :action => action %>
+  <%= render 'patients/patient_therapy_information', :f => f, :action => action %>
+  <%= render 'patients/patient_surgery_information', :f => f, :action => action %>
+  <%= render 'patients/evolution_information', :f => f, :action => action %>
+
+  <div class="div_footnote_links_buttons">
+  	<%= f.submit action %>
+		<%= submit_tag "Cancel" %>
+	</div>
 
 <% end %>

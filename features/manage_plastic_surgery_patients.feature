@@ -1,6 +1,6 @@
 Feature: Manage Plastic Surgery Patients
   In order to keep a plastic surgery patient registry
-  As a administrator
+  As a plastic surgery physician and an administrator
   I want to create and manage plastic surgery patients
 
   Scenario: Patient List
