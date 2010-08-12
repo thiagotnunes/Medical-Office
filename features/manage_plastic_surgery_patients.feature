@@ -166,7 +166,7 @@ Feature: Manage Plastic Surgery Patients
       | Diagnostics hypothesis | Nothing yet |
     And I select "Right" from the "Injury Side" of the "Patient Clinical Information" for the "Plastic Surgery Patient"
     And I press "Update"
-    And I should see "Patient was successfully updated."
+    Then I should see "Patient was successfully updated."
     And I should see "Thiago da Silva"
     And I should see "Male"
     And I should see "22233366638"

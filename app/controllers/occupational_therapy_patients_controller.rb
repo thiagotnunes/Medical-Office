@@ -54,7 +54,7 @@ class OccupationalTherapyPatientsController < ApplicationController
       # For more information see https://rails.lighthouseapp.com/projects/8994/tickets/4766-nested_attributes-fails-to-updatedestroy-when-association-is-loaded-between-setting-attributes-and-saving-parent
       @patient = OccupationalTherapyPatient.find(params[:id], :include => [:addresses, :evolutions, :patient_histories, :patient_pictures, :patient_surgeries, :telephones])
 
-      if @patient.update_attributes(params[:patient])
+      if @patient.update_attributes(params[:occupational_therapy_patient])
         flash[:notice] = 'Patient was successfully updated.'
         redirect_to(@patient)
       else
@@ -69,7 +69,7 @@ class OccupationalTherapyPatientsController < ApplicationController
     @patient = OccupationalTherapyPatient.find(params[:id])
     @patient.destroy
 
-    redirect_to(OccupationalTherapy_patients_url)
+    redirect_to(occupational_therapy_patients_url)
   end
   
 end

@@ -1,4 +1,3 @@
-@current
 Feature: Manage Occupational Therapy Patients
   In order to keep a occupational therapy patients registry
   As a occupational therapy physician and an administrator
@@ -113,7 +112,7 @@ Feature: Manage Occupational Therapy Patients
     And I should see "Disease"
     And an occupational_therapy_patient should exist
     
-  Scenario: Try to Create an Invalid Occupational Therapy Patient
+	Scenario: Try to Create an Invalid Occupational Therapy Patient
     Given 0 occupational_therapy_patients exist
     And a health_insurance exists with name: "SUS"
     And a health_insurance exists with name: "Unimed"
@@ -175,15 +174,15 @@ Feature: Manage Occupational Therapy Patients
     And I press "Create"
     Then I should see "error"
     And 0 occupational_therapy_patients should exist
-    
-   Scenario: Edit an Occupational Therapy Patient
-    Given a health_insurance exists with name: "SUS"
+   
+	Scenario: Edit an Occupational Therapy Patient
+   	Given a health_insurance exists with name: "SUS"
     And an address_label exists with label: "Residencial"
     And a telephone_label exists with label: "Comercial"
-    And a occupational_therapy_patient exists
+    And an occupational_therapy_patient exists
     And I am on the occupational_therapy_patients list
-    When I follow "Edit"
-    And I fill in the following:
+    And I follow "Edit"
+    When I fill in the following:
       | Name                    | Thiago da Silva | 
       | Cpf                     | 93747868690     | 
       | Rg                      | 1234567890      | 
@@ -219,8 +218,8 @@ Feature: Manage Occupational Therapy Patients
       | Pathology material | No pathology material |
       | Pathology result | No pathology result |
       | Diagnosis | Disease |
-    Then show me the page
-    And I should see "Patient was successfully updated."
+		And I press "Update"
+		Then I should see "Patient was successfully updated."
     And I should see "Thiago da Silva"
     And I should see "Male"
     And I should see "93747868690"
@@ -253,3 +252,10 @@ Feature: Manage Occupational Therapy Patients
     And I should see "No pathology result"
     And I should see "Disease"
     And an occupational_therapy_patient should exist
+
+  Scenario: Destroy a Occupational Therapy Patient
+    Given a occupational_therapy_patient exists
+    And I am on the occupational_therapy_patients list
+    When I follow "Destroy"
+    Then 0 occupational_therapy_patients should exist
+
