@@ -66,7 +66,7 @@ Feature: Manage Plastic Surgery Patients
       | Pathology result | No pathology result |
       | Diagnosis | Disease |
     And I press "Create"
-    And I should see "Patient was successfully created."
+    Then I should see "Patient was successfully created."
     And I should see "Thiago da Silva"
     And I should see "Male"
     And I should see "93747868690"
@@ -128,7 +128,7 @@ Feature: Manage Plastic Surgery Patients
     And I select "RS" from "State"
     And I select "SUS" from "Health insurance"
     And I press "Create"
-    Then I should see ""
+    Then I should see "error"
     And 0 plastic_surgery_patients should exist
 
   Scenario: Edit a Plastic Surgery Patient

@@ -54,6 +54,11 @@ Factory.define :occupational_therapy_patient, :parent => :patient do |otp|
   otp.association :patient_therapy_information, :factory => :patient_therapy_information
 end
 
+Factory.define :dermatology_patient, :parent => :patient do |dp|
+  dp.type "DermatologyPatient"
+  dp.main_complaint Forgery::Basic.text
+end
+
 Factory.define :evolution do |e|
   e.attendance_date Date.today
   e.description Forgery::Basic.text

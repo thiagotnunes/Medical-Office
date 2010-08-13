@@ -38,6 +38,7 @@ class AddColumnsToPatient < ActiveRecord::Migration
     
     # Dermathology
     # Main complaint
+    add_column :patients, :main_complaint, :text
     # Histories
     
     # Single Table Inheritance Type

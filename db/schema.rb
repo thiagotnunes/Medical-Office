@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(:version => 20100802025135) do
     t.text     "conclusions"
     t.text     "objectives"
     t.text     "frequency"
+    t.text     "main_complaint"
     t.string   "type",                    :limit => 50,  :default => "", :null => false
   end
 

@@ -108,9 +108,22 @@
 				</li>
 			<% end %>
 		<% end %>
-	  
 	</ol>
 </fieldset>
+
+<% unless @patient.main_complaint.nil? || @patient.main_complaint.empty? %>
+  <fieldset class="inputs_show">
+	  <legend>
+		  Main Complaint
+	  </legend>
+
+    <ol>
+      <li>
+	      <label>Main complaint:</label>
+	      <%=h @patient.main_complaint %>
+      </li>
+    </ol>
+<% end %>
 
 <% unless @patient.patient_histories.empty? %>
   <fieldset class="inputs_show">
