@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :telephone_labels
 
+  map.resources :patients
   map.resources :plastic_surgery_patients
   map.resources :dermatology_patients
   map.resources :occupational_therapy_patients
