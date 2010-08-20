@@ -1,0 +1,44 @@
+<fieldset class="inputs_show">
+  <legend>
+	  Clinical Information
+  </legend>
+
+  <ol>
+	  <li>
+		  <label>Clazz:</label>
+		  <%=h @patient.patient_clinical_information.clazz %>
+	  </li>
+	  <li>
+		  <label>Appointment reason:</label>
+		  <%=h @patient.patient_clinical_information.appointment_reason %>
+	  </li>
+	  <li>
+		  <label>Injury exists from:</label>
+		  <%=h @patient.patient_clinical_information.injury_exists_from %>
+	  </li>
+	  <li>
+		  <label>Injury side:</label>
+		  <%=h @patient.patient_clinical_information.injury_side %>
+	  </li>
+	  <li>
+		  <label>Injury appraiser physician:</label>
+		  <%=h @patient.patient_clinical_information.injury_appraiser_physician %>
+	  </li>
+	  <li>
+		  <label>Evolution time:</label>
+		  <%=h @patient.patient_clinical_information.evolution_time %>
+	  </li>
+	  <li>
+		  <label>Physical exam:</label>
+		  <%=h @patient.patient_clinical_information.physical_exam %>
+	  </li>
+	  <li>
+		  <label>Physical exam date:</label>
+		  <%=h @patient.patient_clinical_information.physical_exam_date %>
+	  </li>
+	  <li>
+		  <label>Diagnostics hypothesis:</label>
+		  <%=h @patient.patient_clinical_information.diagnostics_hypothesis %>
+	  </li>
+  </ol>
+</fieldset>

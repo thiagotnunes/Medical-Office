@@ -1,0 +1,24 @@
+<fieldset class="inputs_show">
+  <legend>
+	  Evolutions
+  </legend>
+
+  <ol>
+	  <% for evolution in @patient.evolutions %>
+		  <li>
+			  <label>Attendance date:</label>
+			  <%=h evolution.attendance_date %>
+		  </li>
+		  <li>
+			  <label>Description:</label>
+			  <%=h evolution.description %>
+		  </li>
+		  <% for evolution_picture in evolution.evolution_pictures %>
+			  <li>
+				  <label>Picture:</label>
+				  <%= link_to (image_tag evolution_picture.picture.url(:thumb)), evolution_picture.picture.url(:medium), :rel => "lightbox" %>
+			  </li>
+		  <% end %>
+	  <% end %>
+  </ol>
+</fieldset>

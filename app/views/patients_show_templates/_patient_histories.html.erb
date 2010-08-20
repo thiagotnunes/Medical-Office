@@ -1,0 +1,18 @@
+<fieldset class="inputs_show">
+  <legend>
+	  Histories
+  </legend>
+
+  <ol>
+	  <% for history in @patient.patient_histories %>
+		  <li>
+			  <label>History:</label>
+			  <%=h history.patient_history_label.label %>
+		  </li>
+		  <li>
+			  <label>Description:</label>
+			  <%=h history.history %>
+		  </li>
+	  <% end %>
+  </ol>
+</fieldset>

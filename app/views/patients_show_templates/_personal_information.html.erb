@@ -1,0 +1,112 @@
+<fieldset class="inputs_show">
+	<legend>
+		Personal Information
+	</legend>
+	
+	<ol>
+		<li>
+			<label>Record:</label>
+			<%=h @patient.record %>
+		</li>
+		<li>
+			<label>Name:</label>
+			<%=h @patient.name %>
+		</li>
+		<li>
+			<label>Sex:</label>
+			<%=h @patient.sex %>
+		</li>
+		<li>
+			<label>Cpf:</label>
+			<%=h @patient.cpf %>
+		</li>
+		<li>
+			<label>Rg:</label>
+			<%=h @patient.rg %>
+		</li>
+		
+		<% unless @patient.addresses.empty? %>
+	    <% for address in @patient.addresses %>
+				<li>
+	      	<label>Address:</label>
+		    	<%=h address.address_label.label %>
+				</li>
+				<li>
+	        <label>Location:</label>
+	        <%=h address.location %>
+				</li>
+				<li>
+					<label>Complement</label>
+	        <%=h address.complement %>
+	      </li>
+	    <% end %>
+	  <% end %>
+		
+		<li>
+			<label>Birth date:</label>
+			<%=h @patient.birth_date %>
+		</li>
+		<li>
+			<label>Color:</label>
+			<%=h @patient.color %>
+		</li>
+		<li>
+			<label>Profession:</label>
+			<%=h @patient.profession %>
+		</li>
+		<li>
+			<label>City:</label>
+			<%=h @patient.city %>
+		</li>
+		<li>
+			<label>State:</label>
+			<%=h @patient.state %>
+		</li>
+		<li>
+			<label>Country:</label>
+			<%=h @patient.country %>
+		</li>
+		<li>
+			<label>Fathers name:</label>
+			<%=h @patient.fathers_name %>
+		</li>
+		<li>
+			<label>Mothers name:</label>
+			<%=h @patient.mothers_name %>
+		</li>
+		<li>
+			<label>Marital status:</label>
+			<%=h @patient.marital_status %>
+		</li>
+		<li>
+			<label>Health insurance:</label>
+			<%=h @patient.health_insurance.name %>
+		</li>
+		<li>
+			<label>Health insurance number:</label>
+			<%=h @patient.health_insurance_number %>
+		</li>
+		
+		<% unless @patient.telephones.empty? %>
+	    <% for telephone in @patient.telephones %>
+				<li>
+	      	<label>Telephone:</label>
+		    	<%=h telephone.telephone_label.label %>
+				</li>
+				<li>
+	        <label>Number:</label>
+	        <%=h telephone.number %>
+				</li>
+	    <% end %>
+	  <% end %>
+	  
+	  <% unless @patient.patient_pictures.empty? %>
+	    <% for patient_picture in @patient.patient_pictures %>
+			  <li>
+					<label>Picture:</label>
+					<%= link_to (image_tag patient_picture.picture.url(:thumb)), patient_picture.picture.url(:medium), :rel => "lightbox" %>
+				</li>
+			<% end %>
+		<% end %>
+	</ol>
+</fieldset>
