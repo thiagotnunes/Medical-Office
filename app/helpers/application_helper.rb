@@ -1,4 +1,7 @@
 module ApplicationHelper
+  
+  PATIENTS_FORMS_PATH = 'patients_form_templates'
+  
 	def link_to_remove_fields(name, f)
 		f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
 	end
@@ -11,7 +14,8 @@ module ApplicationHelper
   	link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"), :id => name.gsub(/\s/, "_").downcase)  
 	end  
 	
-	def render_nested_patient_information_for(element, f, render_remove_button = true)
-	  render 'patients_templates/nested_elements', :f => f, :prefix => :patients_templates, :element => element, :render_remove_button => render_remove_button
+	def render_nested_form_patient_information_for(element, f, render_remove_button = true)
+	  render "#{PATIENTS_FORMS_PATH}/nested_elements", :f => f, :prefix => :patients_form_templates, :element => element, :render_remove_button => render_remove_button
   end
+  
 end

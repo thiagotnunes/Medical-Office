@@ -6,10 +6,10 @@
     </div>
   <% end %>
   
-  <%= render 'patients_templates/personal_information', :f => f, :action => action %>
-  <%= render 'patients_templates/patient_therapy_information', :f => f, :action => action %>
-  <%= render 'patients_templates/patient_surgery_information', :f => f, :action => action %>
-  <%= render 'patients_templates/evolution_information', :f => f, :action => action %>
+  <%= render "#{ApplicationHelper::PATIENTS_FORMS_PATH}/personal_information", :f => f, :action => action %>
+  <%= render "#{ApplicationHelper::PATIENTS_FORMS_PATH}/patient_therapy_information", :f => f, :action => action %>
+  <%= render "#{ApplicationHelper::PATIENTS_FORMS_PATH}/patient_surgery_information", :f => f, :action => action %>
+  <%= render "#{ApplicationHelper::PATIENTS_FORMS_PATH}/evolution_information", :f => f, :action => action %>
 
   <div class="div_footnote_links_buttons">
   	<%= f.submit action %>
