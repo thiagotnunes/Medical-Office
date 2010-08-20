@@ -14,8 +14,5 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :patient_history_labels
 
-	map.root :controller => 'plastic_surgery_patients'
-
-	map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+	map.root :controller => 'patients'
 end

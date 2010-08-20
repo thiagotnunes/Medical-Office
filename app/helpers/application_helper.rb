@@ -10,4 +10,8 @@ module ApplicationHelper
   	end  
   	link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"), :id => name.gsub(/\s/, "_").downcase)  
 	end  
+	
+	def render_nested_patient_information_for(element, f, render_remove_button = true)
+	  render 'patients_templates/nested_elements', :f => f, :prefix => :patients_templates, :element => element, :render_remove_button => render_remove_button
+  end
 end

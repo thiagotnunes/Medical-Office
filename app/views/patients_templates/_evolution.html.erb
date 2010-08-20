@@ -7,5 +7,5 @@
       <%= link_to_remove_fields "Remove Evolution", f %>
     </div>
   <% end %>
-  <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :evolution_pictures %>
+  <%= render_nested_patient_information_for :evolution_pictures, f %>
 </div>

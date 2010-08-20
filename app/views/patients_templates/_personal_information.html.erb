@@ -6,8 +6,8 @@
     <%= f.input :cpf %>
     <%= f.input :rg %>
   	
-  	<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :addresses, :render_remove_button => false %>
-		<%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :telephones, :render_remove_button => false %>
+  	<%= render_nested_patient_information_for :addresses, f %>
+		<%= render_nested_patient_information_for :telephones, f, false %>
     
     <%= f.input :color %>
     <%= f.input :birth_date, :as => 'calendar' %>
@@ -22,6 +22,6 @@
     <%= f.input :health_insurance_id, :collection => HealthInsurance.all, :label_method => :name, :include_blank => true %>
     <%= f.input :health_insurance_number %>
     
-    <%= render 'patients/nested_elements', :f => f, :prefix => :patients, :element => :patient_pictures %>
+    <%= render_nested_patient_information_for :patient_pictures, f %>
 
 <% end %>
