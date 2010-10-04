@@ -18,7 +18,9 @@ class AddressLabelsController < ApplicationController
   def create
     @address_label = AddressLabel.new(params[:address_label])
 
-    if @address_label.save
+    if params[:commit] == "Cancel"
+      redirect_to(address_labels_url)
+    elsif @address_label.save
       flash[:notice] = 'Address Label was successfully created.'
       redirect_to(@address_label)
     else
@@ -27,13 +29,17 @@ class AddressLabelsController < ApplicationController
   end
 
   def update
-    @address_label = AddressLabel.find(params[:id])
-
-    if @address_label.update_attributes(params[:address_label])
-      flash[:notice] = 'Address Label was successfully updated.'
-      redirect_to(@address_label)
+    if params[:commit] == "Cancel"
+      redirect_to(address_labels_url)
     else
-      render :action => "edit"
+      @address_label = AddressLabel.find(params[:id])
+
+      if @address_label.update_attributes(params[:address_label])
+        flash[:notice] = 'Address Label was successfully updated.'
+        redirect_to(@address_label)
+      else
+        render :action => "edit"
+      end
     end
   end
 

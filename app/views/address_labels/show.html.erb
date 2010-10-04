@@ -1,8 +1,16 @@
-<p>
-  <b>Label:</b>
-  <%=h @address_label.label %>
-</p>
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_address_label_path(@address_label) %>
 
+<fieldset class="inputs_show">
+  <legend>
+	  Address Label
+  </legend>
 
-<%= link_to 'Edit', edit_address_label_path(@address_label) %> |
-<%= link_to 'Back', address_labels_path %>
+	<ol>
+		<li>
+			<label>Label:</label>
+			<%=h @address_label.label %>
+		</li>
+	</ol>
+</fieldset>
+
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_address_label_path(@address_label) %>

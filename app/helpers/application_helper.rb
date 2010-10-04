@@ -1,6 +1,8 @@
 module ApplicationHelper
   
   PATIENTS_FORM_TEMPLATES_PATH = 'patients_form_templates'
+  
+  GENERAL_SHOW_TEMPLATES_PATH = 'general_show_templates'
   PATIENTS_SHOW_TEMPLATES_PATH = 'patients_show_templates'
   
 	def link_to_remove_fields(name, f)

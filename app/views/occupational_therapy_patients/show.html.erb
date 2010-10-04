@@ -1,14 +1,8 @@
-<div class="div_footnote_links_buttons">
-	<%= link_to 'Edit', edit_occupational_therapy_patient_path(@patient) %> |
-	<%= link_to 'Back', occupational_therapy_patients_path %>
-</div>
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_occupational_therapy_patient_path(@patient) %>
 
 <%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
 <%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_therapy_information" %>
 <%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_surgeries" %>
 <%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
 
-<div class="div_footnote_links_buttons">
-	<%= link_to 'Edit', edit_occupational_therapy_patient_path(@patient) %> |
-	<%= link_to 'Back', occupational_therapy_patients_path %>
-</div>
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_occupational_therapy_patient_path(@patient) %>

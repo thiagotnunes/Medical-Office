@@ -4,9 +4,6 @@ describe Patient do
 
   it { should belong_to(:health_insurance) }
   
-  it { should have_one(:patient_clinical_information) }
-  it { should have_one(:patient_therapy_information) }
-  
   it { should have_many(:addresses) }
   it { should have_many(:evolutions) }
   it { should have_many(:patient_histories) }

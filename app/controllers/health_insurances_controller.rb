@@ -19,7 +19,9 @@ class HealthInsurancesController < ApplicationController
   def create
     @health_insurance = HealthInsurance.new(params[:health_insurance])
 
-    if @health_insurance.save
+    if params[:commit] == "Cancel"
+      redirect_to(health_insurances_url)
+    elsif @health_insurance.save
       flash[:notice] = 'Health Insurance was successfully created.'
       redirect_to(@health_insurance)
     else
@@ -28,13 +30,17 @@ class HealthInsurancesController < ApplicationController
   end
 
   def update
-    @health_insurance = HealthInsurance.find(params[:id])
-
-    if @health_insurance.update_attributes(params[:health_insurance])
-      flash[:notice] = 'Health Insurance was successfully updated.'
-      redirect_to(@health_insurance)
+    if params[:commit] == "Cancel"
+      redirect_to(health_insurances_url)
     else
-      render :action => "edit"
+      @health_insurance = HealthInsurance.find(params[:id])
+
+      if @health_insurance.update_attributes(params[:health_insurance])
+        flash[:notice] = 'Health Insurance was successfully updated.'
+        redirect_to(@health_insurance)
+      else
+        render :action => "edit"
+      end
     end
   end
 

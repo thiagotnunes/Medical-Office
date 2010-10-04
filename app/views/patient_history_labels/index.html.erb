@@ -1,8 +1,13 @@
-<h1>Listing Patient History</h1>
+<div class="div_area_title">
+	Listing Patient History
+</div>
 
-<table>
+<table class="table_index">
   <tr>
     <th>Label</th>
+		<th></th>
+		<th></th>
+		<th></th>
   </tr>
 
 <% @patient_history_labels.each do |patient_history_label| %>
@@ -15,6 +20,6 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Patient History Label', new_patient_history_label_path %>
+<div class="div_footnote_links_buttons">
+	<%= link_to 'New Patient History Label', new_patient_history_label_path %>
+</div>

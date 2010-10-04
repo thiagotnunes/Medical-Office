@@ -1,8 +1,16 @@
-<p>
-  <b>Label:</b>
-  <%=h @patient_history_label.label %>
-</p>
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_patient_history_label_path(@patient_history_label) %>
 
+<fieldset class="inputs_show">
+  <legend>
+	  Patient History Label
+  </legend>
 
-<%= link_to 'Edit', edit_patient_history_label_path(@patient_history_label) %> |
-<%= link_to 'Back', patient_history_labels_path %>
+	<ol>
+		<li>
+			<label>Label:</label>
+			<%=h @patient_history_label.label %>
+		</li>
+	</ol>
+</fieldset>
+
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_patient_history_label_path(@patient_history_label) %>
