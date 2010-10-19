@@ -1,5 +1,6 @@
 module ApplicationHelper
   
+  GENERAL_FORM_TEMPLATES_PATH = 'general_form_templates'
   PATIENTS_FORM_TEMPLATES_PATH = 'patients_form_templates'
   
   GENERAL_SHOW_TEMPLATES_PATH = 'general_show_templates'

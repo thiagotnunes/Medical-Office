@@ -1,17 +1,11 @@
 <% semantic_form_for(@telephone_label) do |f| %>
 
-	<% unless @telephone_label.errors.empty? %>
-    <div class="error_title">
-      An error has occurred!
-    </div>
-  <% end %>
+	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @telephone_label %>
 	
 	<% f.inputs "Telephone Label" do %>
 		<%= f.input :label %>
 	<% end %>
 	
-	<div class="footnote_links_buttons">
-  	<%= f.submit action %>
-		<%= submit_tag "Cancel" %>
-	</div>
+	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/form_footer", :f => f, :action => action %>
+	
 <% end %>

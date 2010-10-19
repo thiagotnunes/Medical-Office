@@ -1,17 +1,11 @@
 <% semantic_form_for(@address_label) do |f| %>
 
-	<% unless @address_label.errors.empty? %>
-    <div class="error_title">
-      An error has occurred!
-    </div>
-  <% end %>
+  <%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @address_label %>
 
 	<% f.inputs "Address Label" do %>
   	<%= f.input :label %>
 	<% end %>
+	
+	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/form_footer", :f => f, :action => action %>
 
-	<div class="footnote_links_buttons">
-  	<%= f.submit action %>
-		<%= submit_tag "Cancel" %>
-	</div>
 <% end %>

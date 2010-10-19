@@ -1,17 +1,11 @@
 <% semantic_form_for(@health_insurance) do |f| %>
 
-	<% unless @health_insurance.errors.empty? %>
-    <div class="error_title">
-      An error has occurred!
-    </div>
-  <% end %>
+	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @health_insurance %>
 	
 	<% f.inputs "Health Insurance" do %>
 		<%= f.input :name %>
 	<% end %>
 	
-	<div class="footnote_links_buttons">
-  	<%= f.submit action %>
-		<%= submit_tag "Cancel" %>
-	</div>
+	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/form_footer", :f => f, :action => action %>
+	
 <% end %>
