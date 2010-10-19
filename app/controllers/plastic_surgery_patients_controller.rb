@@ -34,7 +34,7 @@ class PlasticSurgeryPatientsController < ApplicationController
     @patient = PlasticSurgeryPatient.new(params[:plastic_surgery_patient])
 
     if params[:commit] == "Cancel"
-      redirect_to(plastic_surgery_patients_url)
+      redirect_to :controller => session[:back_controller], :action => session[:back_action]
     elsif @patient.save
       flash[:notice] = 'Patient was successfully created.'
       redirect_to(@patient)
@@ -47,7 +47,7 @@ class PlasticSurgeryPatientsController < ApplicationController
 
   def update
     if params[:commit] == "Cancel"
-      redirect_to(plastic_surgery_patients_url)
+      redirect_to :controller => session[:back_controller], :action => session[:back_action]
     else
       # To overcome the bug of not editing/destroying associated nested attributes it is necessary
       # to load these associations when the patient is loaded
