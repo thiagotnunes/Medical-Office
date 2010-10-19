@@ -11,6 +11,10 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
+<div class="area_title">
+  <%= "#{controller.controller_name.gsub('_', ' ').capitalize}" %>
+</div>
+
 <%= yield  %>
 
 </body>
