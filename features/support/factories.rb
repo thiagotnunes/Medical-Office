@@ -141,7 +141,3 @@ end
 Factory.define :address_label do |al|
   al.label Factory.next(:address_label)
 end
-
-Factory.define :patient_profile do |pp|
-  pp.name Forgery::Name.full_name
-end

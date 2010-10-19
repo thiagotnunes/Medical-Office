@@ -1,7 +1,10 @@
-class PatientProfile < ActiveRecord::Base
+class PatientProfile
   
-  validates_presence_of :name
+  attr_accessor :url, :name
   
-  validates_length_of :name, :within => 6..50
+  def initialize(url, name)
+    @url = url
+    @name = name
+  end
   
 end

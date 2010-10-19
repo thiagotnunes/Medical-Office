@@ -16,7 +16,7 @@ class AddColumnsToPatient < ActiveRecord::Migration
     # Other info
     add_column :patients, :city, :string, :null => false, :limit => 100, :default => ''
     add_column :patients, :state, :string, :null => false, :limit => 50, :default => ''
-    add_column :patients, :country, :string, :null => false, :limit => 50, :default => '' # nationality (naturalidade)
+    add_column :patients, :country, :string, :null => false, :limit => 50, :default => ''
     add_column :patients, :fathers_name, :string, :null => false, :limit => 100, :default => ''
     add_column :patients, :mothers_name, :string, :null => false, :limit => 100, :default => ''
     add_column :patients, :forwarded_by, :string, :limit => 100
