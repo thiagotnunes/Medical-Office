@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100802025135) do
+ActiveRecord::Schema.define(:version => 20101019161029) do
 
   create_table "address_labels", :force => true do |t|
     t.string   "label",      :limit => 100, :null => false
@@ -154,6 +154,13 @@ ActiveRecord::Schema.define(:version => 20100802025135) do
     t.text     "frequency"
     t.text     "main_complaint"
     t.string   "type",                    :limit => 50,  :default => "", :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "name",       :limit => 50, :null => false
+    t.boolean  "is_patient",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "telephone_labels", :force => true do |t|

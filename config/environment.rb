@@ -4,8 +4,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 	config.gem 'paperclip'
-  config.gem 'rspec', :lib => 'spec'
-  config.gem 'rspec-rails', :lib => 'spec/rails'
+  #config.gem 'rspec', :lib => 'spec'
+  #config.gem 'rspec-rails', :lib => 'spec/rails'
   config.gem 'shoulda'
   config.gem 'factory_girl'
   config.gem 'capybara'

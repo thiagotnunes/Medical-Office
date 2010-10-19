@@ -1,7 +1,7 @@
 <% semantic_form_for(@patient, :html => { :multipart => true }) do |f| %>
 
   <% unless @patient.errors.empty? %>
-    <div class="div_error_title">
+    <div class="error_title">
       An error has occurred!
     </div>
   <% end %>
@@ -11,7 +11,7 @@
   <%= render "#{ApplicationHelper::PATIENTS_FORM_TEMPLATES_PATH}/patient_history_information", :f => f, :action => action %>
   <%= render "#{ApplicationHelper::PATIENTS_FORM_TEMPLATES_PATH}/evolution_information", :f => f, :action => action %>
   
-	<div class="div_footnote_links_buttons">
+	<div class="footnote_links_buttons">
   	<%= f.submit action %>
 		<%= submit_tag "Cancel" %>
 	</div>

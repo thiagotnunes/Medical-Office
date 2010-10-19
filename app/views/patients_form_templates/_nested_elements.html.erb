@@ -2,6 +2,6 @@
 <% f.semantic_fields_for element do |builder| %>
 	<%= render "#{prefix}/#{element.to_s.singularize}", :f => builder, :render_remove_button => render_remove_button %>
 <% end %>
-<div class="div_add">
+<div class="add">
 	<%= link_to_add_fields "Add #{element.to_s.singularize.gsub('_', ' ')}", f, prefix, element %>
 </div>

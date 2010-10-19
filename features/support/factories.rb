@@ -141,3 +141,8 @@ end
 Factory.define :address_label do |al|
   al.label Factory.next(:address_label)
 end
+
+Factory.define :profile do |p|
+  p.name Forgery::Name.full_name
+  p.is_patient Forgery::Basic.boolean
+end

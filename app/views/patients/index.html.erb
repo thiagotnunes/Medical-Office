@@ -1,4 +1,4 @@
-<div class="div_area_title">
+<div class="area_title">
   Listing all patients
 </div>
 
@@ -27,3 +27,7 @@
     </tr>
   <% end %>
 </table>
+
+<div class="patient_selector">
+  <%= collection_select :profile, :id, Profile.all, :id, :name, :include_blank => true  %>
+</div>

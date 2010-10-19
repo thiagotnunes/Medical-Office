@@ -2,7 +2,7 @@
 	<%= f.input :telephone_label_id, :collection => TelephoneLabel.all, :include_blank => true, :label_method => :label %>
 	<%= f.input :number %>
   <% if render_remove_button %>
-	<div class="div_remove">
+	<div class="remove">
   		<%= f.hidden_field :_destroy %>
   		<%= link_to_remove_fields "Remove telephone", f %>
 	</div>

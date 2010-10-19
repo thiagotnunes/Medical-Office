@@ -15,7 +15,6 @@ input[type="text"] {
     font-size: 12px;
     color: #333333;
     height: 15px;
-    float: left;
 }
 
 textarea {
@@ -26,12 +25,10 @@ textarea {
     font-size: 12px;
     color: #333333;
     height: 80px;
-    float: left;
 }
 
 select, input[type="text"], textarea {
     width: 200px;
-    float: left;
 }
 
 label {
@@ -81,19 +78,19 @@ abbr {
     margin-left: 3px;
 }
 
-.div_remove {   
+div.remove {   
     width: 365px;    
     text-align: right;
     margin: 5px 0 5px 0;
 }
 
-.div_add {
+div.add {
     width: 365px;    
     text-align: right;
     margin: 5px 0 5px 0;
 }
 
-.div_area_title {
+div.area_title {
 	margin: auto;
 	margin-bottom: 10px;
 	text-align: center;
@@ -102,7 +99,7 @@ abbr {
 	width: 800px;
 }
 
-.div_error_title {
+div.error_title {
     border: 1px solid #FF0000;
     width: 800px;
     background-color: #FFBBBB;
@@ -113,10 +110,20 @@ abbr {
     margin-bottom: 5px;
 }
 
-.div_footnote_links_buttons {
+div.footnote_links_buttons {
 	width: 819px;
 	padding: 5px 0px 5px 0px;
 	text-align: center;
+	float: center;
+	margin: auto;
+}
+
+div.patient_selector {
+    border: 1px solid black;
+	width: 819px;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+	overflow: auto;
 	margin: auto;
 }
 
