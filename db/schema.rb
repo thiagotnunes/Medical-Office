@@ -87,6 +87,12 @@ ActiveRecord::Schema.define(:version => 20101019161029) do
     t.datetime "updated_at"
   end
 
+  create_table "patient_profiles", :force => true do |t|
+    t.string   "name",       :limit => 50, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "patient_surgeries", :force => true do |t|
     t.text     "evaluations_results"
     t.string   "indicated_conduct",    :limit => 250
@@ -154,13 +160,6 @@ ActiveRecord::Schema.define(:version => 20101019161029) do
     t.text     "frequency"
     t.text     "main_complaint"
     t.string   "type",                    :limit => 50,  :default => "", :null => false
-  end
-
-  create_table "profiles", :force => true do |t|
-    t.string   "name",       :limit => 50, :null => false
-    t.boolean  "is_patient",               :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "telephone_labels", :force => true do |t|

@@ -13,7 +13,6 @@
   <% for patient in @patients %>
     <tr>
 	    <td><%=h patient.record %></td>
-			<td><%=h patient.type %></td>
 	    <td><%=h patient.name %></td>
 	    <td><%=h patient.cpf %></td>
 	    <td><%=h patient.rg %></td>
@@ -25,5 +24,5 @@
 </table>
 
 <div class="patient_selector">
-  <%= collection_select :profile, :id, Profile.all, :id, :name, :include_blank => true  %>
+  <%= collection_select :profile, :id, PatientProfile.all, :id, :name, :include_blank => true  %>
 </div>

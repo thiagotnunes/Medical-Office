@@ -4,6 +4,7 @@ class Patient < ActiveRecord::Base
 
   has_one :patient_therapy_information, :dependent => :destroy
   has_one :patient_clinical_information, :dependent => :destroy
+  has_one :profile, :dependent => :destroy
 
 	has_many :addresses, :dependent => :destroy
   has_many :evolutions, :dependent => :destroy
