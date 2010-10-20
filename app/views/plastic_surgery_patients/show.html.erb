@@ -1,9 +1,9 @@
 <%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_plastic_surgery_patient_path(@patient) %>
 
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_histories" unless @patient.patient_histories.blank? %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_clinical_information" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_surgeries" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_histories" unless @patient.patient_histories.blank? %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_clinical_information" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_surgeries" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
 
 <%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_plastic_surgery_patient_path(@patient) %>

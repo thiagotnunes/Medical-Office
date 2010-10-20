@@ -1,8 +1,8 @@
 <%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_dermatology_patient_path(@patient) %>
 
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/main_complaint" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_histories" unless @patient.patient_histories.blank? %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/main_complaint" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_histories" unless @patient.patient_histories.blank? %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
 
 <%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_dermatology_patient_path(@patient) %>

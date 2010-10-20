@@ -1,8 +1,8 @@
 <%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_occupational_therapy_patient_path(@patient) %>
 
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_therapy_information" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_surgeries" %>
-<%= render "#{ApplicationHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/personal_information" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_therapy_information" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/patient_surgeries" %>
+<%= render "#{PatientHelper::PATIENTS_SHOW_TEMPLATES_PATH}/evolutions" unless @patient.evolutions.blank? %>
 
 <%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer", :path => edit_occupational_therapy_patient_path(@patient) %>
