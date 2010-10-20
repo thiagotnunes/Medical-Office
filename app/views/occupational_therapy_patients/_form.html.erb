@@ -2,10 +2,10 @@
   
   <%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @patient %>
   
-  <%= render "#{ApplicationHelper::PATIENTS_FORM_TEMPLATES_PATH}/personal_information", :f => f, :action => action %>
-  <%= render "#{ApplicationHelper::PATIENTS_FORM_TEMPLATES_PATH}/patient_therapy_information", :f => f, :action => action %>
-  <%= render "#{ApplicationHelper::PATIENTS_FORM_TEMPLATES_PATH}/patient_surgery_information", :f => f, :action => action %>
-  <%= render "#{ApplicationHelper::PATIENTS_FORM_TEMPLATES_PATH}/evolution_information", :f => f, :action => action %>
+  <%= render "#{PatientHelper::PATIENTS_FORM_TEMPLATES_PATH}/personal_information", :f => f, :action => action %>
+  <%= render "#{PatientHelper::PATIENTS_FORM_TEMPLATES_PATH}/patient_therapy_information", :f => f, :action => action %>
+  <%= render "#{PatientHelper::PATIENTS_FORM_TEMPLATES_PATH}/patient_surgery_information", :f => f, :action => action %>
+  <%= render "#{PatientHelper::PATIENTS_FORM_TEMPLATES_PATH}/evolution_information", :f => f, :action => action %>
 
   <%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/form_footer", :f => f, :action => action %>
 

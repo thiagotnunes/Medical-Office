@@ -1,5 +1,9 @@
 class Patient < ActiveRecord::Base
 
+  DERMATOLOGY_PATIENT_TYPE = 'DermatologyPatient'
+  OCCUPATIONAL_THERAPY_PATIENT_TYPE = 'OccupationalTherapyPatient'
+  PLASTIC_SURGERY_PATIENT_TYPE = 'PlasticSurgeryPatient'
+
 	belongs_to :health_insurance
 
   has_one :patient_therapy_information, :dependent => :destroy
@@ -115,5 +119,5 @@ class Patient < ActiveRecord::Base
   def is_repeated? (value, times)
     !((value =~ /^(\d)\1{#{times-1}}$/).nil?)
   end
-
+  
 end
