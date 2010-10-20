@@ -1,7 +1,9 @@
 class PatientsController < ApplicationController
 
   PATIENTS_PROFILES = [ 
-    PatientProfile.new('lalalal', 'Plastic Surgery Patient') 
+    PatientProfile.new(:dermatology_patients, :new, 'Dermatology Patient'),
+    PatientProfile.new(:occupational_therapy_patients, :new, 'Occupational Therapy Patient'),
+    PatientProfile.new(:plastic_surgery_patients, :new, 'Plastic Surgery Patient')
   ]
 
   def index
@@ -9,8 +11,7 @@ class PatientsController < ApplicationController
   end
   
   def new
-    profile = params[:profile]
-    redirect_to patients_path
+    redirect_to params[:profile][:url]
   end
   
 end
