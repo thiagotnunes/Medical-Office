@@ -69,7 +69,7 @@ class OccupationalTherapyPatientsController < ApplicationController
     @patient = OccupationalTherapyPatient.find(params[:id])
     @patient.destroy
 
-    redirect_to(occupational_therapy_patients_url)
+    redirect_to :controller => session[:back_controller], :action => session[:back_action]
   end
   
 end

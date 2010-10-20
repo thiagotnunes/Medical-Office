@@ -67,7 +67,7 @@ class DermatologyPatientsController < ApplicationController
     @patient = DermatologyPatient.find(params[:id])
     @patient.destroy
 
-    redirect_to(dermatology_patients_url)
+    redirect_to :controller => session[:back_controller], :action => session[:back_action]
   end
   
 end
