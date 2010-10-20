@@ -1,28 +1,38 @@
-<table class="table_index">
-  <tr>
-    <th>Record</th>
-    <th>Name</th>
-    <th>CPF</th>
-    <th>RG</th>
-    <th>Health Insurance</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% unless patients.empty? %>
 
-  <% for patient in patients %>
+  <table class="table_index">
     <tr>
-	    <td><%=h patient.record %></td>
-	    <td><%=h patient.name %></td>
-	    <td><%=h patient.cpf %></td>
-	    <td><%=h patient.rg %></td>
-	    <td><%=h patient.health_insurance.name %></td>
-      <td><%= link_to 'Show', patient %></td>
-      <td><%= link_to 'Edit', "#{base_path}/#{patient.id}/edit" %></td>
-      <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>Record</th>
+      <th>Name</th>
+      <th>CPF</th>
+      <th>RG</th>
+      <th>Health Insurance</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
-  <% end %>
-</table>
+
+    <% for patient in patients %>
+      <tr>
+	      <td><%=h patient.record %></td>
+	      <td><%=h patient.name %></td>
+	      <td><%=h patient.cpf %></td>
+	      <td><%=h patient.rg %></td>
+	      <td><%=h patient.health_insurance.name %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', "#{base_path}/#{patient.id}/edit" %></td>
+        <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+
+<div class="no_records">
+  No patient has been registered
+</div>
+
+<% end %>
 
 <div class="footnote_links_buttons">
   <%= link_to 'New Patient', new_path %>

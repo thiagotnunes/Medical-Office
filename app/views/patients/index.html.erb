@@ -26,6 +26,6 @@
 
 <div class="patient_selector">
   <% form_tag(new_patient_path, :method => :get) do %>
-    <%= submit_tag 'Create' %> <%= collection_select :profile, :url, PatientsController::PATIENTS_PROFILES, :url, :name %>
+    <%= submit_tag 'Create' %> <%= collection_select :profile, :url, PatientsController::PATIENTS_PROFILES, :url, :name, {}, :class => "floatless" %>
   <% end %>
 </div>

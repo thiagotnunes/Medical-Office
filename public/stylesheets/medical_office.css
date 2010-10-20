@@ -29,6 +29,7 @@ textarea {
 
 select, input[type="text"], textarea {
     width: 200px;
+    float: left;
 }
 
 label {
@@ -78,6 +79,10 @@ abbr {
     margin-left: 3px;
 }
 
+select.floatless {
+    float: none;
+}
+
 div.remove {   
     width: 365px;    
     text-align: right;
@@ -120,6 +125,14 @@ div.footnote_links_buttons {
 
 div.patient_selector {
 	width: 819px;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+	overflow: auto;
+	margin: auto;
+}
+
+div.no_records {
+    width: 819px;
 	padding: 5px 0px 5px 0px;
 	text-align: center;
 	overflow: auto;
