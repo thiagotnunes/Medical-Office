@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'b5fcc875ee15233b2222932a282f48ae'
   
+  before_filter :authenticate_user!
   before_filter :register_back_page_path, :only => :index
   
   # See ActionController::Base for details 
