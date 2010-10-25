@@ -11,12 +11,6 @@
 </head>
 <body>
 
-<p style="color: green"><%= notice %></p>
-
-<div class="area_title">
-  <%= "#{controller.controller_name.gsub('_', ' ').capitalize}" %>
-</div>
-
 <div class="body">
   <div class="user">
     <% if user_signed_in? %>
@@ -25,6 +19,16 @@
       <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>.  
     <% end %>
   </div>
+  <br />
+  <div class="area_title">
+    <%= "#{controller.controller_name.gsub('_', ' ').capitalize}" %>
+  </div>
+  <% if flash[:notice] %>
+    <div class="notice">
+      <%= notice %>
+    </div>
+  <% end %>
+  
   <%= yield %>
 </div>
 

@@ -7,7 +7,7 @@ img {
 	border: 1px solid #000000;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     border-width: 1px;
     border-style: solid;
     border-color: #999999;
@@ -27,7 +27,7 @@ textarea {
     height: 80px;
 }
 
-select, input[type="text"], textarea {
+select, input[type="text"], input[type="password"], textarea {
     width: 200px;
     float: left;
 }
@@ -137,6 +137,35 @@ div.no_records {
 	text-align: center;
 	overflow: auto;
 	margin: auto;
+}
+
+div.user {
+    width: 819px;
+    padding: 5px 0px 5px 0px;
+	margin: auto;
+	overflow: auto;
+	text-align: right;
+}
+
+div.devise_shared_links {
+    width: 819px;
+    padding: 5px 0px 5px 0px;
+	overflow: auto;
+	margin: auto;
+	text-align: left;
+}
+
+div.notice {
+    border: 1px solid green;
+    background-color: #EEFFEE;
+    color: green;
+    width: 400px;
+    height: 20px;
+    padding: 5px 0px 5px 0px;
+	overflow: auto;
+	margin: auto;
+	margin-bottom: 5px;
+	text-align: center;
 }
 
 .inputs li, .inputs_show li {
