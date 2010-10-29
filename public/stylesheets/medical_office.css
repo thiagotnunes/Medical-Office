@@ -81,6 +81,7 @@ abbr {
 
 select.floatless {
     float: none;
+    height: 22px;
 }
 
 div.remove {   
@@ -156,7 +157,7 @@ div.devise_shared_links {
 }
 
 div.notice {
-    border: 1px solid green;
+    border: 1px solid #33AA33;
     background-color: #EEFFEE;
     color: green;
     width: 400px;
@@ -165,6 +166,7 @@ div.notice {
 	overflow: auto;
 	margin: auto;
 	margin-bottom: 5px;
+	padding-top: 7px;
 	text-align: center;
 }
 
@@ -209,6 +211,8 @@ div.notice {
     border-collapse: collapse;
     border: 1px solid #999;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .table_index th { 

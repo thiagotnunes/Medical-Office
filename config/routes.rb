@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.devise_for :users
 
-
   map.resources :address_labels
 
   map.resources :health_insurance_labels
@@ -15,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :occupational_therapy_patients
   
   map.resources :patient_history_labels
+  
+  map.resources :root
 
-	map.root :controller => 'patients'
+	map.root :controller => :root
 end
