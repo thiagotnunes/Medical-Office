@@ -11,11 +11,6 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :register_back_page_path, :only => :index
   
-  # See ActionController::Base for details 
-  # Uncomment this to filter the contents of submitted sensitive data parameters
-  # from your application log (in this case, all fields with names like "password"). 
-  # filter_parameter_logging :password
-  
   # Defines the back path link
   def register_back_page_path
     session[:back_controller] = controller_name

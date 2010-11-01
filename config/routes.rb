@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :patient_history_labels
   
-  map.resources :root
+  map.resources :build_home
 
-	map.root :controller => :root
+	map.root :controller => :build_home
 end
