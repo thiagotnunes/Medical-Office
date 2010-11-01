@@ -2,6 +2,9 @@ Feature: Manage Address Labels
   In order to assign address labels to patient's addresses
   As a administrator
   I want to create and manage address labels
+
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
   
   Scenario: Address Labels List
     Given an address_label exists with label: "Residencial"

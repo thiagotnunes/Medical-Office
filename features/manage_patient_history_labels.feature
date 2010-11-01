@@ -2,6 +2,9 @@ Feature: Manage Patient History Labels
   In order to assign history labels to patient's histories
   As a administrator
   I want to create and manage patient history labels
+
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
   
   Scenario: Patient History Labels List
     Given a patient_history_label exists with label: "Medico"

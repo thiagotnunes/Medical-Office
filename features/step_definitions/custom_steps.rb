@@ -1,3 +1,11 @@
+Given /^I am logged in as (.*) with passsword (.*)$/ do |email, password|
+  user = create_or_find_user(email, password)
+  visit path_to("the login page")
+  fill_in("Email", :with => user.email )
+  fill_in("Password", :with => user.password )
+  click_button("Sign in")
+end
+
 When /^I fill in "([^"]*)" of the "([^"]*)" (\d+) with "([^"]*)" for the "([^"]*)"$/ do |nested_field, field, number, value, clazz|
     name = "#{clazz.gsub(" ", "_").downcase}_" + field.gsub(" ", "_").downcase.pluralize + "_attributes_#{number}_#{nested_field.gsub(" ", "_").downcase}"
     When %{I fill in "#{name}" with "#{value}"}

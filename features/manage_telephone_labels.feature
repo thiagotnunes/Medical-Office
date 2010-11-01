@@ -3,6 +3,9 @@ Feature: Manage Telephone Labels
   As a administrator
   I want to create and manage telephone labels
 
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
+
   Scenario: Telephone Labels List
     Given a telephone_label exist with label: "Residencial"
     And a telephone_label exist with label: "Comercial"

@@ -2,6 +2,9 @@ Feature: Manage Occupational Therapy Patients
   In order to keep a occupational therapy patients registry
   As a occupational therapy physician and an administrator
   I want to create and manage occupational therapy patients
+
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
   
   Scenario: Create a Valid Occupational Therapy Patient
     Given 0 occupational_therapy_patients exist

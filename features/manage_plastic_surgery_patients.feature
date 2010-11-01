@@ -3,6 +3,9 @@ Feature: Manage Plastic Surgery Patients
   As a plastic surgery physician and an administrator
   I want to create and manage plastic surgery patients
 
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
+
   Scenario: Patient List
     Given a plastic_surgery_patient exists with name: "Thiago", cpf: "22233366638", rg: "2080057852"
     When I am on the plastic_surgery_patients list

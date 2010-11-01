@@ -2,6 +2,9 @@ Feature: Manage Dermatology Patients
   In order to keep a dermatology patients registry
   As a dermatology physician and an administrator
   I want to create and manage dermatology patients
+
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
   
   Scenario: Create a Valid Dermatology Patient
     Given 0 dermatology_patients exist

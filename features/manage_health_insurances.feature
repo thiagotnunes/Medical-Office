@@ -1,7 +1,10 @@
 Feature: Manage Health Insurances
   In order to assign health insurances to patients
-  As a administrator
+  As an administrator
   I want to create and manage health insurances
+
+Background:
+  Given I am logged in as thiago@medical_office.com with passsword thiago
 
   Scenario: Health Insurances List
     Given a health_insurance exist with name: "SUS"
