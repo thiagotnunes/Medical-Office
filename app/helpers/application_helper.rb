@@ -12,7 +12,6 @@ module ApplicationHelper
   	fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|  
     	render("#{prefix}/#{association.to_s.singularize}", :f => builder, :render_remove_button => render_remove_button)  
   	end
-  	puts fields
   	link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", :id => name.gsub(/\s/, "_").downcase)  
 	end  
   

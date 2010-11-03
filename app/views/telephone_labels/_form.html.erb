@@ -2,7 +2,7 @@
 
 	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @telephone_label %>
 	
-	<% f.inputs "Telephone Label" do %>
+	<%= f.inputs "Telephone Label" do %>
 		<%= f.input :label %>
 	<% end %>
 	

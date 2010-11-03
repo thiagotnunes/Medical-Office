@@ -1,4 +1,4 @@
-<% f.inputs "Histories (optional)" do %>
+<%= f.inputs "Histories (optional)" do %>
 
   <%= f.input :first_appointment, :as => 'calendar', :year_range => 30.years.ago..0.years.ago%>
   <%= render_nested_form_patient_information_for :patient_histories, f %>
