@@ -4,8 +4,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 	config.gem 'paperclip'
-  #config.gem 'rspec', :lib => 'spec'
-  #config.gem 'rspec-rails', :lib => 'spec/rails'
+  config.gem 'rspec', :lib => 'spec'
+  config.gem 'rspec-rails', :lib => 'spec/rails'
   config.gem 'shoulda'
   config.gem 'factory_girl'
   config.gem 'capybara'
@@ -17,9 +17,11 @@ Rails::Initializer.run do |config|
   config.gem 'calendar_date_select'
   config.gem 'formtastic'
   config.gem 'devise', :version => '1.0.6'
-  #config.gem 'iso-3166-country-select'
-  #config.gem 'validation-reflection'
-
+  
+  config.gem 'iso-3166-country-select'
+  config.gem 'validation-reflection'
+  config.gem 'formtastic_calendar_date_select'
+  
   config.time_zone = 'UTC'
 
   config.action_controller.session = {
