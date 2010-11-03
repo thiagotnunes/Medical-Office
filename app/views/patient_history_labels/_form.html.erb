@@ -1,8 +1,8 @@
-<% semantic_form_for(@patient_history_label) do |f| %>
+<%= semantic_form_for(@patient_history_label) do |f| %>
 
   <%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @patient_history_label %>
 
-	<% f.inputs "Patient History Labels" do %>
+	<%= f.inputs "Patient History Labels" do %>
 		<%= f.input :label %>
 	<% end %>
 	

@@ -1,8 +1,8 @@
-<% semantic_form_for(@address_label) do |f| %>
+<%= semantic_form_for(@address_label) do |f| %>
 
   <%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @address_label %>
 
-	<% f.inputs "Address Label" do %>
+	<%= f.inputs "Address Label" do %>
   	<%= f.input :label %>
 	<% end %>
 	

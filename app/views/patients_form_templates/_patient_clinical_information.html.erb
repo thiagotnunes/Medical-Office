@@ -1,6 +1,6 @@
-<% f.inputs "Clinical Information" do %>
+<%= f.inputs "Clinical Information" do %>
 
-  <% f.semantic_fields_for :patient_clinical_information do |builder| %>
+  <%= f.semantic_fields_for :patient_clinical_information do |builder| %>
 	  <%= builder.input :clazz %>
 	  <%= builder.input :appointment_reason %>
 	  <%= builder.input :injury_exists_from, :as => 'calendar', :year_range => 150.years.ago..0.years.ago %>

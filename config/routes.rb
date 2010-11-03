@@ -1,21 +1,22 @@
-ActionController::Routing::Routes.draw do |map|
-  map.devise_for :users
-
-  map.resources :address_labels
-
-  map.resources :health_insurance_labels
-  map.resources :health_insurances
-
-  map.resources :telephone_labels
-
-  map.resources :patients
-  map.resources :plastic_surgery_patients
-  map.resources :dermatology_patients
-  map.resources :occupational_therapy_patients
+MedicalOffice::Application.routes.draw do
   
-  map.resources :patient_history_labels
+  devise_for :users
   
-  map.resources :build_home
+  resources :address_labels
 
-	map.root :controller => :build_home
+  resources :health_insurance_labels
+  resources :health_insurances
+
+  resources :telephone_labels
+
+  resources :patients
+  resources :plastic_surgery_patients
+  resources :dermatology_patients
+  resources :occupational_therapy_patients
+  
+  resources :patient_history_labels
+  
+  resources :build_home
+
+	root :to => 'build_home#index'
 end

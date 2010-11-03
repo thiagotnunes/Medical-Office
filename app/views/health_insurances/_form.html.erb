@@ -1,8 +1,8 @@
-<% semantic_form_for(@health_insurance) do |f| %>
+<%= semantic_form_for(@health_insurance) do |f| %>
 
 	<%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @health_insurance %>
 	
-	<% f.inputs "Health Insurance" do %>
+	<%= f.inputs "Health Insurance" do %>
 		<%= f.input :name %>
 	<% end %>
 	

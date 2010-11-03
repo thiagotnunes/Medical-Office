@@ -1,5 +1,5 @@
-<% semantic_form_for resource_name, resource, :url => session_path(resource_name) do |f| -%>
-  <% f.inputs "Sign in" do %>
+<%= semantic_form_for resource_name, resource, :url => session_path(resource_name) do |f| -%>
+  <%= f.inputs "Sign in" do %>
     <%= f.input :email %>
 
     <%= f.input :password %>
@@ -12,7 +12,7 @@
   <% end %>
   
   <div class="devise_shared_links">
-    <%= render :partial => "shared/devise_links" %>
+    <%= render :partial => "devise/shared/links" %>
   </div>
   
   <div class="footnote_links_buttons">

@@ -1,6 +1,6 @@
-<% f.inputs "Therapy Information" do %>
+<%= f.inputs "Therapy Information" do %>
 
-  <% f.semantic_fields_for :patient_therapy_information do |builder| %>
+  <%= f.semantic_fields_for :patient_therapy_information do |builder| %>
 	  <%= builder.input :diagnosis %>
 	  <%= builder.input :injury_time %>
 	  <%= builder.input :injury_appraiser_physician %>

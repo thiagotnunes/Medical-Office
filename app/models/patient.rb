@@ -56,13 +56,13 @@ class Patient < ActiveRecord::Base
 
   def should_have_at_least_one_address
     unless addresses.any?{|a| !a.marked_for_destruction? }
-      errors.add("A patient should have at least one address")
+      errors.add('', "A patient should have at least one address")
     end
   end
   
   def should_have_at_least_one_telephone
     unless telephones.any?{|t| !t.marked_for_destruction? }
-      errors.add("A patient should have at least one telephone")
+      errors.add('', "A patient should have at least one telephone")
     end
   end
 
@@ -75,7 +75,7 @@ class Patient < ActiveRecord::Base
   end
   
   def should_have_cpf_in_valid_format
-    return errors.add(:cpf, "is invalid") if cpf_is_repeated?
+    return errors.add(:cpf, "is invalid") if cpf.nil? or cpf_is_repeated?
 
     # ----------------------------------------------------
     # CPF first digit calculation

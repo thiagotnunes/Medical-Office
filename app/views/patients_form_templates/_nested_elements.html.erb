@@ -1,5 +1,5 @@
-<% render_remove_button = true unless defined? render_remove_button %>
-<% f.semantic_fields_for element do |builder| %>
+<%= render_remove_button = true unless defined? render_remove_button %>
+<%= f.semantic_fields_for element do |builder| %>
 	<%= render "#{prefix}/#{element.to_s.singularize}", :f => builder, :render_remove_button => render_remove_button %>
 <% end %>
 <div class="add">
