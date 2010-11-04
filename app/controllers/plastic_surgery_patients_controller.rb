@@ -1,4 +1,4 @@
-class PlasticSurgeryPatientsController < ApplicationController
+class PlasticSurgeryPatientsController < SecurityEnabledApplicationController
 
   def index
     @patients = PlasticSurgeryPatient.all

@@ -20,18 +20,8 @@
   </div>
   <br />
   <div class="area_title">
-    <%= "#{controller.controller_name.gsub('_', ' ').capitalize}" %>
+    An Error has Occured
   </div>
-  <% if flash[:notice] %>
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-  <% if flash[:alert] %>
-    <div class="error_title">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
   
   <%= yield %>
 </div>

@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
   
-  before_filter :authenticate_user!
   before_filter :register_back_page_path, :only => :index
   
   # Defines the back path link

@@ -1,4 +1,4 @@
-class HealthInsurancesController < ApplicationController
+class HealthInsurancesController < SecurityEnabledApplicationController
 
   def index
     @health_insurances = HealthInsurance.all

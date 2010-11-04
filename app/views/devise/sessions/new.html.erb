@@ -4,15 +4,13 @@
 
     <%= f.input :password %>
 
-    <% if devise_mapping.rememberable? -%>
-      <li>
-        <%= f.label :remember_me %> <%= f.check_box :remember_me %>
-      </li>
-    <% end -%>
+    <li>
+      <%= f.label :remember_me %> <%= f.check_box :remember_me %>
+    </li>
   <% end %>
   
   <div class="devise_shared_links">
-    <%= render :partial => "devise/shared/links" %>
+    <%= render "devise/shared/links", :resource_name => resource_name %>
   </div>
   
   <div class="footnote_links_buttons">

@@ -1,6 +1,6 @@
 MedicalOffice::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users,  :controllers => { :registrations => "users/registrations" }
   
   resources :address_labels
 
@@ -18,5 +18,5 @@ MedicalOffice::Application.routes.draw do
   
   resources :build_home
 
-	root :to => 'build_home#index'
+	root :to => 'home#index'
 end

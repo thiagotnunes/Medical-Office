@@ -1,4 +1,4 @@
-class OccupationalTherapyPatientsController < ApplicationController
+class OccupationalTherapyPatientsController < SecurityEnabledApplicationController
 
   def index
     @patients = OccupationalTherapyPatient.all

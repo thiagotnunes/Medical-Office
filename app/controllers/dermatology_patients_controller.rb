@@ -1,4 +1,6 @@
-class DermatologyPatientsController < ApplicationController
+class DermatologyPatientsController < SecurityEnabledApplicationController
+
+  load_and_authorize_resource
 
   def index
     @patients = DermatologyPatient.all

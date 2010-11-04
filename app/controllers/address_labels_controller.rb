@@ -1,4 +1,4 @@
-class AddressLabelsController < ApplicationController
+class AddressLabelsController < SecurityEnabledApplicationController
   def index
     @address_labels = AddressLabel.all
   end

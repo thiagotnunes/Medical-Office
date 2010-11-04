@@ -1,0 +1,2 @@
+class SecurityDisabledApplicationController < ApplicationController
+end

@@ -1,4 +1,4 @@
-class PatientHistoryLabelsController < ApplicationController
+class PatientHistoryLabelsController < SecurityEnabledApplicationController
 
   def index
     @patient_history_labels = PatientHistoryLabel.all

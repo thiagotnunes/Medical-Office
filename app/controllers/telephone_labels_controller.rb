@@ -1,4 +1,4 @@
-class TelephoneLabelsController < ApplicationController
+class TelephoneLabelsController < SecurityEnabledApplicationController
 
   def index
     @telephone_labels = TelephoneLabel.all
