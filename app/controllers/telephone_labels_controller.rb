@@ -1,7 +1,5 @@
 class TelephoneLabelsController < SecurityEnabledApplicationController
 
-  load_and_authorize_resource
-
   def index
     @telephone_labels = TelephoneLabel.all
   end

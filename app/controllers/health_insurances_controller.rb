@@ -1,7 +1,5 @@
 class HealthInsurancesController < SecurityEnabledApplicationController
 
-  load_and_authorize_resource
-
   def index
     @health_insurances = HealthInsurance.all
   end

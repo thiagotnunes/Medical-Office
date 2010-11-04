@@ -140,11 +140,59 @@ div.no_records {
 }
 
 div.user {
-    width: 819px;
-    padding: 5px 0px 5px 0px;
-	margin: auto;
-	overflow: auto;
 	text-align: right;
+}
+
+div.body {
+    width: 1150px;
+}
+
+div.header {
+    padding: 5px 5px 5px 0px;
+	margin: auto;
+	margin-left: 0px;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+
+div.content {
+    width: 820px;
+    margin: auto;
+    overflow: auto;
+    float: right;
+}
+
+div.menu {
+    overflow: auto;
+    width: 300px;
+    padding: 5px 0px 5px 0px;
+    height: 300px;
+    float: left;
+    margin-top: 25px;
+}
+
+div.menu_header {
+    border: 1px solid #AAA;
+    height: 20px;
+    width: 200px;
+    background-color: #EEE;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 7px 0px 5px 0px;
+    margin: auto;
+}
+
+div.menu_item {
+    border: 1px solid #AAA;
+    height: 20px;
+    width: 200px;
+    background-color: #F8F8F8;
+    color: #333;
+    text-align: center;
+    margin: auto;
+    margin-top: -1px;
+    padding: 4px 0px 2px 0px;
 }
 
 div.devise_shared_links {

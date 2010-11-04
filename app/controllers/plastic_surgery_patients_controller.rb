@@ -1,7 +1,5 @@
 class PlasticSurgeryPatientsController < SecurityEnabledApplicationController
 
-  load_and_authorize_resource
-
   def index
     @patients = PlasticSurgeryPatient.all
   end

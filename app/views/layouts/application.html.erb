@@ -9,31 +9,47 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
 <div class="body">
-  <div class="user">
-    <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>. Not you? <%= link_to "Sign out", destroy_user_session_path %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %>.  
-    <% end %>
-  </div>
-  <br />
-  <div class="area_title">
-    <%= "#{controller.controller_name.gsub('_', ' ').capitalize}" %>
-  </div>
-  <% if flash[:notice] %>
-    <div class="notice">
-      <%= flash[:notice] %>
+  <div class="header">
+    <div class="user">
+      <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>. Not you? <%= link_to "Sign out", destroy_user_session_path %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>.  
+      <% end %>
     </div>
-  <% end %>
-  <% if flash[:alert] %>
-    <div class="error_title">
-      <%= flash[:alert] %>
+  </div>
+  
+  <% if session[:menu_items] && session[:menu_items].any? %>
+    <div class="menu">
+      <div class="menu_header">
+        Menu
+      </div>
+      <% for item in session[:menu_items] %>
+        <div class="menu_item">
+          <%= link_to item.name, item.url %>
+        </div>
+      <% end %>
     </div>
   <% end %>
   
-  <%= yield %>
+  <div class="content">
+    <div class="area_title">
+      <%= "#{controller.controller_name.gsub('_', ' ').capitalize}" %>
+    </div>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="error_title">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    
+    <%= yield %>
+  </div>
 </div>
 
 </body>
