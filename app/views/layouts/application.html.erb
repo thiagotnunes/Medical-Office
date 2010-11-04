@@ -25,7 +25,12 @@
   </div>
   <% if flash[:notice] %>
     <div class="notice">
-      <%= notice %>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="error_title">
+      <%= flash[:alert] %>
     </div>
   <% end %>
   
