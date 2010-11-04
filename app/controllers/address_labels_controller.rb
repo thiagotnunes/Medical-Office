@@ -1,4 +1,7 @@
 class AddressLabelsController < SecurityEnabledApplicationController
+  
+  load_and_authorize_resource
+  
   def index
     @address_labels = AddressLabel.all
   end

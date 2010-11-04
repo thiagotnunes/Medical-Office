@@ -1,5 +1,7 @@
 class PatientHistoryLabelsController < SecurityEnabledApplicationController
 
+  load_and_authorize_resource
+
   def index
     @patient_history_labels = PatientHistoryLabel.all
   end
