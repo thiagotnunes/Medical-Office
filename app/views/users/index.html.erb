@@ -1,0 +1,19 @@
+<table class="table_index">
+  <tr>
+    <th>Email</th>
+		<th></th>
+		<th></th>
+ 	</tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.email %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="footnote_links_buttons">
+	<%= link_to 'New User', new_user_path %>
+</div>

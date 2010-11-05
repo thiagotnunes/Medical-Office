@@ -1,0 +1,14 @@
+<%= semantic_form_for(@user) do |f| %>
+  <%= render "#{ApplicationHelper::GENERAL_FORM_TEMPLATES_PATH}/error_header", :object => @user %>  
+  
+  <%= f.inputs "Register User" do %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  <% end %>
+  
+  <div class="footnote_links_buttons">
+    <%= f.submit "Create" %>
+  </div>
+  
+<% end %>

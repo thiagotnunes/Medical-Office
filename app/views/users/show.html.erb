@@ -1,0 +1,23 @@
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer" %>
+
+<fieldset class="inputs_show">
+  <legend>
+	  User
+  </legend>
+
+	<ol>
+		<li>
+			<label>Email:</label>
+			<%=h @user.email %>
+		</li>
+		
+    <% for role in @user.roles %>
+			<li>
+      	<label>Role:</label>
+	    	<%=h role.name %>
+			</li>
+    <% end %>
+	</ol>
+</fieldset>
+
+<%= render "#{ApplicationHelper::GENERAL_SHOW_TEMPLATES_PATH}/show_header_footer" %>

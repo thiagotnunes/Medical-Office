@@ -208,7 +208,7 @@ div.notice {
     background-color: #EEFFEE;
     color: green;
     width: 400px;
-    height: 20px;
+    height: 40px;
     padding: 5px 0px 5px 0px;
 	overflow: auto;
 	margin: auto;
@@ -273,7 +273,7 @@ div.error_dialog h1 {
 
 .table_index {
     border-collapse: collapse;
-    border: 1px solid #999;
+    border: 1px solid #AAA;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -283,22 +283,20 @@ div.error_dialog h1 {
     padding: 0.5em;
     text-align: center;
     font-weight: bold;
-    background-color: #90AAFF;
-    color: #1F3479;
+    background-color: #EEE;
 }
 
 .table_index tr {
-    border: 1px solid #FFF;
+    border: 1px solid #AAA;
 }
 
 .table_index td {
     padding: 0.5em;
     text-align: center;
-    background-color: #dce4ff;
-    color: #1F3479;
+    background-color: #F8F8F8;
 }
 
 .table_index tr:hover th[scope=row], .table_index tr:hover td
 {
-    background-color: #c7d4ff;
+    background-color: #F4F4F4;
 } 
