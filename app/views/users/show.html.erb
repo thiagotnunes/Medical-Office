@@ -14,7 +14,7 @@
     <% for role in @user.roles %>
 			<li>
       	<label>Role:</label>
-	    	<%=h role.name %>
+	    	<%=h role.name.humanize %>
 			</li>
     <% end %>
 	</ol>

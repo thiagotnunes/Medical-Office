@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < SecurityEnabledApplicationController
   
   load_and_authorize_resource
   
