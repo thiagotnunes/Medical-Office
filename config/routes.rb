@@ -1,6 +1,6 @@
 MedicalOffice::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
   
   resources :address_labels
   resources :health_insurance_labels
