@@ -17,8 +17,6 @@ class UsersController < SecurityEnabledApplicationController
   def create
     @user = User.new(params[:user])
     
-    puts "Users: #{params[:user]}"
-
     if params[:commit] == "Cancel"
       redirect_to(users_url)
     elsif @user.save
@@ -27,13 +25,6 @@ class UsersController < SecurityEnabledApplicationController
     else
       render :action => "new"
     end
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    redirect_to(users_url)
   end
   
   def edit_password
@@ -54,6 +45,15 @@ class UsersController < SecurityEnabledApplicationController
         render :action => "edit_password"
       end
     end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      @user.destroy
+    end
+
+    redirect_to(users_url)
   end
   
 end

@@ -141,3 +141,13 @@ end
 Factory.define :address_label do |al|
   al.label Factory.next(:address_label)
 end
+
+Factory.define :role do |r|
+  r.name Forgery::Name.role
+end
+
+Factory.define :user do |u|
+  u.email Forgery::Internet.email_address
+  u.password Forgery::Name.full_name
+  u.association :role, :factory => :role
+end
