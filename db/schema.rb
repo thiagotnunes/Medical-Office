@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101104203526) do
+ActiveRecord::Schema.define(:version => 20101108135556) do
 
   create_table "address_labels", :force => true do |t|
     t.string   "label",      :limit => 100, :null => false
@@ -163,11 +163,6 @@ ActiveRecord::Schema.define(:version => 20101104203526) do
     t.datetime "updated_at"
   end
 
-  create_table "roles_users", :id => false, :force => true do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-  end
-
   create_table "telephone_labels", :force => true do |t|
     t.string   "label",      :limit => 50, :null => false
     t.datetime "created_at"
@@ -194,6 +189,7 @@ ActiveRecord::Schema.define(:version => 20101104203526) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -13,9 +13,9 @@ MedicalOffice::Application.routes.draw do
   resources :dermatology_patients
   resources :occupational_therapy_patients
 
-  resources :users
+  resources :users, :except => [:edit]
   get 'users/:id/edit_password' => 'users#edit_password', :as => 'edit_user_password'
-  match 'users/:id/update_password' => 'users#update_password', :as => 'update_user_password'
+  post 'users/:id/update_password' => 'users#update_password', :as => 'update_user_password'
   
   resources :home
 

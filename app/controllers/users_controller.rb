@@ -14,12 +14,10 @@ class UsersController < SecurityEnabledApplicationController
     @user = User.new
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def create
     @user = User.new(params[:user])
+    
+    puts "Users: #{params[:user]}"
 
     if params[:commit] == "Cancel"
       redirect_to(users_url)
@@ -28,21 +26,6 @@ class UsersController < SecurityEnabledApplicationController
       redirect_to(@user)
     else
       render :action => "new"
-    end
-  end
-
-  def update
-    if params[:commit] == "Cancel"
-      redirect_to(users_url)
-    else
-      @user = User.find(params[:id])
-
-      if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
-        redirect_to(@user)
-      else
-        render :action => "edit"
-      end
     end
   end
 
