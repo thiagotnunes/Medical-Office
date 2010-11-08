@@ -28,7 +28,7 @@ class SecurityEnabledApplicationController < ApplicationController
       elsif user.role? :plastic_surgery_doctor
         items << MenuItem.new("Patients", plastic_surgery_patients_url)
       end
-      items << MenuItem.new("Edit my Password", edit_user_password_path(user))
+      items << MenuItem.new("Edit my Password", edit_own_password_path(user))
       session[:menu_items] = items
     end
   end

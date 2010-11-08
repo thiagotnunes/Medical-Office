@@ -27,6 +27,25 @@ class UsersController < SecurityEnabledApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    if params[:commit] == "Cancel"
+      redirect_to(users_url)
+    else
+      @user = User.find(params[:id])
+
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'User was successfully updated.'
+        redirect_to(@user)
+      else
+        render :action => "edit"
+      end
+    end
+  end
+  
   def edit_password
     @user = User.new
     @user.id = params[:id]
@@ -40,7 +59,7 @@ class UsersController < SecurityEnabledApplicationController
     else
       if @user.update_attributes(params[:user])
         flash[:notice] = 'Password was successfully updated.'
-        redirect_to edit_user_password_path(@user)
+        redirect_to edit_own_password_path(@user)
       else
         render :action => "edit_password"
       end
