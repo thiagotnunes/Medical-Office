@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_and_belongs_to_many :roles
+  belongs_to :role
+  
+  validates_presence_of :role
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :role_id
   
   def role?(role)
-    return !!self.roles.find_by_name(role.to_s)
+    return self.role.name == role.to_s
   end
   
 end

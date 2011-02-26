@@ -11,12 +11,10 @@
 			<%=h @user.email %>
 		</li>
 		
-    <% for role in @user.roles %>
-			<li>
-      	<label>Role:</label>
-	    	<%=h role.name.humanize %>
-			</li>
-    <% end %>
+		<li>
+    	<label>Role:</label>
+    	<%=h @user.role.name.humanize %>
+		</li>
 	</ol>
 </fieldset>
 

@@ -14,13 +14,9 @@ class UsersController < SecurityEnabledApplicationController
     @user = User.new
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def create
     @user = User.new(params[:user])
-
+    
     if params[:commit] == "Cancel"
       redirect_to(users_url)
     elsif @user.save
@@ -30,7 +26,11 @@ class UsersController < SecurityEnabledApplicationController
       render :action => "new"
     end
   end
-
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
   def update
     if params[:commit] == "Cancel"
       redirect_to(users_url)
@@ -44,13 +44,6 @@ class UsersController < SecurityEnabledApplicationController
         render :action => "edit"
       end
     end
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    redirect_to(users_url)
   end
   
   def edit_password
@@ -66,11 +59,20 @@ class UsersController < SecurityEnabledApplicationController
     else
       if @user.update_attributes(params[:user])
         flash[:notice] = 'Password was successfully updated.'
-        redirect_to edit_user_password_path(@user)
+        redirect_to edit_own_password_path(@user)
       else
         render :action => "edit_password"
       end
     end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      @user.destroy
+    end
+
+    redirect_to(users_url)
   end
   
 end

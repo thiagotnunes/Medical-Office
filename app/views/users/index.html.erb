@@ -9,7 +9,11 @@
   <tr>
     <td><%=h user.email %></td>
     <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <% unless user.id == current_user.id %>
+        <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

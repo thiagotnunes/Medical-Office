@@ -30,7 +30,8 @@ module NavigationHelpers
       patient_history_labels_path
     when /the login page/
       new_user_session_path
-    
+    when /the users list/
+     users_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -16,4 +16,8 @@ class Forgery::Name
     dictionaries[:professions].random
   end
   
+  def self.role
+    dictionaries[:roles].random
+  end
+  
 end

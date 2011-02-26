@@ -1,6 +1,6 @@
 MedicalOffice::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
   
   resources :address_labels
   resources :health_insurance_labels
@@ -14,8 +14,8 @@ MedicalOffice::Application.routes.draw do
   resources :occupational_therapy_patients
 
   resources :users
-  get 'users/:id/edit_password' => 'users#edit_password', :as => 'edit_user_password'
-  match 'users/:id/update_password' => 'users#update_password', :as => 'update_user_password'
+  get 'users/:id/edit_password' => 'users#edit_password', :as => 'edit_own_password'
+  post 'users/:id/update_password' => 'users#update_password', :as => 'update_own_password'
   
   resources :home
 
