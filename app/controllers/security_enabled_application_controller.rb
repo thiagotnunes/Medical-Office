@@ -29,6 +29,7 @@ class SecurityEnabledApplicationController < ApplicationController
         items << MenuItem.new("Patients", plastic_surgery_patients_url)
       end
       items << MenuItem.new("Edit my Password", edit_own_password_path(user))
+      items << MenuItem.new("Calendar", appointments_url)
       session[:menu_items] = items
     end
   end
