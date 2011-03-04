@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101108135556) do
+ActiveRecord::Schema.define(:version => 20110303022828) do
 
   create_table "address_labels", :force => true do |t|
     t.string   "label",      :limit => 100, :null => false
@@ -173,6 +173,14 @@ ActiveRecord::Schema.define(:version => 20101108135556) do
     t.integer  "telephone_label_id"
     t.string   "number",             :limit => 50, :null => false
     t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_calendars", :force => true do |t|
+    t.string   "google_id"
+    t.string   "url"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

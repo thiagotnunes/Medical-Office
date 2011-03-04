@@ -23,8 +23,8 @@ group :development, :test do
     gem "forgery"
     gem "pickle"
     gem "cucumber-rails", :require => false
-    gem "rspec-rails"
-    gem "rspec"
+    gem "rspec-rails", ">= 2.0.1"
+    gem "rspec", ">= 2.5.0"
     gem "shoulda"
     gem "factory_girl_rails"
     gem "spork"

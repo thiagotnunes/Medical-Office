@@ -150,4 +150,10 @@ Factory.define :user do |u|
   u.email Forgery::Internet.email_address
   u.password Forgery::Name.full_name
   u.association :role, :factory => :role
+  u.association :user_calendar, :factory => :user_calendar
+end
+
+Factory.define :user_calendar do |uc|
+  uc.google_id Forgery::Internet.email_address
+  uc.url "http://www.google.com/#{Forgery::Internet.email_address}"
 end

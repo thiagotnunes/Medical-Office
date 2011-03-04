@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :role
+  has_one :user_calendar
   
   validates_presence_of :role
   

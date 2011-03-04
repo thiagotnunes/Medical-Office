@@ -17,7 +17,9 @@ MedicalOffice::Application.routes.draw do
   get 'users/:id/edit_password' => 'users#edit_password', :as => 'edit_own_password'
   post 'users/:id/update_password' => 'users#update_password', :as => 'update_own_password'
   
-  resources :appointments
+  resources :appointments do
+    get :show_calendar, :on => :collection
+  end
   
   resources :home
 

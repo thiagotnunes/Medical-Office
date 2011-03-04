@@ -9,17 +9,17 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-#test: &test
-#  adapter: mysql
-#  database: officeTest
-#  username: office
-#  password: office
+test: &test
+  adapter: mysql
+  database: officeTest
+  username: office
+  password: office
 
 #production:
-#  adapter: mysql
-#  database: office
-#  username: office
-#  password: office
+  adapter: mysql
+  database: office
+  username: office
+  password: office
   
 #cucumber:
-#  <<: *test
+  <<: *test
